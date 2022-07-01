@@ -75,19 +75,19 @@ build=aarch64-unknown-linux-gnu
 build_os=linux-gnu
 
 # A sed program that does not truncate output.
-SED="/usr/bin/sed"
+SED="/home/reload/bin/sed"
 
 # Sed that helps us avoid accidentally triggering echo(1) options like -n.
 Xsed="$SED -e 1s/^X//"
 
 # A grep program that handles long lines.
-GREP="/usr/bin/grep"
+GREP="/home/reload/bin/grep"
 
 # An ERE matcher.
-EGREP="/usr/bin/grep -E"
+EGREP="/home/reload/bin/grep -E"
 
 # A literal string matcher.
-FGREP="/usr/bin/grep -F"
+FGREP="/home/reload/bin/grep -F"
 
 # A BSD- or MS-compatible name lister.
 NM="/usr/bin/nm -B"
@@ -272,7 +272,7 @@ finish_eval=""
 hardcode_into_libs=yes
 
 # Compile-time system search path for libraries.
-sys_lib_search_path_spec="/usr/lib/gcc/aarch64-linux-gnu/9 /usr/lib/aarch64-linux-gnu /usr/lib /lib/aarch64-linux-gnu /lib "
+sys_lib_search_path_spec="/usr/lib/gcc/aarch64-linux-gnu/11 /usr/lib/aarch64-linux-gnu /usr/lib /lib/aarch64-linux-gnu /lib "
 
 # Run-time system search path for libraries.
 sys_lib_dlsearch_path_spec="/lib64 /usr/lib64 /lib /usr/lib /usr/local/lib/aarch64-linux-gnu /lib/aarch64-linux-gnu /usr/lib/aarch64-linux-gnu /usr/lib/aarch64-linux-gnu/libfakeroot /usr/local/lib "
@@ -10224,17 +10224,17 @@ file_list_spec=""
 hardcode_action=immediate
 
 # The directories searched by this compiler when creating a shared library.
-compiler_lib_search_dirs="/usr/lib/gcc/aarch64-linux-gnu/9 /usr/lib/gcc/aarch64-linux-gnu/9/../../../aarch64-linux-gnu /usr/lib/gcc/aarch64-linux-gnu/9/../../../../lib /lib/aarch64-linux-gnu /lib/../lib /usr/lib/aarch64-linux-gnu /usr/lib/../lib /usr/lib/gcc/aarch64-linux-gnu/9/../../.."
+compiler_lib_search_dirs="/usr/lib/gcc/aarch64-linux-gnu/11 /usr/lib/gcc/aarch64-linux-gnu/11/../../../aarch64-linux-gnu /usr/lib/gcc/aarch64-linux-gnu/11/../../../../lib /lib/aarch64-linux-gnu /lib/../lib /usr/lib/aarch64-linux-gnu /usr/lib/../lib /usr/lib/gcc/aarch64-linux-gnu/11/../../.."
 
 # Dependencies to place before and after the objects being linked to
 # create a shared library.
-predep_objects="/usr/lib/gcc/aarch64-linux-gnu/9/../../../aarch64-linux-gnu/crti.o /usr/lib/gcc/aarch64-linux-gnu/9/crtbeginS.o"
-postdep_objects="/usr/lib/gcc/aarch64-linux-gnu/9/crtendS.o /usr/lib/gcc/aarch64-linux-gnu/9/../../../aarch64-linux-gnu/crtn.o"
+predep_objects="/usr/lib/gcc/aarch64-linux-gnu/11/../../../aarch64-linux-gnu/crti.o /usr/lib/gcc/aarch64-linux-gnu/11/crtbeginS.o"
+postdep_objects="/usr/lib/gcc/aarch64-linux-gnu/11/crtendS.o /usr/lib/gcc/aarch64-linux-gnu/11/../../../aarch64-linux-gnu/crtn.o"
 predeps=""
 postdeps="-lstdc++ -lm -lgcc_s -lc -lgcc_s"
 
 # The library search path used internally by the compiler when linking
 # a shared library.
-compiler_lib_search_path="-L/usr/lib/gcc/aarch64-linux-gnu/9 -L/usr/lib/gcc/aarch64-linux-gnu/9/../../../aarch64-linux-gnu -L/usr/lib/gcc/aarch64-linux-gnu/9/../../../../lib -L/lib/aarch64-linux-gnu -L/lib/../lib -L/usr/lib/aarch64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/aarch64-linux-gnu/9/../../.."
+compiler_lib_search_path="-L/usr/lib/gcc/aarch64-linux-gnu/11 -L/usr/lib/gcc/aarch64-linux-gnu/11/../../../aarch64-linux-gnu -L/usr/lib/gcc/aarch64-linux-gnu/11/../../../../lib -L/lib/aarch64-linux-gnu -L/lib/../lib -L/usr/lib/aarch64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/aarch64-linux-gnu/11/../../.."
 
 # ### END LIBTOOL TAG CONFIG: CXX

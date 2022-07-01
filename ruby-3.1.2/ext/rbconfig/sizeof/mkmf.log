@@ -1,6 +1,6 @@
 have_type: checking for int_least8_t... -------------------- yes
 
-LD_LIBRARY_PATH=.:../../.. "gcc -o conftest -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef conftest.c  -L. -L../../.. -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lruby-static -lpthread -lrt -lrt -lgmp -ldl -lcrypt -lm   -lm  -lc"
+LD_LIBRARY_PATH=.:../../.. "gcc -o conftest -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef conftest.c  -L. -L../../.. -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lruby-static -lz -lpthread -lrt -lrt -lgmp -ldl -lcrypt -lm   -lm  -lc"
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -11,7 +11,7 @@ checked program was:
 6: }
 /* end */
 
-LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
+LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -25,7 +25,7 @@ checked program was:
 
 have_type: checking for int_least16_t... -------------------- yes
 
-LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
+LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -39,7 +39,7 @@ checked program was:
 
 have_type: checking for int_least32_t... -------------------- yes
 
-LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
+LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -53,7 +53,7 @@ checked program was:
 
 have_type: checking for int_least64_t... -------------------- yes
 
-LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
+LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -67,7 +67,7 @@ checked program was:
 
 have_type: checking for int_fast8_t... -------------------- yes
 
-LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
+LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -81,7 +81,7 @@ checked program was:
 
 have_type: checking for int_fast16_t... -------------------- yes
 
-LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
+LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -95,7 +95,7 @@ checked program was:
 
 have_type: checking for int_fast32_t... -------------------- yes
 
-LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
+LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -109,7 +109,7 @@ checked program was:
 
 have_type: checking for int_fast64_t... -------------------- yes
 
-LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
+LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -123,7 +123,7 @@ checked program was:
 
 have_type: checking for intmax_t... -------------------- yes
 
-LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
+LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -137,7 +137,7 @@ checked program was:
 
 have_type: checking for sig_atomic_t in signal.h... -------------------- yes
 
-LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
+LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -153,7 +153,7 @@ checked program was:
 
 have_type: checking for wchar_t... -------------------- yes
 
-LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
+LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -167,7 +167,7 @@ checked program was:
 
 have_type: checking for wint_t in wctype.h... -------------------- yes
 
-LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
+LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -183,7 +183,7 @@ checked program was:
 
 have_type: checking for wctrans_t in wctype.h... -------------------- yes
 
-LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
+LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -199,7 +199,7 @@ checked program was:
 
 have_type: checking for wctype_t in wctype.h... -------------------- yes
 
-LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
+LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -215,7 +215,7 @@ checked program was:
 
 have_type: checking for _Bool... -------------------- yes
 
-LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
+LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -229,7 +229,7 @@ checked program was:
 
 have_type: checking for long double... -------------------- yes
 
-LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
+LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -243,7 +243,7 @@ checked program was:
 
 have_type: checking for float _Complex... -------------------- yes
 
-LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
+LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -257,7 +257,7 @@ checked program was:
 
 have_type: checking for double _Complex... -------------------- yes
 
-LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
+LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -271,7 +271,7 @@ checked program was:
 
 have_type: checking for long double _Complex... -------------------- yes
 
-LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
+LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -285,16 +285,16 @@ checked program was:
 
 have_type: checking for float _Imaginary... -------------------- no
 
-LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
-conftest.c:4:15: error: expected identifier or '(' before '_Imaginary'
+LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
+conftest.c:4:15: error: expected identifier or ‘(’ before ‘_Imaginary’
     4 | typedef float _Imaginary conftest_type;
       |               ^~~~~~~~~~
-conftest.c:5:24: error: 'conftest_type' undeclared here (not in a function)
+conftest.c:5:24: error: ‘conftest_type’ undeclared here (not in a function)
     5 | int conftestval[sizeof(conftest_type)?1:-1];
       |                        ^~~~~~~~~~~~~
-cc1: warning: unrecognized command line option '-Wno-self-assign'
-cc1: warning: unrecognized command line option '-Wno-parentheses-equality'
-cc1: warning: unrecognized command line option '-Wno-constant-logical-operand'
+cc1: note: unrecognized command-line option ‘-Wno-self-assign’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-parentheses-equality’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-constant-logical-operand’ may have been intended to silence earlier diagnostics
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -308,16 +308,16 @@ checked program was:
 
 have_type: checking for double _Imaginary... -------------------- no
 
-LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
-conftest.c:4:16: error: expected identifier or '(' before '_Imaginary'
+LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
+conftest.c:4:16: error: expected identifier or ‘(’ before ‘_Imaginary’
     4 | typedef double _Imaginary conftest_type;
       |                ^~~~~~~~~~
-conftest.c:5:24: error: 'conftest_type' undeclared here (not in a function)
+conftest.c:5:24: error: ‘conftest_type’ undeclared here (not in a function)
     5 | int conftestval[sizeof(conftest_type)?1:-1];
       |                        ^~~~~~~~~~~~~
-cc1: warning: unrecognized command line option '-Wno-self-assign'
-cc1: warning: unrecognized command line option '-Wno-parentheses-equality'
-cc1: warning: unrecognized command line option '-Wno-constant-logical-operand'
+cc1: note: unrecognized command-line option ‘-Wno-self-assign’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-parentheses-equality’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-constant-logical-operand’ may have been intended to silence earlier diagnostics
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -331,16 +331,16 @@ checked program was:
 
 have_type: checking for long double _Imaginary... -------------------- no
 
-LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
-conftest.c:4:21: error: expected identifier or '(' before '_Imaginary'
+LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
+conftest.c:4:21: error: expected identifier or ‘(’ before ‘_Imaginary’
     4 | typedef long double _Imaginary conftest_type;
       |                     ^~~~~~~~~~
-conftest.c:5:24: error: 'conftest_type' undeclared here (not in a function)
+conftest.c:5:24: error: ‘conftest_type’ undeclared here (not in a function)
     5 | int conftestval[sizeof(conftest_type)?1:-1];
       |                        ^~~~~~~~~~~~~
-cc1: warning: unrecognized command line option '-Wno-self-assign'
-cc1: warning: unrecognized command line option '-Wno-parentheses-equality'
-cc1: warning: unrecognized command line option '-Wno-constant-logical-operand'
+cc1: note: unrecognized command-line option ‘-Wno-self-assign’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-parentheses-equality’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-constant-logical-operand’ may have been intended to silence earlier diagnostics
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -354,7 +354,7 @@ checked program was:
 
 have_type: checking for __int128... -------------------- yes
 
-LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
+LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -368,13 +368,13 @@ checked program was:
 
 have_type: checking for __float128... -------------------- no
 
-LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
-conftest.c:4:9: error: unknown type name '__float128'
+LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
+conftest.c:4:9: error: unknown type name ‘__float128’
     4 | typedef __float128 conftest_type;
       |         ^~~~~~~~~~
-cc1: warning: unrecognized command line option '-Wno-self-assign'
-cc1: warning: unrecognized command line option '-Wno-parentheses-equality'
-cc1: warning: unrecognized command line option '-Wno-constant-logical-operand'
+cc1: note: unrecognized command-line option ‘-Wno-self-assign’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-parentheses-equality’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-constant-logical-operand’ may have been intended to silence earlier diagnostics
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -388,13 +388,13 @@ checked program was:
 
 have_type: checking for _Decimal32... -------------------- no
 
-LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
-conftest.c:4:9: error: decimal floating point not supported for this target
+LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
+conftest.c:4:9: error: decimal floating-point not supported for this target
     4 | typedef _Decimal32 conftest_type;
       |         ^~~~~~~~~~
-cc1: warning: unrecognized command line option '-Wno-self-assign'
-cc1: warning: unrecognized command line option '-Wno-parentheses-equality'
-cc1: warning: unrecognized command line option '-Wno-constant-logical-operand'
+cc1: note: unrecognized command-line option ‘-Wno-self-assign’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-parentheses-equality’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-constant-logical-operand’ may have been intended to silence earlier diagnostics
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -408,13 +408,13 @@ checked program was:
 
 have_type: checking for _Decimal64... -------------------- no
 
-LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
-conftest.c:4:9: error: decimal floating point not supported for this target
+LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
+conftest.c:4:9: error: decimal floating-point not supported for this target
     4 | typedef _Decimal64 conftest_type;
       |         ^~~~~~~~~~
-cc1: warning: unrecognized command line option '-Wno-self-assign'
-cc1: warning: unrecognized command line option '-Wno-parentheses-equality'
-cc1: warning: unrecognized command line option '-Wno-constant-logical-operand'
+cc1: note: unrecognized command-line option ‘-Wno-self-assign’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-parentheses-equality’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-constant-logical-operand’ may have been intended to silence earlier diagnostics
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -428,13 +428,13 @@ checked program was:
 
 have_type: checking for _Decimal128... -------------------- no
 
-LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
-conftest.c:4:9: error: decimal floating point not supported for this target
+LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
+conftest.c:4:9: error: decimal floating-point not supported for this target
     4 | typedef _Decimal128 conftest_type;
       |         ^~~~~~~~~~~
-cc1: warning: unrecognized command line option '-Wno-self-assign'
-cc1: warning: unrecognized command line option '-Wno-parentheses-equality'
-cc1: warning: unrecognized command line option '-Wno-constant-logical-operand'
+cc1: note: unrecognized command-line option ‘-Wno-self-assign’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-parentheses-equality’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-constant-logical-operand’ may have been intended to silence earlier diagnostics
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -448,13 +448,13 @@ checked program was:
 
 have_type: checking for __m64... -------------------- no
 
-LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
-conftest.c:4:9: error: unknown type name '__m64'
+LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
+conftest.c:4:9: error: unknown type name ‘__m64’
     4 | typedef __m64 conftest_type;
       |         ^~~~~
-cc1: warning: unrecognized command line option '-Wno-self-assign'
-cc1: warning: unrecognized command line option '-Wno-parentheses-equality'
-cc1: warning: unrecognized command line option '-Wno-constant-logical-operand'
+cc1: note: unrecognized command-line option ‘-Wno-self-assign’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-parentheses-equality’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-constant-logical-operand’ may have been intended to silence earlier diagnostics
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -468,13 +468,13 @@ checked program was:
 
 have_type: checking for __m128... -------------------- no
 
-LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
-conftest.c:4:9: error: unknown type name '__m128'
+LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
+conftest.c:4:9: error: unknown type name ‘__m128’
     4 | typedef __m128 conftest_type;
       |         ^~~~~~
-cc1: warning: unrecognized command line option '-Wno-self-assign'
-cc1: warning: unrecognized command line option '-Wno-parentheses-equality'
-cc1: warning: unrecognized command line option '-Wno-constant-logical-operand'
+cc1: note: unrecognized command-line option ‘-Wno-self-assign’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-parentheses-equality’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-constant-logical-operand’ may have been intended to silence earlier diagnostics
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -488,13 +488,13 @@ checked program was:
 
 have_type: checking for __float80... -------------------- no
 
-LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
-conftest.c:4:9: error: unknown type name '__float80'
+LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/rbconfig/sizeof    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
+conftest.c:4:9: error: unknown type name ‘__float80’
     4 | typedef __float80 conftest_type;
       |         ^~~~~~~~~
-cc1: warning: unrecognized command line option '-Wno-self-assign'
-cc1: warning: unrecognized command line option '-Wno-parentheses-equality'
-cc1: warning: unrecognized command line option '-Wno-constant-logical-operand'
+cc1: note: unrecognized command-line option ‘-Wno-self-assign’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-parentheses-equality’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-constant-logical-operand’ may have been intended to silence earlier diagnostics
 checked program was:
 /* begin */
 1: #include "ruby.h"

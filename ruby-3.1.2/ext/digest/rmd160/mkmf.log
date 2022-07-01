@@ -1,10 +1,10 @@
-LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/digest/rmd160    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
-conftest.c:6:5: error: size of array 'conftest_const' is negative
+LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/digest/rmd160    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
+conftest.c:6:5: error: size of array ‘conftest_const’ is negative
     6 | int conftest_const[(RUBY_API_VERSION_MAJOR < 3) ? 1 : -1];
       |     ^~~~~~~~~~~~~~
-cc1: warning: unrecognized command line option '-Wno-self-assign'
-cc1: warning: unrecognized command line option '-Wno-parentheses-equality'
-cc1: warning: unrecognized command line option '-Wno-constant-logical-operand'
+cc1: note: unrecognized command-line option ‘-Wno-self-assign’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-parentheses-equality’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-constant-logical-operand’ may have been intended to silence earlier diagnostics
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -17,7 +17,7 @@ checked program was:
 
 have_header: checking for sys/cdefs.h... -------------------- yes
 
-LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/digest/rmd160    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
+LD_LIBRARY_PATH=.:../../.. "gcc -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/digest/rmd160    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
 checked program was:
 /* begin */
 1: #include "ruby.h"

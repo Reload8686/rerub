@@ -1,6 +1,6 @@
-have_library: checking for deflateReset() in -lz... -------------------- no
+have_library: checking for deflateReset() in -lz... -------------------- yes
 
-LD_LIBRARY_PATH=.:../.. "gcc -o conftest -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/zlib    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef conftest.c  -L. -L../.. -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lruby-static -lpthread -lrt -lrt -lgmp -ldl -lcrypt -lm   -lm  -lc"
+LD_LIBRARY_PATH=.:../.. "gcc -o conftest -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/zlib    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef conftest.c  -L. -L../.. -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lruby-static -lz -lpthread -lrt -lrt -lgmp -ldl -lcrypt -lm   -lm  -lc"
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -11,16 +11,16 @@ checked program was:
 6: }
 /* end */
 
-LD_LIBRARY_PATH=.:../.. "gcc -o conftest -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/zlib    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef conftest.c  -L. -L../.. -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lruby-static -lpthread -lrt -lrt -lgmp -ldl -lcrypt -lm  -lz  -lm  -lc"
-conftest.c: In function 't':
-conftest.c:14:57: error: 'deflateReset' undeclared (first use in this function)
+LD_LIBRARY_PATH=.:../.. "gcc -o conftest -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/zlib    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef conftest.c  -L. -L../.. -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lruby-static -lz -lpthread -lrt -lrt -lgmp -ldl -lcrypt -lm  -lz  -lm  -lc"
+conftest.c: In function ‘t’:
+conftest.c:14:57: error: ‘deflateReset’ undeclared (first use in this function)
    14 | int t(void) { void ((*volatile p)()); p = (void ((*)()))deflateReset; return !p; }
       |                                                         ^~~~~~~~~~~~
 conftest.c:14:57: note: each undeclared identifier is reported only once for each function it appears in
 conftest.c: At top level:
-cc1: warning: unrecognized command line option '-Wno-self-assign'
-cc1: warning: unrecognized command line option '-Wno-parentheses-equality'
-cc1: warning: unrecognized command line option '-Wno-constant-logical-operand'
+cc1: note: unrecognized command-line option ‘-Wno-self-assign’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-parentheses-equality’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-constant-logical-operand’ may have been intended to silence earlier diagnostics
 checked program was:
 /* begin */
  1: #include "ruby.h"
@@ -39,9 +39,7 @@ checked program was:
 14: int t(void) { void ((*volatile p)()); p = (void ((*)()))deflateReset; return !p; }
 /* end */
 
-LD_LIBRARY_PATH=.:../.. "gcc -o conftest -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/zlib    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef conftest.c  -L. -L../.. -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lruby-static -lpthread -lrt -lrt -lgmp -ldl -lcrypt -lm  -lz  -lm  -lc"
-/usr/bin/ld: cannot find -lz
-collect2: error: ld returned 1 exit status
+LD_LIBRARY_PATH=.:../.. "gcc -o conftest -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/zlib    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef conftest.c  -L. -L../.. -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lruby-static -lz -lpthread -lrt -lrt -lgmp -ldl -lcrypt -lm  -lz  -lm  -lc"
 checked program was:
 /* begin */
  1: #include "ruby.h"
@@ -63,273 +61,93 @@ checked program was:
 
 --------------------
 
-have_library: checking for deflateReset() in -llibz... -------------------- no
+have_header: checking for zlib.h... -------------------- yes
 
-LD_LIBRARY_PATH=.:../.. "gcc -o conftest -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/zlib    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef conftest.c  -L. -L../.. -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lruby-static -lpthread -lrt -lrt -lgmp -ldl -lcrypt -lm  -llibz  -lm  -lc"
-conftest.c: In function 't':
-conftest.c:14:57: error: 'deflateReset' undeclared (first use in this function)
-   14 | int t(void) { void ((*volatile p)()); p = (void ((*)()))deflateReset; return !p; }
-      |                                                         ^~~~~~~~~~~~
-conftest.c:14:57: note: each undeclared identifier is reported only once for each function it appears in
-conftest.c: At top level:
-cc1: warning: unrecognized command line option '-Wno-self-assign'
-cc1: warning: unrecognized command line option '-Wno-parentheses-equality'
-cc1: warning: unrecognized command line option '-Wno-constant-logical-operand'
+LD_LIBRARY_PATH=.:../.. "gcc -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/zlib    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
 checked program was:
 /* begin */
- 1: #include "ruby.h"
- 2: 
- 3: /*top*/
- 4: extern int t(void);
- 5: int main(int argc, char **argv)
- 6: {
- 7:   if (argc > 1000000) {
- 8:     int (* volatile tp)(void)=(int (*)(void))&t;
- 9:     printf("%d", (*tp)());
-10:   }
-11: 
-12:   return !!argv[argc];
-13: }
-14: int t(void) { void ((*volatile p)()); p = (void ((*)()))deflateReset; return !p; }
-/* end */
-
-LD_LIBRARY_PATH=.:../.. "gcc -o conftest -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/zlib    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef conftest.c  -L. -L../.. -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lruby-static -lpthread -lrt -lrt -lgmp -ldl -lcrypt -lm  -llibz  -lm  -lc"
-/usr/bin/ld: cannot find -llibz
-collect2: error: ld returned 1 exit status
-checked program was:
-/* begin */
- 1: #include "ruby.h"
- 2: 
- 3: /*top*/
- 4: extern int t(void);
- 5: int main(int argc, char **argv)
- 6: {
- 7:   if (argc > 1000000) {
- 8:     int (* volatile tp)(void)=(int (*)(void))&t;
- 9:     printf("%d", (*tp)());
-10:   }
-11: 
-12:   return !!argv[argc];
-13: }
-14: extern void deflateReset();
-15: int t(void) { deflateReset(); return 0; }
+1: #include "ruby.h"
+2: 
+3: #include <zlib.h>
 /* end */
 
 --------------------
 
-have_library: checking for deflateReset() in -lzlib1... -------------------- no
+checking for kind of operating system... Unix
+have_func: checking for crc32_combine() in zlib.h... -------------------- yes
 
-LD_LIBRARY_PATH=.:../.. "gcc -o conftest -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/zlib    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef conftest.c  -L. -L../.. -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lruby-static -lpthread -lrt -lrt -lgmp -ldl -lcrypt -lm  -lzlib1  -lm  -lc"
-conftest.c: In function 't':
-conftest.c:14:57: error: 'deflateReset' undeclared (first use in this function)
-   14 | int t(void) { void ((*volatile p)()); p = (void ((*)()))deflateReset; return !p; }
-      |                                                         ^~~~~~~~~~~~
-conftest.c:14:57: note: each undeclared identifier is reported only once for each function it appears in
-conftest.c: At top level:
-cc1: warning: unrecognized command line option '-Wno-self-assign'
-cc1: warning: unrecognized command line option '-Wno-parentheses-equality'
-cc1: warning: unrecognized command line option '-Wno-constant-logical-operand'
+LD_LIBRARY_PATH=.:../.. "gcc -o conftest -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/zlib    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef conftest.c  -L. -L../.. -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic    -lz  -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lruby-static -lz -lpthread -lrt -lrt -lgmp -ldl -lcrypt -lm  -lz  -lm  -lc"
 checked program was:
 /* begin */
  1: #include "ruby.h"
  2: 
- 3: /*top*/
- 4: extern int t(void);
- 5: int main(int argc, char **argv)
- 6: {
- 7:   if (argc > 1000000) {
- 8:     int (* volatile tp)(void)=(int (*)(void))&t;
- 9:     printf("%d", (*tp)());
-10:   }
-11: 
-12:   return !!argv[argc];
-13: }
-14: int t(void) { void ((*volatile p)()); p = (void ((*)()))deflateReset; return !p; }
-/* end */
-
-LD_LIBRARY_PATH=.:../.. "gcc -o conftest -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/zlib    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef conftest.c  -L. -L../.. -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lruby-static -lpthread -lrt -lrt -lgmp -ldl -lcrypt -lm  -lzlib1  -lm  -lc"
-/usr/bin/ld: cannot find -lzlib1
-collect2: error: ld returned 1 exit status
-checked program was:
-/* begin */
- 1: #include "ruby.h"
- 2: 
- 3: /*top*/
- 4: extern int t(void);
- 5: int main(int argc, char **argv)
- 6: {
- 7:   if (argc > 1000000) {
- 8:     int (* volatile tp)(void)=(int (*)(void))&t;
- 9:     printf("%d", (*tp)());
-10:   }
-11: 
-12:   return !!argv[argc];
-13: }
-14: extern void deflateReset();
-15: int t(void) { deflateReset(); return 0; }
+ 3: #include <zlib.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))crc32_combine; return !p; }
 /* end */
 
 --------------------
 
-have_library: checking for deflateReset() in -lzlib... -------------------- no
+have_func: checking for adler32_combine() in zlib.h... -------------------- yes
 
-LD_LIBRARY_PATH=.:../.. "gcc -o conftest -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/zlib    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef conftest.c  -L. -L../.. -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lruby-static -lpthread -lrt -lrt -lgmp -ldl -lcrypt -lm  -lzlib  -lm  -lc"
-conftest.c: In function 't':
-conftest.c:14:57: error: 'deflateReset' undeclared (first use in this function)
-   14 | int t(void) { void ((*volatile p)()); p = (void ((*)()))deflateReset; return !p; }
-      |                                                         ^~~~~~~~~~~~
-conftest.c:14:57: note: each undeclared identifier is reported only once for each function it appears in
-conftest.c: At top level:
-cc1: warning: unrecognized command line option '-Wno-self-assign'
-cc1: warning: unrecognized command line option '-Wno-parentheses-equality'
-cc1: warning: unrecognized command line option '-Wno-constant-logical-operand'
+LD_LIBRARY_PATH=.:../.. "gcc -o conftest -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/zlib    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef conftest.c  -L. -L../.. -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic    -lz  -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lruby-static -lz -lpthread -lrt -lrt -lgmp -ldl -lcrypt -lm  -lz  -lm  -lc"
 checked program was:
 /* begin */
  1: #include "ruby.h"
  2: 
- 3: /*top*/
- 4: extern int t(void);
- 5: int main(int argc, char **argv)
- 6: {
- 7:   if (argc > 1000000) {
- 8:     int (* volatile tp)(void)=(int (*)(void))&t;
- 9:     printf("%d", (*tp)());
-10:   }
-11: 
-12:   return !!argv[argc];
-13: }
-14: int t(void) { void ((*volatile p)()); p = (void ((*)()))deflateReset; return !p; }
-/* end */
-
-LD_LIBRARY_PATH=.:../.. "gcc -o conftest -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/zlib    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef conftest.c  -L. -L../.. -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lruby-static -lpthread -lrt -lrt -lgmp -ldl -lcrypt -lm  -lzlib  -lm  -lc"
-/usr/bin/ld: cannot find -lzlib
-collect2: error: ld returned 1 exit status
-checked program was:
-/* begin */
- 1: #include "ruby.h"
- 2: 
- 3: /*top*/
- 4: extern int t(void);
- 5: int main(int argc, char **argv)
- 6: {
- 7:   if (argc > 1000000) {
- 8:     int (* volatile tp)(void)=(int (*)(void))&t;
- 9:     printf("%d", (*tp)());
-10:   }
-11: 
-12:   return !!argv[argc];
-13: }
-14: extern void deflateReset();
-15: int t(void) { deflateReset(); return 0; }
+ 3: #include <zlib.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))adler32_combine; return !p; }
 /* end */
 
 --------------------
 
-have_library: checking for deflateReset() in -lzdll... -------------------- no
+have_type: checking for z_crc_t in zlib.h... -------------------- yes
 
-LD_LIBRARY_PATH=.:../.. "gcc -o conftest -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/zlib    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef conftest.c  -L. -L../.. -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lruby-static -lpthread -lrt -lrt -lgmp -ldl -lcrypt -lm  -lzdll  -lm  -lc"
-conftest.c: In function 't':
-conftest.c:14:57: error: 'deflateReset' undeclared (first use in this function)
-   14 | int t(void) { void ((*volatile p)()); p = (void ((*)()))deflateReset; return !p; }
-      |                                                         ^~~~~~~~~~~~
-conftest.c:14:57: note: each undeclared identifier is reported only once for each function it appears in
-conftest.c: At top level:
-cc1: warning: unrecognized command line option '-Wno-self-assign'
-cc1: warning: unrecognized command line option '-Wno-parentheses-equality'
-cc1: warning: unrecognized command line option '-Wno-constant-logical-operand'
+LD_LIBRARY_PATH=.:../.. "gcc -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/zlib    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
 checked program was:
 /* begin */
- 1: #include "ruby.h"
- 2: 
- 3: /*top*/
- 4: extern int t(void);
- 5: int main(int argc, char **argv)
- 6: {
- 7:   if (argc > 1000000) {
- 8:     int (* volatile tp)(void)=(int (*)(void))&t;
- 9:     printf("%d", (*tp)());
-10:   }
-11: 
-12:   return !!argv[argc];
-13: }
-14: int t(void) { void ((*volatile p)()); p = (void ((*)()))deflateReset; return !p; }
-/* end */
-
-LD_LIBRARY_PATH=.:../.. "gcc -o conftest -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/zlib    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef conftest.c  -L. -L../.. -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lruby-static -lpthread -lrt -lrt -lgmp -ldl -lcrypt -lm  -lzdll  -lm  -lc"
-/usr/bin/ld: cannot find -lzdll
-collect2: error: ld returned 1 exit status
-checked program was:
-/* begin */
- 1: #include "ruby.h"
- 2: 
- 3: /*top*/
- 4: extern int t(void);
- 5: int main(int argc, char **argv)
- 6: {
- 7:   if (argc > 1000000) {
- 8:     int (* volatile tp)(void)=(int (*)(void))&t;
- 9:     printf("%d", (*tp)());
-10:   }
-11: 
-12:   return !!argv[argc];
-13: }
-14: extern void deflateReset();
-15: int t(void) { deflateReset(); return 0; }
+1: #include "ruby.h"
+2: 
+3: #include <zlib.h>
+4: 
+5: /*top*/
+6: typedef z_crc_t conftest_type;
+7: int conftestval[sizeof(conftest_type)?1:-1];
 /* end */
 
 --------------------
 
-have_library: checking for deflateReset() in -lzlibwapi... -------------------- no
-
-LD_LIBRARY_PATH=.:../.. "gcc -o conftest -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/zlib    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef conftest.c  -L. -L../.. -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lruby-static -lpthread -lrt -lrt -lgmp -ldl -lcrypt -lm  -lzlibwapi  -lm  -lc"
-conftest.c: In function 't':
-conftest.c:14:57: error: 'deflateReset' undeclared (first use in this function)
-   14 | int t(void) { void ((*volatile p)()); p = (void ((*)()))deflateReset; return !p; }
-      |                                                         ^~~~~~~~~~~~
-conftest.c:14:57: note: each undeclared identifier is reported only once for each function it appears in
-conftest.c: At top level:
-cc1: warning: unrecognized command line option '-Wno-self-assign'
-cc1: warning: unrecognized command line option '-Wno-parentheses-equality'
-cc1: warning: unrecognized command line option '-Wno-constant-logical-operand'
-checked program was:
+extconf.h is:
 /* begin */
- 1: #include "ruby.h"
- 2: 
- 3: /*top*/
- 4: extern int t(void);
- 5: int main(int argc, char **argv)
- 6: {
- 7:   if (argc > 1000000) {
- 8:     int (* volatile tp)(void)=(int (*)(void))&t;
- 9:     printf("%d", (*tp)());
-10:   }
-11: 
-12:   return !!argv[argc];
-13: }
-14: int t(void) { void ((*volatile p)()); p = (void ((*)()))deflateReset; return !p; }
+1: #ifndef EXTCONF_H
+2: #define EXTCONF_H
+3: #define HAVE_ZLIB_H 1
+4: #define HAVE_CRC32_COMBINE 1
+5: #define HAVE_ADLER32_COMBINE 1
+6: #define HAVE_TYPE_Z_CRC_T 1
+7: #endif
 /* end */
-
-LD_LIBRARY_PATH=.:../.. "gcc -o conftest -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/zlib    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef conftest.c  -L. -L../.. -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lruby-static -lpthread -lrt -lrt -lgmp -ldl -lcrypt -lm  -lzlibwapi  -lm  -lc"
-/usr/bin/ld: cannot find -lzlibwapi
-collect2: error: ld returned 1 exit status
-checked program was:
-/* begin */
- 1: #include "ruby.h"
- 2: 
- 3: /*top*/
- 4: extern int t(void);
- 5: int main(int argc, char **argv)
- 6: {
- 7:   if (argc > 1000000) {
- 8:     int (* volatile tp)(void)=(int (*)(void))&t;
- 9:     printf("%d", (*tp)());
-10:   }
-11: 
-12:   return !!argv[argc];
-13: }
-14: extern void deflateReset();
-15: int t(void) { deflateReset(); return 0; }
-/* end */
-
---------------------
 

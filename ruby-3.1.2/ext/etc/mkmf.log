@@ -1,6 +1,6 @@
 have_header: checking for sys/utsname.h... -------------------- yes
 
-LD_LIBRARY_PATH=.:../.. "gcc -o conftest -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/etc    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef conftest.c  -L. -L../.. -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lruby-static -lpthread -lrt -lrt -lgmp -ldl -lcrypt -lm   -lm  -lc"
+LD_LIBRARY_PATH=.:../.. "gcc -o conftest -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/etc    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef conftest.c  -L. -L../.. -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lruby-static -lz -lpthread -lrt -lrt -lgmp -ldl -lcrypt -lm   -lm  -lc"
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -11,7 +11,7 @@ checked program was:
 6: }
 /* end */
 
-LD_LIBRARY_PATH=.:../.. "gcc -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/etc    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
+LD_LIBRARY_PATH=.:../.. "gcc -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/etc    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -23,16 +23,16 @@ checked program was:
 
 have_library: checking for getpwnam() in -lsun... -------------------- no
 
-LD_LIBRARY_PATH=.:../.. "gcc -o conftest -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/etc    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef conftest.c  -L. -L../.. -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lruby-static -lpthread -lrt -lrt -lgmp -ldl -lcrypt -lm  -lsun  -lm  -lc"
-conftest.c: In function 't':
-conftest.c:14:57: error: 'getpwnam' undeclared (first use in this function)
+LD_LIBRARY_PATH=.:../.. "gcc -o conftest -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/etc    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef conftest.c  -L. -L../.. -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lruby-static -lz -lpthread -lrt -lrt -lgmp -ldl -lcrypt -lm  -lsun  -lm  -lc"
+conftest.c: In function ‘t’:
+conftest.c:14:57: error: ‘getpwnam’ undeclared (first use in this function)
    14 | int t(void) { void ((*volatile p)()); p = (void ((*)()))getpwnam; return !p; }
       |                                                         ^~~~~~~~
 conftest.c:14:57: note: each undeclared identifier is reported only once for each function it appears in
 conftest.c: At top level:
-cc1: warning: unrecognized command line option '-Wno-self-assign'
-cc1: warning: unrecognized command line option '-Wno-parentheses-equality'
-cc1: warning: unrecognized command line option '-Wno-constant-logical-operand'
+cc1: note: unrecognized command-line option ‘-Wno-self-assign’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-parentheses-equality’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-constant-logical-operand’ may have been intended to silence earlier diagnostics
 checked program was:
 /* begin */
  1: #include "ruby.h"
@@ -51,8 +51,8 @@ checked program was:
 14: int t(void) { void ((*volatile p)()); p = (void ((*)()))getpwnam; return !p; }
 /* end */
 
-LD_LIBRARY_PATH=.:../.. "gcc -o conftest -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/etc    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef conftest.c  -L. -L../.. -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lruby-static -lpthread -lrt -lrt -lgmp -ldl -lcrypt -lm  -lsun  -lm  -lc"
-/usr/bin/ld: cannot find -lsun
+LD_LIBRARY_PATH=.:../.. "gcc -o conftest -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/etc    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef conftest.c  -L. -L../.. -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lruby-static -lz -lpthread -lrt -lrt -lgmp -ldl -lcrypt -lm  -lsun  -lm  -lc"
+/usr/bin/ld: cannot find -lsun: No such file or directory
 collect2: error: ld returned 1 exit status
 checked program was:
 /* begin */
@@ -77,7 +77,7 @@ checked program was:
 
 have_func: checking for uname((struct utsname *)NULL) in sys/utsname.h... -------------------- yes
 
-LD_LIBRARY_PATH=.:../.. "gcc -o conftest -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/etc    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef conftest.c  -L. -L../.. -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lruby-static -lpthread -lrt -lrt -lgmp -ldl -lcrypt -lm   -lm  -lc"
+LD_LIBRARY_PATH=.:../.. "gcc -o conftest -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/etc    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef conftest.c  -L. -L../.. -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lruby-static -lz -lpthread -lrt -lrt -lgmp -ldl -lcrypt -lm   -lm  -lc"
 checked program was:
 /* begin */
  1: #include "ruby.h"
@@ -103,7 +103,7 @@ checked program was:
 
 have_func: checking for getlogin()... -------------------- yes
 
-LD_LIBRARY_PATH=.:../.. "gcc -o conftest -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/etc    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef conftest.c  -L. -L../.. -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lruby-static -lpthread -lrt -lrt -lgmp -ldl -lcrypt -lm   -lm  -lc"
+LD_LIBRARY_PATH=.:../.. "gcc -o conftest -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/etc    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef conftest.c  -L. -L../.. -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lruby-static -lz -lpthread -lrt -lrt -lgmp -ldl -lcrypt -lm   -lm  -lc"
 checked program was:
 /* begin */
  1: #include "ruby.h"
@@ -126,17 +126,17 @@ checked program was:
 
 have_func: checking for getpwent()... -------------------- yes
 
-LD_LIBRARY_PATH=.:../.. "gcc -o conftest -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/etc    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef conftest.c  -L. -L../.. -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lruby-static -lpthread -lrt -lrt -lgmp -ldl -lcrypt -lm   -lm  -lc"
-conftest.c: In function 't':
-conftest.c:14:57: error: 'getpwent' undeclared (first use in this function); did you mean 'getpt'?
+LD_LIBRARY_PATH=.:../.. "gcc -o conftest -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/etc    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef conftest.c  -L. -L../.. -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lruby-static -lz -lpthread -lrt -lrt -lgmp -ldl -lcrypt -lm   -lm  -lc"
+conftest.c: In function ‘t’:
+conftest.c:14:57: error: ‘getpwent’ undeclared (first use in this function); did you mean ‘getpt’?
    14 | int t(void) { void ((*volatile p)()); p = (void ((*)()))getpwent; return !p; }
       |                                                         ^~~~~~~~
       |                                                         getpt
 conftest.c:14:57: note: each undeclared identifier is reported only once for each function it appears in
 conftest.c: At top level:
-cc1: warning: unrecognized command line option '-Wno-self-assign'
-cc1: warning: unrecognized command line option '-Wno-parentheses-equality'
-cc1: warning: unrecognized command line option '-Wno-constant-logical-operand'
+cc1: note: unrecognized command-line option ‘-Wno-self-assign’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-parentheses-equality’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-constant-logical-operand’ may have been intended to silence earlier diagnostics
 checked program was:
 /* begin */
  1: #include "ruby.h"
@@ -155,7 +155,7 @@ checked program was:
 14: int t(void) { void ((*volatile p)()); p = (void ((*)()))getpwent; return !p; }
 /* end */
 
-LD_LIBRARY_PATH=.:../.. "gcc -o conftest -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/etc    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef conftest.c  -L. -L../.. -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lruby-static -lpthread -lrt -lrt -lgmp -ldl -lcrypt -lm   -lm  -lc"
+LD_LIBRARY_PATH=.:../.. "gcc -o conftest -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/etc    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef conftest.c  -L. -L../.. -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lruby-static -lz -lpthread -lrt -lrt -lgmp -ldl -lcrypt -lm   -lm  -lc"
 checked program was:
 /* begin */
  1: #include "ruby.h"
@@ -179,17 +179,17 @@ checked program was:
 
 have_func: checking for getgrent()... -------------------- yes
 
-LD_LIBRARY_PATH=.:../.. "gcc -o conftest -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/etc    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef conftest.c  -L. -L../.. -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lruby-static -lpthread -lrt -lrt -lgmp -ldl -lcrypt -lm   -lm  -lc"
-conftest.c: In function 't':
-conftest.c:14:57: error: 'getgrent' undeclared (first use in this function); did you mean 'getenv'?
+LD_LIBRARY_PATH=.:../.. "gcc -o conftest -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/etc    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef conftest.c  -L. -L../.. -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lruby-static -lz -lpthread -lrt -lrt -lgmp -ldl -lcrypt -lm   -lm  -lc"
+conftest.c: In function ‘t’:
+conftest.c:14:57: error: ‘getgrent’ undeclared (first use in this function); did you mean ‘getenv’?
    14 | int t(void) { void ((*volatile p)()); p = (void ((*)()))getgrent; return !p; }
       |                                                         ^~~~~~~~
       |                                                         getenv
 conftest.c:14:57: note: each undeclared identifier is reported only once for each function it appears in
 conftest.c: At top level:
-cc1: warning: unrecognized command line option '-Wno-self-assign'
-cc1: warning: unrecognized command line option '-Wno-parentheses-equality'
-cc1: warning: unrecognized command line option '-Wno-constant-logical-operand'
+cc1: note: unrecognized command-line option ‘-Wno-self-assign’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-parentheses-equality’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-constant-logical-operand’ may have been intended to silence earlier diagnostics
 checked program was:
 /* begin */
  1: #include "ruby.h"
@@ -208,7 +208,7 @@ checked program was:
 14: int t(void) { void ((*volatile p)()); p = (void ((*)()))getgrent; return !p; }
 /* end */
 
-LD_LIBRARY_PATH=.:../.. "gcc -o conftest -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/etc    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef conftest.c  -L. -L../.. -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lruby-static -lpthread -lrt -lrt -lgmp -ldl -lcrypt -lm   -lm  -lc"
+LD_LIBRARY_PATH=.:../.. "gcc -o conftest -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/etc    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef conftest.c  -L. -L../.. -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lruby-static -lz -lpthread -lrt -lrt -lgmp -ldl -lcrypt -lm   -lm  -lc"
 checked program was:
 /* begin */
  1: #include "ruby.h"
@@ -232,7 +232,7 @@ checked program was:
 
 have_func: checking for sysconf()... -------------------- yes
 
-LD_LIBRARY_PATH=.:../.. "gcc -o conftest -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/etc    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef conftest.c  -L. -L../.. -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lruby-static -lpthread -lrt -lrt -lgmp -ldl -lcrypt -lm   -lm  -lc"
+LD_LIBRARY_PATH=.:../.. "gcc -o conftest -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/etc    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef conftest.c  -L. -L../.. -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lruby-static -lz -lpthread -lrt -lrt -lgmp -ldl -lcrypt -lm   -lm  -lc"
 checked program was:
 /* begin */
  1: #include "ruby.h"
@@ -255,7 +255,7 @@ checked program was:
 
 have_func: checking for confstr()... -------------------- yes
 
-LD_LIBRARY_PATH=.:../.. "gcc -o conftest -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/etc    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef conftest.c  -L. -L../.. -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lruby-static -lpthread -lrt -lrt -lgmp -ldl -lcrypt -lm   -lm  -lc"
+LD_LIBRARY_PATH=.:../.. "gcc -o conftest -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/etc    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef conftest.c  -L. -L../.. -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lruby-static -lz -lpthread -lrt -lrt -lgmp -ldl -lcrypt -lm   -lm  -lc"
 checked program was:
 /* begin */
  1: #include "ruby.h"
@@ -278,7 +278,7 @@ checked program was:
 
 have_func: checking for fpathconf()... -------------------- yes
 
-LD_LIBRARY_PATH=.:../.. "gcc -o conftest -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/etc    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef conftest.c  -L. -L../.. -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lruby-static -lpthread -lrt -lrt -lgmp -ldl -lcrypt -lm   -lm  -lc"
+LD_LIBRARY_PATH=.:../.. "gcc -o conftest -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/etc    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef conftest.c  -L. -L../.. -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lruby-static -lz -lpthread -lrt -lrt -lgmp -ldl -lcrypt -lm   -lm  -lc"
 checked program was:
 /* begin */
  1: #include "ruby.h"
@@ -301,7 +301,7 @@ checked program was:
 
 have_struct_member: checking for struct passwd.pw_gecos in pwd.h... -------------------- yes
 
-LD_LIBRARY_PATH=.:../.. "gcc -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/etc    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
+LD_LIBRARY_PATH=.:../.. "gcc -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/etc    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
 checked program was:
 /* begin */
  1: #include "ruby.h"
@@ -320,13 +320,13 @@ checked program was:
 
 have_struct_member: checking for struct passwd.pw_change in pwd.h... -------------------- no
 
-LD_LIBRARY_PATH=.:../.. "gcc -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/etc    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
-conftest.c:6:37: error: 'struct passwd' has no member named 'pw_change'
+LD_LIBRARY_PATH=.:../.. "gcc -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/etc    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
+conftest.c:6:37: error: ‘struct passwd’ has no member named ‘pw_change’
     6 | int s = (char *)&((struct passwd*)0)->pw_change - (char *)0;
       |                                     ^~
-cc1: warning: unrecognized command line option '-Wno-self-assign'
-cc1: warning: unrecognized command line option '-Wno-parentheses-equality'
-cc1: warning: unrecognized command line option '-Wno-constant-logical-operand'
+cc1: note: unrecognized command-line option ‘-Wno-self-assign’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-parentheses-equality’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-constant-logical-operand’ may have been intended to silence earlier diagnostics
 checked program was:
 /* begin */
  1: #include "ruby.h"
@@ -345,13 +345,13 @@ checked program was:
 
 have_struct_member: checking for struct passwd.pw_quota in pwd.h... -------------------- no
 
-LD_LIBRARY_PATH=.:../.. "gcc -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/etc    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
-conftest.c:6:37: error: 'struct passwd' has no member named 'pw_quota'
+LD_LIBRARY_PATH=.:../.. "gcc -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/etc    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
+conftest.c:6:37: error: ‘struct passwd’ has no member named ‘pw_quota’
     6 | int s = (char *)&((struct passwd*)0)->pw_quota - (char *)0;
       |                                     ^~
-cc1: warning: unrecognized command line option '-Wno-self-assign'
-cc1: warning: unrecognized command line option '-Wno-parentheses-equality'
-cc1: warning: unrecognized command line option '-Wno-constant-logical-operand'
+cc1: note: unrecognized command-line option ‘-Wno-self-assign’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-parentheses-equality’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-constant-logical-operand’ may have been intended to silence earlier diagnostics
 checked program was:
 /* begin */
  1: #include "ruby.h"
@@ -370,14 +370,14 @@ checked program was:
 
 have_struct_member: checking for struct passwd.pw_age in pwd.h... -------------------- no
 
-LD_LIBRARY_PATH=.:../.. "gcc -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/etc    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
-conftest.c:6:39: error: 'struct passwd' has no member named 'pw_age'; did you mean 'pw_name'?
+LD_LIBRARY_PATH=.:../.. "gcc -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/etc    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
+conftest.c:6:39: error: ‘struct passwd’ has no member named ‘pw_age’; did you mean ‘pw_name’?
     6 | int s = (char *)&((struct passwd*)0)->pw_age - (char *)0;
       |                                       ^~~~~~
       |                                       pw_name
-cc1: warning: unrecognized command line option '-Wno-self-assign'
-cc1: warning: unrecognized command line option '-Wno-parentheses-equality'
-cc1: warning: unrecognized command line option '-Wno-constant-logical-operand'
+cc1: note: unrecognized command-line option ‘-Wno-self-assign’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-parentheses-equality’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-constant-logical-operand’ may have been intended to silence earlier diagnostics
 checked program was:
 /* begin */
  1: #include "ruby.h"
@@ -396,13 +396,13 @@ checked program was:
 
 have_struct_member: checking for struct passwd.pw_class in pwd.h... -------------------- no
 
-LD_LIBRARY_PATH=.:../.. "gcc -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/etc    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
-conftest.c:6:37: error: 'struct passwd' has no member named 'pw_class'
+LD_LIBRARY_PATH=.:../.. "gcc -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/etc    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
+conftest.c:6:37: error: ‘struct passwd’ has no member named ‘pw_class’
     6 | int s = (char *)&((struct passwd*)0)->pw_class - (char *)0;
       |                                     ^~
-cc1: warning: unrecognized command line option '-Wno-self-assign'
-cc1: warning: unrecognized command line option '-Wno-parentheses-equality'
-cc1: warning: unrecognized command line option '-Wno-constant-logical-operand'
+cc1: note: unrecognized command-line option ‘-Wno-self-assign’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-parentheses-equality’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-constant-logical-operand’ may have been intended to silence earlier diagnostics
 checked program was:
 /* begin */
  1: #include "ruby.h"
@@ -421,13 +421,13 @@ checked program was:
 
 have_struct_member: checking for struct passwd.pw_comment in pwd.h... -------------------- no
 
-LD_LIBRARY_PATH=.:../.. "gcc -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/etc    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
-conftest.c:6:37: error: 'struct passwd' has no member named 'pw_comment'
+LD_LIBRARY_PATH=.:../.. "gcc -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/etc    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
+conftest.c:6:37: error: ‘struct passwd’ has no member named ‘pw_comment’
     6 | int s = (char *)&((struct passwd*)0)->pw_comment - (char *)0;
       |                                     ^~
-cc1: warning: unrecognized command line option '-Wno-self-assign'
-cc1: warning: unrecognized command line option '-Wno-parentheses-equality'
-cc1: warning: unrecognized command line option '-Wno-constant-logical-operand'
+cc1: note: unrecognized command-line option ‘-Wno-self-assign’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-parentheses-equality’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-constant-logical-operand’ may have been intended to silence earlier diagnostics
 checked program was:
 /* begin */
  1: #include "ruby.h"
@@ -446,13 +446,13 @@ checked program was:
 
 have_struct_member: checking for struct passwd.pw_expire in pwd.h... -------------------- no
 
-LD_LIBRARY_PATH=.:../.. "gcc -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/etc    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
-conftest.c:6:37: error: 'struct passwd' has no member named 'pw_expire'
+LD_LIBRARY_PATH=.:../.. "gcc -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/etc    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
+conftest.c:6:37: error: ‘struct passwd’ has no member named ‘pw_expire’
     6 | int s = (char *)&((struct passwd*)0)->pw_expire - (char *)0;
       |                                     ^~
-cc1: warning: unrecognized command line option '-Wno-self-assign'
-cc1: warning: unrecognized command line option '-Wno-parentheses-equality'
-cc1: warning: unrecognized command line option '-Wno-constant-logical-operand'
+cc1: note: unrecognized command-line option ‘-Wno-self-assign’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-parentheses-equality’ may have been intended to silence earlier diagnostics
+cc1: note: unrecognized command-line option ‘-Wno-constant-logical-operand’ may have been intended to silence earlier diagnostics
 checked program was:
 /* begin */
  1: #include "ruby.h"
@@ -471,7 +471,7 @@ checked program was:
 
 have_struct_member: checking for struct passwd.pw_passwd in pwd.h... -------------------- yes
 
-LD_LIBRARY_PATH=.:../.. "gcc -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/etc    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
+LD_LIBRARY_PATH=.:../.. "gcc -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/etc    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
 checked program was:
 /* begin */
  1: #include "ruby.h"
@@ -490,7 +490,7 @@ checked program was:
 
 have_struct_member: checking for struct group.gr_passwd in grp.h... -------------------- yes
 
-LD_LIBRARY_PATH=.:../.. "gcc -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/etc    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
+LD_LIBRARY_PATH=.:../.. "gcc -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/etc    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef   -c conftest.c"
 checked program was:
 /* begin */
  1: #include "ruby.h"
@@ -509,7 +509,7 @@ checked program was:
 
 have_func: checking for rb_deprecate_constant(Qnil, "None")... -------------------- yes
 
-LD_LIBRARY_PATH=.:../.. "gcc -o conftest -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/etc    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef conftest.c  -L. -L../.. -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lruby-static -lpthread -lrt -lrt -lgmp -ldl -lcrypt -lm   -lm  -lc"
+LD_LIBRARY_PATH=.:../.. "gcc -o conftest -I../../.ext/include/aarch64-linux -I../.././include -I../.././ext/etc    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef conftest.c  -L. -L../.. -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lruby-static -lz -lpthread -lrt -lrt -lgmp -ldl -lcrypt -lm   -lm  -lc"
 checked program was:
 /* begin */
  1: #include "ruby.h"

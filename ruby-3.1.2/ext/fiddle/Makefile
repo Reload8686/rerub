@@ -80,19 +80,19 @@ COUTFLAG = -o $(empty)
 CSRCFLAG = $(empty)
 
 RUBY_EXTCONF_H = extconf.h
-cflags   = -O3 -fno-fast-math -ggdb3 
+cflags   = $(optflags) $(debugflags) $(warnflags)
 cxxflags = 
 optflags = -O3 -fno-fast-math
 debugflags = -ggdb3
-warnflags = -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef
+warnflags = -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef
 cppflags = 
 CCDLFLAGS = -fPIC
-CFLAGS   = $(CCDLFLAGS) $(cflags) $(ARCH_FLAG)
-INCFLAGS = -I. -I$(arch_hdrdir) -I$(hdrdir) -I$(srcdir) -I$(LIBFFI_DIR)/include
+CFLAGS   = $(CCDLFLAGS) $(cflags)  $(ARCH_FLAG)
+INCFLAGS = -I. -I$(arch_hdrdir) -I$(hdrdir) -I$(srcdir) 
 DEFS     = 
 CPPFLAGS = -DRUBY_EXTCONF_H=\"$(RUBY_EXTCONF_H)\"  $(DEFS) $(cppflags)
-CXXFLAGS = $(CCDLFLAGS)  $(ARCH_FLAG)
-ldflags  = -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic
+CXXFLAGS = $(CCDLFLAGS)   $(ARCH_FLAG)
+ldflags  = -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic 
 dldflags = -Wl,--compress-debug-sections=zlib 
 ARCH_FLAG = 
 DLDFLAGS = $(ldflags) $(dldflags) $(ARCH_FLAG)
@@ -118,7 +118,7 @@ ruby_headers = $(hdrdir)/ruby.h $(hdrdir)/ruby/backward.h $(hdrdir)/ruby/ruby.h 
 RM = rm -f
 RM_RF = rm -fr
 RMDIRS = rmdir --ignore-fail-on-non-empty -p
-MAKEDIRS = /usr/bin/mkdir -p
+MAKEDIRS = /bin/mkdir -p
 INSTALL = /usr/bin/install -c
 INSTALL_PROG = $(INSTALL) -m 0755
 INSTALL_DATA = $(INSTALL) -m 644
@@ -140,19 +140,19 @@ DISTCLEANDIRS =
 extout = $(topdir)/.ext
 extout_prefix = $(extout)$(target_prefix)/
 target_prefix = 
-LOCAL_LIBS = ./libffi-3.2.1/.libs/libffi_convenience.a
-LIBS =  -ldl  -lm  -lc
+LOCAL_LIBS = 
+LIBS =  -ldl -lffi  -lffi -lm  -lc
 ORIG_SRCS = closure.c conversions.c fiddle.c function.c handle.c memory_view.c pinned.c pointer.c
 SRCS = $(ORIG_SRCS) 
 OBJS = closure.o conversions.o fiddle.o function.o handle.o memory_view.o pinned.o pointer.o
-HDRS = $(srcdir)/closure.h $(srcdir)/conversions.h $(srcdir)/fiddle.h $(srcdir)/function.h
+HDRS = $(srcdir)/closure.h $(srcdir)/conversions.h $(srcdir)/extconf.h $(srcdir)/fiddle.h $(srcdir)/function.h
 LOCAL_HDRS = 
 TARGET = fiddle
 TARGET_NAME = fiddle
 TARGET_ENTRY = Init_$(TARGET_NAME)
 DLLIB = $(TARGET).so
 EXTSTATIC = 
-STATIC_LIB = 
+STATIC_LIB = $(TARGET).a
 
 TIMESTAMP_DIR = $(extout)/.timestamp
 BINDIR        = $(extout)/bin
@@ -165,19 +165,7 @@ TARGET_SO_DIR = $(RUBYARCHDIR)/
 TARGET_SO     = $(TARGET_SO_DIR)$(DLLIB)
 CLEANLIBS     = $(TARGET_SO) false
 CLEANOBJS     = *.o  *.bak
-PWD =
-LIBFFI_CONFIGURE = cd $(LIBFFI_DIR) &&  $(LIBFFI_SRCDIR)/configure
-LIBFFI_ARCH = aarch64-unknown-linux-gnu
-LIBFFI_SRCDIR = ../../.././ext/fiddle/$(LIBFFI_DIR)
-LIBFFI_DIR = libffi-3.2.1
-LIBFFI_A = $(LIBFFI_DIR)/.libs/libffi_convenience.a
-LIBFFI_CFLAGS = -O3 -fno-fast-math -ggdb3
-LIBFFI_LDFLAGS = -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic  -L../../..
-FFI_H = $(LIBFFI_DIR)/include/ffi.h
-SUBMAKE_PRE =
-SUBMAKE_ARG = -C $(LIBFFI_DIR)
-
-LIBFFI_CLEAN = libffi
+LIBFFI_CLEAN = none
 
 all:    install
 static: all
@@ -343,7 +331,11 @@ $(TARGET_SO): $(OBJS) Makefile $(TIMESTAMP_DIR)/$(arch)/.time
 	-$(Q)$(RM) $(@)
 	$(Q) $(LDSHARED) -o $@ $(OBJS) $(LIBPATH) $(DLDFLAGS) $(LOCAL_LIBS) $(LIBS)
 
-
+$(STATIC_LIB): $(OBJS)
+	-$(Q)$(RM) $(@)
+	$(ECHO) linking static-library $(@)
+	$(Q) $(AR) rcD $@ $(OBJS)
+	-$(Q)gcc-ranlib $(@) 2> /dev/null || true
 
 ###
 $(OBJS): $(RUBY_EXTCONF_H)

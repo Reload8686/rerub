@@ -3,10 +3,10 @@
 #define __STDC_UTF_16__ 1
 #define __STDC_UTF_32__ 1
 #define __STDC_HOSTED__ 1
-#define __GNUC__ 9
-#define __GNUC_MINOR__ 3
+#define __GNUC__ 11
+#define __GNUC_MINOR__ 2
 #define __GNUC_PATCHLEVEL__ 0
-#define __VERSION__ "9.3.0"
+#define __VERSION__ "11.2.0"
 #define __ATOMIC_RELAXED 0
 #define __ATOMIC_SEQ_CST 5
 #define __ATOMIC_ACQUIRE 2
@@ -37,6 +37,8 @@
 #define __BYTE_ORDER__ __ORDER_LITTLE_ENDIAN__
 #define __FLOAT_WORD_ORDER__ __ORDER_LITTLE_ENDIAN__
 #define __SIZEOF_POINTER__ 8
+#define __GNUC_EXECUTION_CHARSET_NAME "UTF-8"
+#define __GNUC_WIDE_EXECUTION_CHARSET_NAME "UTF-32LE"
 #define __SIZE_TYPE__ long unsigned int
 #define __PTRDIFF_TYPE__ long int
 #define __WCHAR_TYPE__ unsigned int
@@ -72,9 +74,7 @@
 #define __UINT_FAST64_TYPE__ long unsigned int
 #define __INTPTR_TYPE__ long int
 #define __UINTPTR_TYPE__ long unsigned int
-#define __has_include(STR) __has_include__(STR)
-#define __has_include_next(STR) __has_include_next__(STR)
-#define __GXX_ABI_VERSION 1013
+#define __GXX_ABI_VERSION 1016
 #define __SCHAR_MAX__ 0x7f
 #define __SHRT_MAX__ 0x7fff
 #define __INT_MAX__ 0x7fffffff
@@ -160,6 +160,7 @@
 #define __FLT_MAX_10_EXP__ 38
 #define __FLT_DECIMAL_DIG__ 9
 #define __FLT_MAX__ 3.40282346638528859811704183484516925e+38F
+#define __FLT_NORM_MAX__ 3.40282346638528859811704183484516925e+38F
 #define __FLT_MIN__ 1.17549435082228750796873653722224568e-38F
 #define __FLT_EPSILON__ 1.19209289550781250000000000000000000e-7F
 #define __FLT_DENORM_MIN__ 1.40129846432481707092372958328991613e-45F
@@ -167,6 +168,7 @@
 #define __FLT_HAS_INFINITY__ 1
 #define __FLT_HAS_QUIET_NAN__ 1
 #define __FP_FAST_FMAF 1
+#define __FLT_IS_IEC_60559__ 2
 #define __DBL_MANT_DIG__ 53
 #define __DBL_DIG__ 15
 #define __DBL_MIN_EXP__ (-1021)
@@ -175,6 +177,7 @@
 #define __DBL_MAX_10_EXP__ 308
 #define __DBL_DECIMAL_DIG__ 17
 #define __DBL_MAX__ ((double)1.79769313486231570814527423731704357e+308L)
+#define __DBL_NORM_MAX__ ((double)1.79769313486231570814527423731704357e+308L)
 #define __DBL_MIN__ ((double)2.22507385850720138309023271733240406e-308L)
 #define __DBL_EPSILON__ ((double)2.22044604925031308084726333618164062e-16L)
 #define __DBL_DENORM_MIN__ ((double)4.94065645841246544176568792868221372e-324L)
@@ -182,6 +185,7 @@
 #define __DBL_HAS_INFINITY__ 1
 #define __DBL_HAS_QUIET_NAN__ 1
 #define __FP_FAST_FMA 1
+#define __DBL_IS_IEC_60559__ 2
 #define __LDBL_MANT_DIG__ 113
 #define __LDBL_DIG__ 33
 #define __LDBL_MIN_EXP__ (-16381)
@@ -191,12 +195,14 @@
 #define __DECIMAL_DIG__ 36
 #define __LDBL_DECIMAL_DIG__ 36
 #define __LDBL_MAX__ 1.18973149535723176508575932662800702e+4932L
+#define __LDBL_NORM_MAX__ 1.18973149535723176508575932662800702e+4932L
 #define __LDBL_MIN__ 3.36210314311209350626267781732175260e-4932L
 #define __LDBL_EPSILON__ 1.92592994438723585305597794258492732e-34L
 #define __LDBL_DENORM_MIN__ 6.47517511943802511092443895822764655e-4966L
 #define __LDBL_HAS_DENORM__ 1
 #define __LDBL_HAS_INFINITY__ 1
 #define __LDBL_HAS_QUIET_NAN__ 1
+#define __LDBL_IS_IEC_60559__ 2
 #define __FLT16_MANT_DIG__ 11
 #define __FLT16_DIG__ 3
 #define __FLT16_MIN_EXP__ (-13)
@@ -205,12 +211,14 @@
 #define __FLT16_MAX_10_EXP__ 4
 #define __FLT16_DECIMAL_DIG__ 5
 #define __FLT16_MAX__ 6.55040000000000000000000000000000000e+4F16
+#define __FLT16_NORM_MAX__ 6.55040000000000000000000000000000000e+4F16
 #define __FLT16_MIN__ 6.10351562500000000000000000000000000e-5F16
 #define __FLT16_EPSILON__ 9.76562500000000000000000000000000000e-4F16
 #define __FLT16_DENORM_MIN__ 5.96046447753906250000000000000000000e-8F16
 #define __FLT16_HAS_DENORM__ 1
 #define __FLT16_HAS_INFINITY__ 1
 #define __FLT16_HAS_QUIET_NAN__ 1
+#define __FLT16_IS_IEC_60559__ 2
 #define __FLT32_MANT_DIG__ 24
 #define __FLT32_DIG__ 6
 #define __FLT32_MIN_EXP__ (-125)
@@ -219,6 +227,7 @@
 #define __FLT32_MAX_10_EXP__ 38
 #define __FLT32_DECIMAL_DIG__ 9
 #define __FLT32_MAX__ 3.40282346638528859811704183484516925e+38F32
+#define __FLT32_NORM_MAX__ 3.40282346638528859811704183484516925e+38F32
 #define __FLT32_MIN__ 1.17549435082228750796873653722224568e-38F32
 #define __FLT32_EPSILON__ 1.19209289550781250000000000000000000e-7F32
 #define __FLT32_DENORM_MIN__ 1.40129846432481707092372958328991613e-45F32
@@ -226,6 +235,7 @@
 #define __FLT32_HAS_INFINITY__ 1
 #define __FLT32_HAS_QUIET_NAN__ 1
 #define __FP_FAST_FMAF32 1
+#define __FLT32_IS_IEC_60559__ 2
 #define __FLT64_MANT_DIG__ 53
 #define __FLT64_DIG__ 15
 #define __FLT64_MIN_EXP__ (-1021)
@@ -234,6 +244,7 @@
 #define __FLT64_MAX_10_EXP__ 308
 #define __FLT64_DECIMAL_DIG__ 17
 #define __FLT64_MAX__ 1.79769313486231570814527423731704357e+308F64
+#define __FLT64_NORM_MAX__ 1.79769313486231570814527423731704357e+308F64
 #define __FLT64_MIN__ 2.22507385850720138309023271733240406e-308F64
 #define __FLT64_EPSILON__ 2.22044604925031308084726333618164062e-16F64
 #define __FLT64_DENORM_MIN__ 4.94065645841246544176568792868221372e-324F64
@@ -241,6 +252,7 @@
 #define __FLT64_HAS_INFINITY__ 1
 #define __FLT64_HAS_QUIET_NAN__ 1
 #define __FP_FAST_FMAF64 1
+#define __FLT64_IS_IEC_60559__ 2
 #define __FLT128_MANT_DIG__ 113
 #define __FLT128_DIG__ 33
 #define __FLT128_MIN_EXP__ (-16381)
@@ -249,12 +261,14 @@
 #define __FLT128_MAX_10_EXP__ 4932
 #define __FLT128_DECIMAL_DIG__ 36
 #define __FLT128_MAX__ 1.18973149535723176508575932662800702e+4932F128
+#define __FLT128_NORM_MAX__ 1.18973149535723176508575932662800702e+4932F128
 #define __FLT128_MIN__ 3.36210314311209350626267781732175260e-4932F128
 #define __FLT128_EPSILON__ 1.92592994438723585305597794258492732e-34F128
 #define __FLT128_DENORM_MIN__ 6.47517511943802511092443895822764655e-4966F128
 #define __FLT128_HAS_DENORM__ 1
 #define __FLT128_HAS_INFINITY__ 1
 #define __FLT128_HAS_QUIET_NAN__ 1
+#define __FLT128_IS_IEC_60559__ 2
 #define __FLT32X_MANT_DIG__ 53
 #define __FLT32X_DIG__ 15
 #define __FLT32X_MIN_EXP__ (-1021)
@@ -263,6 +277,7 @@
 #define __FLT32X_MAX_10_EXP__ 308
 #define __FLT32X_DECIMAL_DIG__ 17
 #define __FLT32X_MAX__ 1.79769313486231570814527423731704357e+308F32x
+#define __FLT32X_NORM_MAX__ 1.79769313486231570814527423731704357e+308F32x
 #define __FLT32X_MIN__ 2.22507385850720138309023271733240406e-308F32x
 #define __FLT32X_EPSILON__ 2.22044604925031308084726333618164062e-16F32x
 #define __FLT32X_DENORM_MIN__ 4.94065645841246544176568792868221372e-324F32x
@@ -270,6 +285,7 @@
 #define __FLT32X_HAS_INFINITY__ 1
 #define __FLT32X_HAS_QUIET_NAN__ 1
 #define __FP_FAST_FMAF32x 1
+#define __FLT32X_IS_IEC_60559__ 2
 #define __FLT64X_MANT_DIG__ 113
 #define __FLT64X_DIG__ 33
 #define __FLT64X_MIN_EXP__ (-16381)
@@ -278,33 +294,14 @@
 #define __FLT64X_MAX_10_EXP__ 4932
 #define __FLT64X_DECIMAL_DIG__ 36
 #define __FLT64X_MAX__ 1.18973149535723176508575932662800702e+4932F64x
+#define __FLT64X_NORM_MAX__ 1.18973149535723176508575932662800702e+4932F64x
 #define __FLT64X_MIN__ 3.36210314311209350626267781732175260e-4932F64x
 #define __FLT64X_EPSILON__ 1.92592994438723585305597794258492732e-34F64x
 #define __FLT64X_DENORM_MIN__ 6.47517511943802511092443895822764655e-4966F64x
 #define __FLT64X_HAS_DENORM__ 1
 #define __FLT64X_HAS_INFINITY__ 1
 #define __FLT64X_HAS_QUIET_NAN__ 1
-#define __DEC32_MANT_DIG__ 7
-#define __DEC32_MIN_EXP__ (-94)
-#define __DEC32_MAX_EXP__ 97
-#define __DEC32_MIN__ 1E-95DF
-#define __DEC32_MAX__ 9.999999E96DF
-#define __DEC32_EPSILON__ 1E-6DF
-#define __DEC32_SUBNORMAL_MIN__ 0.000001E-95DF
-#define __DEC64_MANT_DIG__ 16
-#define __DEC64_MIN_EXP__ (-382)
-#define __DEC64_MAX_EXP__ 385
-#define __DEC64_MIN__ 1E-383DD
-#define __DEC64_MAX__ 9.999999999999999E384DD
-#define __DEC64_EPSILON__ 1E-15DD
-#define __DEC64_SUBNORMAL_MIN__ 0.000000000000001E-383DD
-#define __DEC128_MANT_DIG__ 34
-#define __DEC128_MIN_EXP__ (-6142)
-#define __DEC128_MAX_EXP__ 6145
-#define __DEC128_MIN__ 1E-6143DL
-#define __DEC128_MAX__ 9.999999999999999999999999999999999E6144DL
-#define __DEC128_EPSILON__ 1E-33DL
-#define __DEC128_SUBNORMAL_MIN__ 0.000000000000000000000000000000001E-6143DL
+#define __FLT64X_IS_IEC_60559__ 2
 #define __REGISTER_PREFIX__ 
 #define __USER_LABEL_PREFIX__ 
 #define _FORTIFY_SOURCE 2
@@ -346,6 +343,7 @@
 #define __ARM_FEATURE_UNALIGNED 1
 #define __ARM_PCS_AAPCS64 1
 #define __ARM_SIZEOF_WCHAR_T 4
+#define __GCC_ASM_FLAG_OUTPUTS__ 1
 #undef __ARM_FP_FAST
 #define __ARM_ARCH 8
 #define __ARM_SIZEOF_MINIMAL_ENUM 4
@@ -363,6 +361,7 @@
 #undef __ARM_FEATURE_CRC32
 #undef __ARM_FEATURE_DOTPROD
 #undef __ARM_FEATURE_COMPLEX
+#undef __ARM_FEATURE_JCVT
 #undef __AARCH64_CMODEL_TINY__
 #undef __AARCH64_CMODEL_SMALL__
 #undef __AARCH64_CMODEL_LARGE__
@@ -373,6 +372,15 @@
 #undef __ARM_FEATURE_QRDMX
 #undef __ARM_FEATURE_SVE
 #undef __ARM_FEATURE_SVE_BITS
+#undef __ARM_FEATURE_SVE_VECTOR_OPERATORS
+#undef __ARM_FEATURE_SVE_MATMUL_INT8
+#undef __ARM_FEATURE_SVE_MATMUL_FP32
+#undef __ARM_FEATURE_SVE_MATMUL_FP64
+#undef __ARM_FEATURE_SVE2
+#undef __ARM_FEATURE_SVE2_AES
+#undef __ARM_FEATURE_SVE2_BITPERM
+#undef __ARM_FEATURE_SVE2_SHA3
+#undef __ARM_FEATURE_SVE2_SM4
 #undef __ARM_FEATURE_ATOMICS
 #undef __ARM_FEATURE_AES
 #undef __ARM_FEATURE_SHA2
@@ -381,6 +389,15 @@
 #undef __ARM_FEATURE_SM3
 #undef __ARM_FEATURE_SM4
 #undef __ARM_FEATURE_FP16_FML
+#undef __ARM_FEATURE_FRINT
+#undef __ARM_FEATURE_TME
+#undef __ARM_FEATURE_RNG
+#undef __ARM_FEATURE_MEMORY_TAGGING
+#undef __ARM_FEATURE_BTI_DEFAULT
+#undef __ARM_FEATURE_PAC_DEFAULT
+#undef __ARM_FEATURE_MATMUL_INT8
+#undef __ARM_FEATURE_BF16_VECTOR_ARITHMETIC
+#undef __ARM_FEATURE_BF16_SCALAR_ARITHMETIC
 #undef __FLT_EVAL_METHOD__
 #define __FLT_EVAL_METHOD__ 0
 #undef __FLT_EVAL_METHOD_C99__
@@ -398,28 +415,42 @@
 #define RUBY_EXPORT 1
 #define _STDC_PREDEF_H 1
 #define __STDC_IEC_559__ 1
+#define __STDC_IEC_60559_BFP__ 201404L
 #define __STDC_IEC_559_COMPLEX__ 1
+#define __STDC_IEC_60559_COMPLEX__ 201404L
 #define __STDC_ISO_10646__ 201706L
 #define vm_exec rb_vm_exec
 #define RUBY_EVAL_INTERN_H 
 #define RUBY_RUBY_H 1
 #define RBIMPL_CONFIG_H 
 #define INCLUDE_RUBY_CONFIG_H 1
-#define STDC_HEADERS 1
-#define HAVE_SYS_TYPES_H 1
-#define HAVE_SYS_STAT_H 1
+#define HAVE_STDIO_H 1
 #define HAVE_STDLIB_H 1
 #define HAVE_STRING_H 1
-#define HAVE_MEMORY_H 1
-#define HAVE_STRINGS_H 1
 #define HAVE_INTTYPES_H 1
 #define HAVE_STDINT_H 1
+#define HAVE_STRINGS_H 1
+#define HAVE_SYS_STAT_H 1
+#define HAVE_SYS_TYPES_H 1
 #define HAVE_UNISTD_H 1
-#define __EXTENSIONS__ 1
+#define HAVE_WCHAR_H 1
+#define STDC_HEADERS 1
 #define _ALL_SOURCE 1
+#define _DARWIN_C_SOURCE 1
 #define _GNU_SOURCE 1
+#define _HPUX_ALT_XOPEN_SOCKET_API 1
+#define _NETBSD_SOURCE 1
+#define _OPENBSD_SOURCE 1
 #define _POSIX_PTHREAD_SEMANTICS 1
+#define __STDC_WANT_IEC_60559_ATTRIBS_EXT__ 1
+#define __STDC_WANT_IEC_60559_BFP_EXT__ 1
+#define __STDC_WANT_IEC_60559_DFP_EXT__ 1
+#define __STDC_WANT_IEC_60559_FUNCS_EXT__ 1
+#define __STDC_WANT_IEC_60559_TYPES_EXT__ 1
+#define __STDC_WANT_LIB_EXT2__ 1
+#define __STDC_WANT_MATH_SPEC_FUNCS__ 1
 #define _TANDEM_SOURCE 1
+#define __EXTENSIONS__ 1
 #define RUBY_SYMBOL_EXPORT_BEGIN _Pragma("GCC visibility push(default)")
 #define RUBY_SYMBOL_EXPORT_END _Pragma("GCC visibility pop")
 #define HAVE_STMT_AND_DECL_IN_EXPR 1
@@ -461,8 +492,9 @@
 #define HAVE_UTIME_H 1
 #define HAVE_GMP_H 1
 #define HAVE_LIBGMP 1
+#define __CHAR_UNSIGNED__ 1
 #define HAVE_TYPEOF 1
-#define restrict __restrict
+#define restrict __restrict__
 #define HAVE_LONG_LONG 1
 #define HAVE_OFF_T 1
 #define SIZEOF_INT 4
@@ -566,7 +598,7 @@
 #define RUBY_FUNC_NONNULL(n,x) __attribute__ ((__nonnull__(n))) x
 #define RUBY_FUNCTION_NAME_STRING __func__
 #define ENUM_OVER_INT 1
-#define HAVE_DECL_SYS_NERR 1
+#define HAVE_DECL_SYS_NERR 0
 #define HAVE_DECL_GETENV 1
 #define SIZEOF_SIZE_T 8
 #define SIZEOF_PTRDIFF_T 8
@@ -698,6 +730,7 @@
 #define HAVE_INITGROUPS 1
 #define HAVE_IOCTL 1
 #define HAVE_KILLPG 1
+#define HAVE_LCHMOD 1
 #define HAVE_LCHOWN 1
 #define HAVE_LINK 1
 #define HAVE_LLABS 1
@@ -829,6 +862,7 @@
 #define NUM2IOCTLREQ(num) NUM2ULONG(num)
 #define USE_ELF 1
 #define HAVE_ELF_H 1
+#define HAVE_LIBZ 1
 #define HAVE_BACKTRACE 1
 #define DLEXT_MAXLEN 3
 #define DLEXT ".so"
@@ -918,6 +952,7 @@ typedef __gnuc_va_list va_list;
 #undef __USE_FILE_OFFSET64
 #undef __USE_MISC
 #undef __USE_ATFILE
+#undef __USE_DYNAMIC_STACK_SIZE
 #undef __USE_GNU
 #undef __USE_FORTIFY_LEVEL
 #undef __KERNEL_STRICT_NAMES
@@ -950,6 +985,8 @@ typedef __gnuc_va_list va_list;
 #define _DEFAULT_SOURCE 1
 #undef _ATFILE_SOURCE
 #define _ATFILE_SOURCE 1
+#undef _DYNAMIC_STACK_SIZE_SOURCE
+#define _DYNAMIC_STACK_SIZE_SOURCE 1
 #undef _DEFAULT_SOURCE
 #define _DEFAULT_SOURCE 1
 #define __GLIBC_USE_ISOC2X 1
@@ -987,8 +1024,12 @@ typedef __gnuc_va_list va_list;
 #define __USE_ISOC99 1
 #define __USE_LARGEFILE 1
 #define __USE_LARGEFILE64 1
+#define __WORDSIZE 64
+#define __WORDSIZE_TIME64_COMPAT32 0
+#define __TIMESIZE 64
 #define __USE_MISC 1
 #define __USE_ATFILE 1
+#define __USE_DYNAMIC_STACK_SIZE 1
 #define __USE_GNU 1
 #define __USE_FORTIFY_LEVEL 2
 #define __GLIBC_USE_DEPRECATED_GETS 0
@@ -996,18 +1037,20 @@ typedef __gnuc_va_list va_list;
 #undef __GNU_LIBRARY__
 #define __GNU_LIBRARY__ 6
 #define __GLIBC__ 2
-#define __GLIBC_MINOR__ 31
+#define __GLIBC_MINOR__ 35
 #define __GLIBC_PREREQ(maj,min) ((__GLIBC__ << 16) + __GLIBC_MINOR__ >= ((maj) << 16) + (min))
 #define _SYS_CDEFS_H 1
 #undef __P
 #undef __PMT
+#define __glibc_has_attribute(attr) __has_attribute (attr)
+#define __glibc_has_builtin(name) __has_builtin (name)
+#define __glibc_has_extension(ext) 0
 #define __LEAF , __leaf__
 #define __LEAF_ATTR __attribute__ ((__leaf__))
 #define __THROW __attribute__ ((__nothrow__ __LEAF))
 #define __THROWNL __attribute__ ((__nothrow__))
 #define __NTH(fct) __attribute__ ((__nothrow__ __LEAF)) fct
 #define __NTHNL(fct) __attribute__ ((__nothrow__)) fct
-#define __glibc_clang_has_extension(ext) 0
 #define __P(args) args
 #define __PMT(args) args
 #define __CONCAT(x,y) x ## y
@@ -1017,7 +1060,14 @@ typedef __gnuc_va_list va_list;
 #define __END_DECLS 
 #define __bos(ptr) __builtin_object_size (ptr, __USE_FORTIFY_LEVEL > 1)
 #define __bos0(ptr) __builtin_object_size (ptr, 0)
-#define __warndecl(name,msg) extern void name (void) __attribute__((__warning__ (msg)))
+#define __glibc_objsize0(__o) __bos0 (__o)
+#define __glibc_objsize(__o) __bos (__o)
+#define __glibc_safe_len_cond(__l,__s,__osz) ((__l) <= (__osz) / (__s))
+#define __glibc_unsigned_or_positive(__l) ((__typeof (__l)) 0 < (__typeof (__l)) -1 || (__builtin_constant_p (__l) && (__l) > 0))
+#define __glibc_safe_or_unknown_len(__l,__s,__osz) (__glibc_unsigned_or_positive (__l) && __builtin_constant_p (__glibc_safe_len_cond ((__SIZE_TYPE__) (__l), __s, __osz)) && __glibc_safe_len_cond ((__SIZE_TYPE__) (__l), __s, __osz))
+#define __glibc_unsafe_len(__l,__s,__osz) (__glibc_unsigned_or_positive (__l) && __builtin_constant_p (__glibc_safe_len_cond ((__SIZE_TYPE__) (__l), __s, __osz)) && !__glibc_safe_len_cond ((__SIZE_TYPE__) (__l), __s, __osz))
+#define __glibc_fortify(f,__l,__s,__osz,...) (__glibc_safe_or_unknown_len (__l, __s, __osz) ? __ ## f ## _alias (__VA_ARGS__) : (__glibc_unsafe_len (__l, __s, __osz) ? __ ## f ## _chk_warn (__VA_ARGS__, __osz) : __ ## f ## _chk (__VA_ARGS__, __osz)))
+#define __glibc_fortify_n(f,__l,__s,__osz,...) (__glibc_safe_or_unknown_len (__l, __s, __osz) ? __ ## f ## _alias (__VA_ARGS__) : (__glibc_unsafe_len (__l, __s, __osz) ? __ ## f ## _chk_warn (__VA_ARGS__, (__osz) / (__s)) : __ ## f ## _chk (__VA_ARGS__, (__osz) / (__s))))
 #define __warnattr(msg) __attribute__((__warning__ (msg)))
 #define __errordecl(name,msg) extern void name (void) __attribute__((__error__ (msg)))
 #define __flexarr []
@@ -1029,15 +1079,19 @@ typedef __gnuc_va_list va_list;
 #define __ASMNAME2(prefix,cname) __STRING (prefix) cname
 #define __attribute_malloc__ __attribute__ ((__malloc__))
 #define __attribute_alloc_size__(params) __attribute__ ((__alloc_size__ params))
+#define __attribute_alloc_align__(param) __attribute__ ((__alloc_align__ param))
 #define __attribute_pure__ __attribute__ ((__pure__))
 #define __attribute_const__ __attribute__ ((__const__))
+#define __attribute_maybe_unused__ __attribute__ ((__unused__))
 #define __attribute_used__ __attribute__ ((__used__))
 #define __attribute_noinline__ __attribute__ ((__noinline__))
 #define __attribute_deprecated__ __attribute__ ((__deprecated__))
 #define __attribute_deprecated_msg__(msg) __attribute__ ((__deprecated__ (msg)))
 #define __attribute_format_arg__(x) __attribute__ ((__format_arg__ (x)))
 #define __attribute_format_strfmon__(a,b) __attribute__ ((__format__ (__strfmon__, a, b)))
-#define __nonnull(params) __attribute__ ((__nonnull__ params))
+#define __attribute_nonnull__(params) __attribute__ ((__nonnull__ params))
+#define __nonnull(params) __attribute_nonnull__ (params)
+#define __returns_nonnull __attribute__ ((__returns_nonnull__))
 #define __attribute_warn_unused_result__ __attribute__ ((__warn_unused_result__))
 #define __wur __attribute_warn_unused_result__
 #undef __always_inline
@@ -1051,23 +1105,29 @@ typedef __gnuc_va_list va_list;
 #define __restrict_arr __restrict
 #define __glibc_unlikely(cond) __builtin_expect ((cond), 0)
 #define __glibc_likely(cond) __builtin_expect ((cond), 1)
-#define __glibc_has_attribute(attr) __has_attribute (attr)
 #define __attribute_nonstring__ __attribute__ ((__nonstring__))
 #undef __attribute_copy__
 #define __attribute_copy__(arg) __attribute__ ((__copy__ (arg)))
 #define __WORDSIZE 64
 #define __WORDSIZE_TIME64_COMPAT32 0
-#define __LONG_DOUBLE_USES_FLOAT128 0
+#define __LDOUBLE_REDIRECTS_TO_FLOAT128_ABI 0
 #define __LDBL_REDIR1(name,proto,alias) name proto
 #define __LDBL_REDIR(name,proto) name proto
 #define __LDBL_REDIR1_NTH(name,proto,alias) name proto __THROW
 #define __LDBL_REDIR_NTH(name,proto) name proto __THROW
+#define __LDBL_REDIR2_DECL(name) 
 #define __LDBL_REDIR_DECL(name) 
 #define __REDIRECT_LDBL(name,proto,alias) __REDIRECT (name, proto, alias)
 #define __REDIRECT_NTH_LDBL(name,proto,alias) __REDIRECT_NTH (name, proto, alias)
 #define __glibc_macro_warning1(message) _Pragma (#message)
 #define __glibc_macro_warning(message) __glibc_macro_warning1 (GCC warning message)
 #define __HAVE_GENERIC_SELECTION 1
+#define __attr_access(x) __attribute__ ((__access__ x))
+#define __fortified_attr_access(a,o,s) __attr_access ((a, o, s))
+#define __attr_access_none(argno) __attribute__ ((__access__ (__none__, argno)))
+#define __attr_dealloc(dealloc,argno) __attribute__ ((__malloc__ (dealloc, argno)))
+#define __attr_dealloc_free __attr_dealloc (__builtin_free, 1)
+#define __attribute_returns_twice__ __attribute__ ((__returns_twice__))
 #define __USE_EXTERN_INLINES 1
 #define __WORDSIZE 64
 #define __WORDSIZE_TIME64_COMPAT32 0
@@ -1079,19 +1139,18 @@ typedef __gnuc_va_list va_list;
 #define __stub_chflags 
 #define __stub_fchflags 
 #define __stub_gtty 
-#define __stub_lchmod 
 #define __stub_revoke 
 #define __stub_setlogin 
 #define __stub_sigreturn 
-#define __stub_sstk 
 #define __stub_stty 
-#define __stub_sysctl 
 #undef __GLIBC_USE_LIB_EXT2
 #define __GLIBC_USE_LIB_EXT2 1
 #undef __GLIBC_USE_IEC_60559_BFP_EXT
 #define __GLIBC_USE_IEC_60559_BFP_EXT 1
 #undef __GLIBC_USE_IEC_60559_BFP_EXT_C2X
 #define __GLIBC_USE_IEC_60559_BFP_EXT_C2X 1
+#undef __GLIBC_USE_IEC_60559_EXT
+#define __GLIBC_USE_IEC_60559_EXT 1
 #undef __GLIBC_USE_IEC_60559_FUNCS_EXT
 #define __GLIBC_USE_IEC_60559_FUNCS_EXT 1
 #undef __GLIBC_USE_IEC_60559_FUNCS_EXT_C2X
@@ -1127,9 +1186,7 @@ typedef long unsigned int size_t;
 #define _BITS_TYPES_H 1
 #define __WORDSIZE 64
 #define __WORDSIZE_TIME64_COMPAT32 0
-#define __WORDSIZE 64
-#define __WORDSIZE_TIME64_COMPAT32 0
-#define __TIMESIZE __WORDSIZE
+#define __TIMESIZE 64
 typedef unsigned char __u_char;
 typedef unsigned short int __u_short;
 typedef unsigned int __u_int;
@@ -1170,30 +1227,31 @@ typedef unsigned long int __uintmax_t;
 #define __U64_TYPE unsigned long int
 #define __STD_TYPE typedef
 #define _BITS_TYPESIZES_H 1
+#define __INO_T_TYPE __ULONGWORD_TYPE
+#define __OFF_T_TYPE __SLONGWORD_TYPE
+#define __RLIM_T_TYPE __ULONGWORD_TYPE
+#define __BLKCNT_T_TYPE __SLONGWORD_TYPE
+#define __FSBLKCNT_T_TYPE __ULONGWORD_TYPE
+#define __FSFILCNT_T_TYPE __ULONGWORD_TYPE
+#define __TIME_T_TYPE __SLONGWORD_TYPE
+#define __SUSECONDS_T_TYPE __SLONGWORD_TYPE
 #define __DEV_T_TYPE __UQUAD_TYPE
 #define __UID_T_TYPE __U32_TYPE
 #define __GID_T_TYPE __U32_TYPE
-#define __INO_T_TYPE __ULONGWORD_TYPE
 #define __INO64_T_TYPE __UQUAD_TYPE
 #define __MODE_T_TYPE __U32_TYPE
 #define __NLINK_T_TYPE __U32_TYPE
-#define __OFF_T_TYPE __SLONGWORD_TYPE
 #define __OFF64_T_TYPE __SQUAD_TYPE
 #define __PID_T_TYPE __S32_TYPE
-#define __RLIM_T_TYPE __ULONGWORD_TYPE
 #define __RLIM64_T_TYPE __UQUAD_TYPE
-#define __BLKCNT_T_TYPE __SLONGWORD_TYPE
 #define __BLKCNT64_T_TYPE __SQUAD_TYPE
-#define __FSBLKCNT_T_TYPE __ULONGWORD_TYPE
 #define __FSBLKCNT64_T_TYPE __UQUAD_TYPE
-#define __FSFILCNT_T_TYPE __ULONGWORD_TYPE
 #define __FSFILCNT64_T_TYPE __UQUAD_TYPE
 #define __FSWORD_T_TYPE __SWORD_TYPE
 #define __ID_T_TYPE __U32_TYPE
 #define __CLOCK_T_TYPE __SLONGWORD_TYPE
-#define __TIME_T_TYPE __SLONGWORD_TYPE
 #define __USECONDS_T_TYPE __U32_TYPE
-#define __SUSECONDS_T_TYPE __SLONGWORD_TYPE
+#define __SUSECONDS64_T_TYPE __SQUAD_TYPE
 #define __DADDR_T_TYPE __S32_TYPE
 #define __KEY_T_TYPE __S32_TYPE
 #define __CLOCKID_T_TYPE __S32_TYPE
@@ -1208,6 +1266,7 @@ typedef unsigned long int __uintmax_t;
 #define __INO_T_MATCHES_INO64_T 1
 #define __RLIM_T_MATCHES_RLIM64_T 1
 #define __STATFS_MATCHES_STATFS64 1
+#define __KERNEL_OLD_TIMEVAL_MATCHES_TIMEVAL64 (__WORDSIZE == 64)
 #define __FD_SETSIZE 1024
 #define _BITS_TIME64_H 1
 #define __TIME64_T_TYPE __TIME_T_TYPE
@@ -1229,6 +1288,7 @@ typedef unsigned int __id_t;
 typedef long int __time_t;
 typedef unsigned int __useconds_t;
 typedef long int __suseconds_t;
+typedef long int __suseconds64_t;
 typedef int __daddr_t;
 typedef int __key_t;
 typedef int __clockid_t;
@@ -1364,6 +1424,7 @@ typedef __fpos64_t fpos64_t;
 #define L_cuserid 9
 #undef FOPEN_MAX
 #define FOPEN_MAX 16
+#define _PRINTF_NAN_LEN_MAX 4
 extern FILE *stdin;
 extern FILE *stdout;
 extern FILE *stderr;
@@ -1379,33 +1440,42 @@ extern int renameat (int __oldfd, const char *__old, int __newfd,
 #define RENAME_WHITEOUT (1 << 2)
 extern int renameat2 (int __oldfd, const char *__old, int __newfd,
         const char *__new, unsigned int __flags) __attribute__ ((__nothrow__ , __leaf__));
-extern FILE *tmpfile (void) __attribute__ ((__warn_unused_result__));
-extern FILE *tmpfile64 (void) __attribute__ ((__warn_unused_result__));
-extern char *tmpnam (char *__s) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
-extern char *tmpnam_r (char *__s) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
-extern char *tempnam (const char *__dir, const char *__pfx)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__)) __attribute__ ((__warn_unused_result__));
 extern int fclose (FILE *__stream);
+#undef __attr_dealloc_fclose
+#define __attr_dealloc_fclose __attr_dealloc (fclose, 1)
+extern FILE *tmpfile (void)
+  __attribute__ ((__malloc__)) __attribute__ ((__malloc__ (fclose, 1))) __attribute__ ((__warn_unused_result__));
+extern FILE *tmpfile64 (void)
+   __attribute__ ((__malloc__)) __attribute__ ((__malloc__ (fclose, 1))) __attribute__ ((__warn_unused_result__));
+extern char *tmpnam (char[20]) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
+extern char *tmpnam_r (char __s[20]) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
+extern char *tempnam (const char *__dir, const char *__pfx)
+   __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__)) __attribute__ ((__warn_unused_result__)) __attribute__ ((__malloc__ (__builtin_free, 1)));
 extern int fflush (FILE *__stream);
 extern int fflush_unlocked (FILE *__stream);
 extern int fcloseall (void);
 extern FILE *fopen (const char *__restrict __filename,
-      const char *__restrict __modes) __attribute__ ((__warn_unused_result__));
+      const char *__restrict __modes)
+  __attribute__ ((__malloc__)) __attribute__ ((__malloc__ (fclose, 1))) __attribute__ ((__warn_unused_result__));
 extern FILE *freopen (const char *__restrict __filename,
         const char *__restrict __modes,
         FILE *__restrict __stream) __attribute__ ((__warn_unused_result__));
 extern FILE *fopen64 (const char *__restrict __filename,
-        const char *__restrict __modes) __attribute__ ((__warn_unused_result__));
+        const char *__restrict __modes)
+  __attribute__ ((__malloc__)) __attribute__ ((__malloc__ (fclose, 1))) __attribute__ ((__warn_unused_result__));
 extern FILE *freopen64 (const char *__restrict __filename,
    const char *__restrict __modes,
    FILE *__restrict __stream) __attribute__ ((__warn_unused_result__));
-extern FILE *fdopen (int __fd, const char *__modes) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
+extern FILE *fdopen (int __fd, const char *__modes) __attribute__ ((__nothrow__ , __leaf__))
+  __attribute__ ((__malloc__)) __attribute__ ((__malloc__ (fclose, 1))) __attribute__ ((__warn_unused_result__));
 extern FILE *fopencookie (void *__restrict __magic_cookie,
      const char *__restrict __modes,
-     cookie_io_functions_t __io_funcs) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
+     cookie_io_functions_t __io_funcs) __attribute__ ((__nothrow__ , __leaf__))
+  __attribute__ ((__malloc__)) __attribute__ ((__malloc__ (fclose, 1))) __attribute__ ((__warn_unused_result__));
 extern FILE *fmemopen (void *__s, size_t __len, const char *__modes)
-  __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
-extern FILE *open_memstream (char **__bufloc, size_t *__sizeloc) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
+  __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__)) __attribute__ ((__malloc__ (fclose, 1))) __attribute__ ((__warn_unused_result__));
+extern FILE *open_memstream (char **__bufloc, size_t *__sizeloc) __attribute__ ((__nothrow__ , __leaf__))
+  __attribute__ ((__malloc__)) __attribute__ ((__malloc__ (fclose, 1))) __attribute__ ((__warn_unused_result__));
 extern void setbuf (FILE *__restrict __stream, char *__restrict __buf) __attribute__ ((__nothrow__ , __leaf__));
 extern int setvbuf (FILE *__restrict __stream, char *__restrict __buf,
       int __modes, size_t __n) __attribute__ ((__nothrow__ , __leaf__));
@@ -1447,6 +1517,37 @@ extern int fscanf (FILE *__restrict __stream,
 extern int scanf (const char *__restrict __format, ...) __attribute__ ((__warn_unused_result__));
 extern int sscanf (const char *__restrict __s,
      const char *__restrict __format, ...) __attribute__ ((__nothrow__ , __leaf__));
+#define _BITS_FLOATN_H 
+#define __LDOUBLE_REDIRECTS_TO_FLOAT128_ABI 0
+#define __HAVE_FLOAT128 1
+#define __HAVE_DISTINCT_FLOAT128 0
+#define __HAVE_FLOAT64X __HAVE_FLOAT128
+#define __HAVE_FLOAT64X_LONG_DOUBLE __HAVE_FLOAT128
+#define __f128(x) x ##f128
+#define __CFLOAT128 _Complex _Float128
+#define _BITS_FLOATN_COMMON_H 
+#define __LDOUBLE_REDIRECTS_TO_FLOAT128_ABI 0
+#define __HAVE_FLOAT16 0
+#define __HAVE_FLOAT32 1
+#define __HAVE_FLOAT64 1
+#define __HAVE_FLOAT32X 1
+#define __HAVE_FLOAT128X 0
+#define __HAVE_DISTINCT_FLOAT16 __HAVE_FLOAT16
+#define __HAVE_DISTINCT_FLOAT32 0
+#define __HAVE_DISTINCT_FLOAT64 0
+#define __HAVE_DISTINCT_FLOAT32X 0
+#define __HAVE_DISTINCT_FLOAT64X 0
+#define __HAVE_DISTINCT_FLOAT128X __HAVE_FLOAT128X
+#define __HAVE_FLOAT128_UNLIKE_LDBL (__HAVE_DISTINCT_FLOAT128 && __LDBL_MANT_DIG__ != 113)
+#define __HAVE_FLOATN_NOT_TYPEDEF 1
+#define __f32(x) x ##f32
+#define __f64(x) x ##f64
+#define __f32x(x) x ##f32x
+#define __f64x(x) x ##f64x
+#define __CFLOAT32 _Complex _Float32
+#define __CFLOAT64 _Complex _Float64
+#define __CFLOAT32X _Complex _Float32x
+#define __CFLOAT64X _Complex _Float64x
 extern int fscanf (FILE *__restrict __stream, const char *__restrict __format, ...) __asm__ ("" "__isoc99_fscanf") __attribute__ ((__warn_unused_result__));
 extern int scanf (const char *__restrict __format, ...) __asm__ ("" "__isoc99_scanf") __attribute__ ((__warn_unused_result__));
 extern int sscanf (const char *__restrict __s, const char *__restrict __format, ...) __asm__ ("" "__isoc99_sscanf") __attribute__ ((__nothrow__ , __leaf__));
@@ -1479,9 +1580,10 @@ extern int putchar_unlocked (int __c);
 extern int getw (FILE *__stream);
 extern int putw (int __w, FILE *__stream);
 extern char *fgets (char *__restrict __s, int __n, FILE *__restrict __stream)
-     __attribute__ ((__warn_unused_result__));
+     __attribute__ ((__warn_unused_result__)) __attribute__ ((__access__ (__write_only__, 1, 2)));
 extern char *fgets_unlocked (char *__restrict __s, int __n,
-        FILE *__restrict __stream) __attribute__ ((__warn_unused_result__));
+        FILE *__restrict __stream) __attribute__ ((__warn_unused_result__))
+    __attribute__ ((__access__ (__write_only__, 1, 2)));
 extern __ssize_t __getdelim (char **__restrict __lineptr,
                              size_t *__restrict __n, int __delimiter,
                              FILE *__restrict __stream) __attribute__ ((__warn_unused_result__));
@@ -1522,16 +1624,15 @@ extern void clearerr_unlocked (FILE *__stream) __attribute__ ((__nothrow__ , __l
 extern int feof_unlocked (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
 extern int ferror_unlocked (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
 extern void perror (const char *__s);
-extern int sys_nerr;
-extern const char *const sys_errlist[];
-extern int _sys_nerr;
-extern const char *const _sys_errlist[];
 extern int fileno (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
 extern int fileno_unlocked (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
-extern FILE *popen (const char *__command, const char *__modes) __attribute__ ((__warn_unused_result__));
 extern int pclose (FILE *__stream);
-extern char *ctermid (char *__s) __attribute__ ((__nothrow__ , __leaf__));
-extern char *cuserid (char *__s);
+extern FILE *popen (const char *__command, const char *__modes)
+  __attribute__ ((__malloc__)) __attribute__ ((__malloc__ (pclose, 1))) __attribute__ ((__warn_unused_result__));
+extern char *ctermid (char *__s) __attribute__ ((__nothrow__ , __leaf__))
+  __attribute__ ((__access__ (__write_only__, 1)));
+extern char *cuserid (char *__s)
+  __attribute__ ((__access__ (__write_only__, 1)));
 struct obstack;
 extern int obstack_printf (struct obstack *__restrict __obstack,
       const char *__restrict __format, ...)
@@ -1607,15 +1708,18 @@ __attribute__ ((__nothrow__ , __leaf__)) ferror_unlocked (FILE *__stream)
 #undef __STDIO_INLINE
 #define _BITS_STDIO2_H 1
 extern int __sprintf_chk (char *__restrict __s, int __flag, size_t __slen,
-     const char *__restrict __format, ...) __attribute__ ((__nothrow__ , __leaf__));
+     const char *__restrict __format, ...) __attribute__ ((__nothrow__ , __leaf__))
+    __attribute__ ((__access__ (__write_only__, 1, 3)));
 extern int __vsprintf_chk (char *__restrict __s, int __flag, size_t __slen,
       const char *__restrict __format,
-      __gnuc_va_list __ap) __attribute__ ((__nothrow__ , __leaf__));
+      __gnuc_va_list __ap) __attribute__ ((__nothrow__ , __leaf__))
+    __attribute__ ((__access__ (__write_only__, 1, 3)));
 extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) int
 __attribute__ ((__nothrow__ , __leaf__)) sprintf (char *__restrict __s, const char *__restrict __fmt, ...)
 {
   return __builtin___sprintf_chk (__s, 2 - 1,
-      __builtin_object_size (__s, 2 > 1), __fmt, __builtin_va_arg_pack ());
+      __builtin_object_size (__s, 2 > 1), __fmt,
+      __builtin_va_arg_pack ());
 }
 extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) int
 __attribute__ ((__nothrow__ , __leaf__)) vsprintf (char *__restrict __s, const char *__restrict __fmt, __gnuc_va_list __ap)
@@ -1625,7 +1729,8 @@ __attribute__ ((__nothrow__ , __leaf__)) vsprintf (char *__restrict __s, const c
 }
 extern int __snprintf_chk (char *__restrict __s, size_t __n, int __flag,
       size_t __slen, const char *__restrict __format,
-      ...) __attribute__ ((__nothrow__ , __leaf__));
+      ...) __attribute__ ((__nothrow__ , __leaf__))
+    __attribute__ ((__access__ (__write_only__, 1, 2)));
 extern int __vsnprintf_chk (char *__restrict __s, size_t __n, int __flag,
        size_t __slen, const char *__restrict __format,
        __gnuc_va_list __ap) __attribute__ ((__nothrow__ , __leaf__));
@@ -1633,7 +1738,8 @@ extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline
 __attribute__ ((__nothrow__ , __leaf__)) snprintf (char *__restrict __s, size_t __n, const char *__restrict __fmt, ...)
 {
   return __builtin___snprintf_chk (__s, __n, 2 - 1,
-       __builtin_object_size (__s, 2 > 1), __fmt, __builtin_va_arg_pack ());
+       __builtin_object_size (__s, 2 > 1), __fmt,
+       __builtin_va_arg_pack ());
 }
 extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) int
 __attribute__ ((__nothrow__ , __leaf__)) vsnprintf (char *__restrict __s, size_t __n, const char *__restrict __fmt, __gnuc_va_list __ap)
@@ -1731,21 +1837,21 @@ __attribute__ ((__nothrow__ , __leaf__)) obstack_vprintf (struct obstack *__rest
     __ap);
 }
 extern char *__fgets_chk (char *__restrict __s, size_t __size, int __n,
-     FILE *__restrict __stream) __attribute__ ((__warn_unused_result__));
-extern char *__fgets_alias (char *__restrict __s, int __n, FILE *__restrict __stream) __asm__ ("" "fgets") __attribute__ ((__warn_unused_result__));
+     FILE *__restrict __stream)
+    __attribute__ ((__warn_unused_result__)) __attribute__ ((__access__ (__write_only__, 1, 3)));
+extern char *__fgets_alias (char *__restrict __s, int __n, FILE *__restrict __stream) __asm__ ("" "fgets")
+    __attribute__ ((__warn_unused_result__)) __attribute__ ((__access__ (__write_only__, 1, 2)));
 extern char *__fgets_chk_warn (char *__restrict __s, size_t __size, int __n, FILE *__restrict __stream) __asm__ ("" "__fgets_chk")
      __attribute__ ((__warn_unused_result__)) __attribute__((__warning__ ("fgets called with bigger size than length " "of destination buffer")));
-extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) __attribute__ ((__warn_unused_result__)) char *
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) __attribute__ ((__warn_unused_result__)) __attribute__ ((__access__ (__write_only__, 1, 2))) char *
 fgets (char *__restrict __s, int __n, FILE *__restrict __stream)
 {
-  if (__builtin_object_size (__s, 2 > 1) != (size_t) -1)
-    {
-      if (!__builtin_constant_p (__n) || __n <= 0)
- return __fgets_chk (__s, __builtin_object_size (__s, 2 > 1), __n, __stream);
-      if ((size_t) __n > __builtin_object_size (__s, 2 > 1))
- return __fgets_chk_warn (__s, __builtin_object_size (__s, 2 > 1), __n, __stream);
-    }
-  return __fgets_alias (__s, __n, __stream);
+  size_t sz = __builtin_object_size (__s, 2 > 1);
+  if ((((__typeof (__n)) 0 < (__typeof (__n)) -1 || (__builtin_constant_p (__n) && (__n) > 0)) && __builtin_constant_p ((((long unsigned int) (__n)) <= (sz) / (sizeof (char)))) && (((long unsigned int) (__n)) <= (sz) / (sizeof (char)))))
+    return __fgets_alias (__s, __n, __stream);
+  if ((((__typeof (__n)) 0 < (__typeof (__n)) -1 || (__builtin_constant_p (__n) && (__n) > 0)) && __builtin_constant_p ((((long unsigned int) (__n)) <= (sz) / (sizeof (char)))) && !(((long unsigned int) (__n)) <= (sz) / (sizeof (char)))))
+    return __fgets_chk_warn (__s, sz, __n, __stream);
+  return __fgets_chk (__s, sz, __n, __stream);
 }
 extern size_t __fread_chk (void *__restrict __ptr, size_t __ptrlen,
       size_t __size, size_t __n,
@@ -1757,33 +1863,29 @@ extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline
 fread (void *__restrict __ptr, size_t __size, size_t __n,
        FILE *__restrict __stream)
 {
-  if (__builtin_object_size (__ptr, 0) != (size_t) -1)
-    {
-      if (!__builtin_constant_p (__size)
-   || !__builtin_constant_p (__n)
-   || (__size | __n) >= (((size_t) 1) << (8 * sizeof (size_t) / 2)))
- return __fread_chk (__ptr, __builtin_object_size (__ptr, 0), __size, __n, __stream);
-      if (__size * __n > __builtin_object_size (__ptr, 0))
- return __fread_chk_warn (__ptr, __builtin_object_size (__ptr, 0), __size, __n, __stream);
-    }
-  return __fread_alias (__ptr, __size, __n, __stream);
+  size_t sz = __builtin_object_size (__ptr, 0);
+  if ((((__typeof (__n)) 0 < (__typeof (__n)) -1 || (__builtin_constant_p (__n) && (__n) > 0)) && __builtin_constant_p ((((long unsigned int) (__n)) <= (sz) / (__size))) && (((long unsigned int) (__n)) <= (sz) / (__size))))
+    return __fread_alias (__ptr, __size, __n, __stream);
+  if ((((__typeof (__n)) 0 < (__typeof (__n)) -1 || (__builtin_constant_p (__n) && (__n) > 0)) && __builtin_constant_p ((((long unsigned int) (__n)) <= (sz) / (__size))) && !(((long unsigned int) (__n)) <= (sz) / (__size))))
+    return __fread_chk_warn (__ptr, sz, __size, __n, __stream);
+  return __fread_chk (__ptr, sz, __size, __n, __stream);
 }
 extern char *__fgets_unlocked_chk (char *__restrict __s, size_t __size,
-       int __n, FILE *__restrict __stream) __attribute__ ((__warn_unused_result__));
-extern char *__fgets_unlocked_alias (char *__restrict __s, int __n, FILE *__restrict __stream) __asm__ ("" "fgets_unlocked") __attribute__ ((__warn_unused_result__));
+       int __n, FILE *__restrict __stream)
+    __attribute__ ((__warn_unused_result__)) __attribute__ ((__access__ (__write_only__, 1, 3)));
+extern char *__fgets_unlocked_alias (char *__restrict __s, int __n, FILE *__restrict __stream) __asm__ ("" "fgets_unlocked")
+    __attribute__ ((__warn_unused_result__)) __attribute__ ((__access__ (__write_only__, 1, 2)));
 extern char *__fgets_unlocked_chk_warn (char *__restrict __s, size_t __size, int __n, FILE *__restrict __stream) __asm__ ("" "__fgets_unlocked_chk")
      __attribute__ ((__warn_unused_result__)) __attribute__((__warning__ ("fgets_unlocked called with bigger size than length " "of destination buffer")));
-extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) __attribute__ ((__warn_unused_result__)) char *
+extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) __attribute__ ((__warn_unused_result__)) __attribute__ ((__access__ (__write_only__, 1, 2))) char *
 fgets_unlocked (char *__restrict __s, int __n, FILE *__restrict __stream)
 {
-  if (__builtin_object_size (__s, 2 > 1) != (size_t) -1)
-    {
-      if (!__builtin_constant_p (__n) || __n <= 0)
- return __fgets_unlocked_chk (__s, __builtin_object_size (__s, 2 > 1), __n, __stream);
-      if ((size_t) __n > __builtin_object_size (__s, 2 > 1))
- return __fgets_unlocked_chk_warn (__s, __builtin_object_size (__s, 2 > 1), __n, __stream);
-    }
-  return __fgets_unlocked_alias (__s, __n, __stream);
+  size_t sz = __builtin_object_size (__s, 2 > 1);
+  if ((((__typeof (__n)) 0 < (__typeof (__n)) -1 || (__builtin_constant_p (__n) && (__n) > 0)) && __builtin_constant_p ((((long unsigned int) (__n)) <= (sz) / (sizeof (char)))) && (((long unsigned int) (__n)) <= (sz) / (sizeof (char)))))
+    return __fgets_unlocked_alias (__s, __n, __stream);
+  if ((((__typeof (__n)) 0 < (__typeof (__n)) -1 || (__builtin_constant_p (__n) && (__n) > 0)) && __builtin_constant_p ((((long unsigned int) (__n)) <= (sz) / (sizeof (char)))) && !(((long unsigned int) (__n)) <= (sz) / (sizeof (char)))))
+    return __fgets_unlocked_chk_warn (__s, sz, __n, __stream);
+  return __fgets_unlocked_chk (__s, sz, __n, __stream);
 }
 #undef fread_unlocked
 extern size_t __fread_unlocked_chk (void *__restrict __ptr, size_t __ptrlen,
@@ -1796,36 +1898,32 @@ extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline
 fread_unlocked (void *__restrict __ptr, size_t __size, size_t __n,
   FILE *__restrict __stream)
 {
-  if (__builtin_object_size (__ptr, 0) != (size_t) -1)
+  size_t sz = __builtin_object_size (__ptr, 0);
+  if ((((__typeof (__n)) 0 < (__typeof (__n)) -1 || (__builtin_constant_p (__n) && (__n) > 0)) && __builtin_constant_p ((((long unsigned int) (__n)) <= (sz) / (__size))) && (((long unsigned int) (__n)) <= (sz) / (__size))))
     {
-      if (!__builtin_constant_p (__size)
-   || !__builtin_constant_p (__n)
-   || (__size | __n) >= (((size_t) 1) << (8 * sizeof (size_t) / 2)))
- return __fread_unlocked_chk (__ptr, __builtin_object_size (__ptr, 0), __size, __n,
-         __stream);
-      if (__size * __n > __builtin_object_size (__ptr, 0))
- return __fread_unlocked_chk_warn (__ptr, __builtin_object_size (__ptr, 0), __size, __n,
-       __stream);
-    }
-  if (__builtin_constant_p (__size)
-      && __builtin_constant_p (__n)
-      && (__size | __n) < (((size_t) 1) << (8 * sizeof (size_t) / 2))
-      && __size * __n <= 8)
-    {
-      size_t __cnt = __size * __n;
-      char *__cptr = (char *) __ptr;
-      if (__cnt == 0)
- return 0;
-      for (; __cnt > 0; --__cnt)
+      if (__builtin_constant_p (__size)
+   && __builtin_constant_p (__n)
+   && (__size | __n) < (((size_t) 1) << (8 * sizeof (size_t) / 2))
+   && __size * __n <= 8)
  {
-   int __c = getc_unlocked (__stream);
-   if (__c == (-1))
-     break;
-   *__cptr++ = __c;
+   size_t __cnt = __size * __n;
+   char *__cptr = (char *) __ptr;
+   if (__cnt == 0)
+     return 0;
+   for (; __cnt > 0; --__cnt)
+     {
+       int __c = getc_unlocked (__stream);
+       if (__c == (-1))
+  break;
+       *__cptr++ = __c;
+     }
+   return (__cptr - (char *) __ptr) / __size;
  }
-      return (__cptr - (char *) __ptr) / __size;
+      return __fread_unlocked_alias (__ptr, __size, __n, __stream);
     }
-  return __fread_unlocked_alias (__ptr, __size, __n, __stream);
+  if ((((__typeof (__n)) 0 < (__typeof (__n)) -1 || (__builtin_constant_p (__n) && (__n) > 0)) && __builtin_constant_p ((((long unsigned int) (__n)) <= (sz) / (__size))) && !(((long unsigned int) (__n)) <= (sz) / (__size))))
+    return __fread_unlocked_chk_warn (__ptr, sz, __size, __n, __stream);
+  return __fread_unlocked_chk (__ptr, sz, __size, __n, __stream);
 }
 
 #define _SYS_TYPES_H 1
@@ -2034,6 +2132,16 @@ typedef __fsfilcnt64_t fsfilcnt64_t;
 #define __SIZEOF_PTHREAD_RWLOCKATTR_T 8
 #define __LOCK_ALIGNMENT 
 #define __ONCE_ALIGNMENT 
+#define _BITS_ATOMIC_WIDE_COUNTER_H 
+typedef union
+{
+  __extension__ unsigned long long int __value64;
+  struct
+  {
+    unsigned int __low;
+    unsigned int __high;
+  } __value32;
+} __atomic_wide_counter;
 typedef struct __pthread_internal_list
 {
   struct __pthread_internal_list *__prev;
@@ -2074,30 +2182,21 @@ struct __pthread_rwlock_arch_t
 #define __PTHREAD_RWLOCK_INITIALIZER(__flags) 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, __flags
 struct __pthread_cond_s
 {
-  __extension__ union
-  {
-    __extension__ unsigned long long int __wseq;
-    struct
-    {
-      unsigned int __low;
-      unsigned int __high;
-    } __wseq32;
-  };
-  __extension__ union
-  {
-    __extension__ unsigned long long int __g1_start;
-    struct
-    {
-      unsigned int __low;
-      unsigned int __high;
-    } __g1_start32;
-  };
+  __atomic_wide_counter __wseq;
+  __atomic_wide_counter __g1_start;
   unsigned int __g_refs[2] ;
   unsigned int __g_size[2];
   unsigned int __g1_orig_size;
   unsigned int __wrefs;
   unsigned int __g_signals[2];
 };
+typedef unsigned int __tss_t;
+typedef unsigned long int __thrd_t;
+typedef struct
+{
+  int __data ;
+} __once_flag;
+#define __ONCE_FLAG_INIT { 0 }
 typedef unsigned long int pthread_t;
 typedef union
 {
@@ -2156,12 +2255,9 @@ typedef union
 #define _SYS_STAT_H 1
 
 #define _BITS_STAT_H 1
+#define _BITS_STRUCT_STAT_H 1
 #define __WORDSIZE 64
 #define __WORDSIZE_TIME64_COMPAT32 0
-#define _STAT_VER_KERNEL 0
-#define _STAT_VER_LINUX 0
-#define _STAT_VER _STAT_VER_KERNEL
-#define _MKNOD_VER_LINUX 0
 #define __field64(type,type64,name) type name
 struct stat
   {
@@ -2312,30 +2408,6 @@ extern int utimensat (int __fd, const char *__path,
         int __flags)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2)));
 extern int futimens (int __fd, const struct timespec __times[2]) __attribute__ ((__nothrow__ , __leaf__));
-#define _MKNOD_VER 0
-extern int __fxstat (int __ver, int __fildes, struct stat *__stat_buf)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (3)));
-extern int __xstat (int __ver, const char *__filename,
-      struct stat *__stat_buf) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2, 3)));
-extern int __lxstat (int __ver, const char *__filename,
-       struct stat *__stat_buf) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2, 3)));
-extern int __fxstatat (int __ver, int __fildes, const char *__filename,
-         struct stat *__stat_buf, int __flag)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (3, 4)));
-extern int __fxstat64 (int __ver, int __fildes, struct stat64 *__stat_buf)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (3)));
-extern int __xstat64 (int __ver, const char *__filename,
-        struct stat64 *__stat_buf) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2, 3)));
-extern int __lxstat64 (int __ver, const char *__filename,
-         struct stat64 *__stat_buf) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2, 3)));
-extern int __fxstatat64 (int __ver, int __fildes, const char *__filename,
-    struct stat64 *__stat_buf, int __flag)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (3, 4)));
-extern int __xmknod (int __ver, const char *__path, __mode_t __mode,
-       __dev_t *__dev) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2, 4)));
-extern int __xmknodat (int __ver, int __fd, const char *__path,
-         __mode_t __mode, __dev_t *__dev)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (3, 5)));
 #define _LINUX_STAT_H 
 #define _LINUX_TYPES_H 
 #define _ASM_GENERIC_TYPES_H 
@@ -2386,6 +2458,7 @@ typedef struct {
 } __kernel_fsid_t;
 typedef __kernel_long_t __kernel_off_t;
 typedef long long __kernel_loff_t;
+typedef __kernel_long_t __kernel_old_time_t;
 typedef __kernel_long_t __kernel_time_t;
 typedef long long __kernel_time64_t;
 typedef __kernel_long_t __kernel_clock_t;
@@ -2434,7 +2507,9 @@ struct statx {
  __u32 stx_rdev_minor;
  __u32 stx_dev_major;
  __u32 stx_dev_minor;
- __u64 __spare2[14];
+ __u64 stx_mnt_id;
+ __u64 __spare2;
+ __u64 __spare3[12];
 };
 #define STATX_TYPE 0x00000001U
 #define STATX_MODE 0x00000002U
@@ -2449,14 +2524,18 @@ struct statx {
 #define STATX_BLOCKS 0x00000400U
 #define STATX_BASIC_STATS 0x000007ffU
 #define STATX_BTIME 0x00000800U
-#define STATX_ALL 0x00000fffU
+#define STATX_MNT_ID 0x00001000U
 #define STATX__RESERVED 0x80000000U
+#define STATX_ALL 0x00000fffU
 #define STATX_ATTR_COMPRESSED 0x00000004
 #define STATX_ATTR_IMMUTABLE 0x00000010
 #define STATX_ATTR_APPEND 0x00000020
 #define STATX_ATTR_NODUMP 0x00000040
 #define STATX_ATTR_ENCRYPTED 0x00000800
 #define STATX_ATTR_AUTOMOUNT 0x00001000
+#define STATX_ATTR_MOUNT_ROOT 0x00002000
+#define STATX_ATTR_VERITY 0x00100000
+#define STATX_ATTR_DAX 0x00200000
 #define __statx_timestamp_defined 1
 #define __statx_defined 1
 
@@ -2464,56 +2543,6 @@ int statx (int __dirfd, const char *__restrict __path, int __flags,
            unsigned int __mask, struct statx *__restrict __buf)
   __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2, 5)));
 
-extern __inline __attribute__ ((__gnu_inline__)) int
-__attribute__ ((__nothrow__ , __leaf__)) stat (const char *__path, struct stat *__statbuf)
-{
-  return __xstat (0, __path, __statbuf);
-}
-extern __inline __attribute__ ((__gnu_inline__)) int
-__attribute__ ((__nothrow__ , __leaf__)) lstat (const char *__path, struct stat *__statbuf)
-{
-  return __lxstat (0, __path, __statbuf);
-}
-extern __inline __attribute__ ((__gnu_inline__)) int
-__attribute__ ((__nothrow__ , __leaf__)) fstat (int __fd, struct stat *__statbuf)
-{
-  return __fxstat (0, __fd, __statbuf);
-}
-extern __inline __attribute__ ((__gnu_inline__)) int
-__attribute__ ((__nothrow__ , __leaf__)) fstatat (int __fd, const char *__filename, struct stat *__statbuf, int __flag)
-{
-  return __fxstatat (0, __fd, __filename, __statbuf, __flag);
-}
-extern __inline __attribute__ ((__gnu_inline__)) int
-__attribute__ ((__nothrow__ , __leaf__)) mknod (const char *__path, __mode_t __mode, __dev_t __dev)
-{
-  return __xmknod (0, __path, __mode, &__dev);
-}
-extern __inline __attribute__ ((__gnu_inline__)) int
-__attribute__ ((__nothrow__ , __leaf__)) mknodat (int __fd, const char *__path, __mode_t __mode, __dev_t __dev)
-{
-  return __xmknodat (0, __fd, __path, __mode, &__dev);
-}
-extern __inline __attribute__ ((__gnu_inline__)) int
-__attribute__ ((__nothrow__ , __leaf__)) stat64 (const char *__path, struct stat64 *__statbuf)
-{
-  return __xstat64 (0, __path, __statbuf);
-}
-extern __inline __attribute__ ((__gnu_inline__)) int
-__attribute__ ((__nothrow__ , __leaf__)) lstat64 (const char *__path, struct stat64 *__statbuf)
-{
-  return __lxstat64 (0, __path, __statbuf);
-}
-extern __inline __attribute__ ((__gnu_inline__)) int
-__attribute__ ((__nothrow__ , __leaf__)) fstat64 (int __fd, struct stat64 *__statbuf)
-{
-  return __fxstat64 (0, __fd, __statbuf);
-}
-extern __inline __attribute__ ((__gnu_inline__)) int
-__attribute__ ((__nothrow__ , __leaf__)) fstatat64 (int __fd, const char *__filename, struct stat64 *__statbuf, int __flag)
-{
-  return __fxstatat64 (0, __fd, __filename, __statbuf, __flag);
-}
 
 #define __GLIBC_INTERNAL_STARTING_HEADER_IMPLEMENTATION 
 #undef __GLIBC_INTERNAL_STARTING_HEADER_IMPLEMENTATION
@@ -2523,6 +2552,8 @@ __attribute__ ((__nothrow__ , __leaf__)) fstatat64 (int __fd, const char *__file
 #define __GLIBC_USE_IEC_60559_BFP_EXT 1
 #undef __GLIBC_USE_IEC_60559_BFP_EXT_C2X
 #define __GLIBC_USE_IEC_60559_BFP_EXT_C2X 1
+#undef __GLIBC_USE_IEC_60559_EXT
+#define __GLIBC_USE_IEC_60559_EXT 1
 #undef __GLIBC_USE_IEC_60559_FUNCS_EXT
 #define __GLIBC_USE_IEC_60559_FUNCS_EXT 1
 #undef __GLIBC_USE_IEC_60559_FUNCS_EXT_C2X
@@ -2565,16 +2596,6 @@ typedef unsigned int wchar_t;
 #define __WNOTHREAD 0x20000000
 #define __WALL 0x40000000
 #define __WCLONE 0x80000000
-#define __ENUM_IDTYPE_T 1
-#undef P_ALL
-#undef P_PID
-#undef P_PGID
-typedef enum
-{
-  P_ALL,
-  P_PID,
-  P_PGID
-} idtype_t;
 #define __WEXITSTATUS(status) (((status) & 0xff00) >> 8)
 #define __WTERMSIG(status) ((status) & 0x7f)
 #define __WSTOPSIG(status) __WEXITSTATUS(status)
@@ -2594,37 +2615,6 @@ typedef enum
 #define WIFSIGNALED(status) __WIFSIGNALED (status)
 #define WIFSTOPPED(status) __WIFSTOPPED (status)
 #define WIFCONTINUED(status) __WIFCONTINUED (status)
-#define _BITS_FLOATN_H 
-#define __LONG_DOUBLE_USES_FLOAT128 0
-#define __HAVE_FLOAT128 1
-#define __HAVE_DISTINCT_FLOAT128 0
-#define __HAVE_FLOAT64X __HAVE_FLOAT128
-#define __HAVE_FLOAT64X_LONG_DOUBLE __HAVE_FLOAT128
-#define __f128(x) x ##f128
-#define __CFLOAT128 _Complex _Float128
-#define _BITS_FLOATN_COMMON_H 
-#define __LONG_DOUBLE_USES_FLOAT128 0
-#define __HAVE_FLOAT16 0
-#define __HAVE_FLOAT32 1
-#define __HAVE_FLOAT64 1
-#define __HAVE_FLOAT32X 1
-#define __HAVE_FLOAT128X 0
-#define __HAVE_DISTINCT_FLOAT16 __HAVE_FLOAT16
-#define __HAVE_DISTINCT_FLOAT32 0
-#define __HAVE_DISTINCT_FLOAT64 0
-#define __HAVE_DISTINCT_FLOAT32X 0
-#define __HAVE_DISTINCT_FLOAT64X 0
-#define __HAVE_DISTINCT_FLOAT128X __HAVE_FLOAT128X
-#define __HAVE_FLOAT128_UNLIKE_LDBL (__HAVE_DISTINCT_FLOAT128 && __LDBL_MANT_DIG__ != 113)
-#define __HAVE_FLOATN_NOT_TYPEDEF 1
-#define __f32(x) x ##f32
-#define __f64(x) x ##f64
-#define __f32x(x) x ##f32x
-#define __f64x(x) x ##f64x
-#define __CFLOAT32 _Complex _Float32
-#define __CFLOAT64 _Complex _Float64
-#define __CFLOAT32X _Complex _Float32x
-#define __CFLOAT64X _Complex _Float64x
 typedef struct
   {
     int quot;
@@ -2882,10 +2872,13 @@ extern void *calloc (size_t __nmemb, size_t __size)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__)) __attribute__ ((__alloc_size__ (1, 2))) __attribute__ ((__warn_unused_result__));
 extern void *realloc (void *__ptr, size_t __size)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__)) __attribute__ ((__alloc_size__ (2)));
+extern void free (void *__ptr) __attribute__ ((__nothrow__ , __leaf__));
 extern void *reallocarray (void *__ptr, size_t __nmemb, size_t __size)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__))
-     __attribute__ ((__alloc_size__ (2, 3)));
-extern void free (void *__ptr) __attribute__ ((__nothrow__ , __leaf__));
+     __attribute__ ((__alloc_size__ (2, 3)))
+    __attribute__ ((__malloc__ (__builtin_free, 1)));
+extern void *reallocarray (void *__ptr, size_t __nmemb, size_t __size)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__ (reallocarray, 1)));
 #define _ALLOCA_H 1
 #define __need_size_t 
 #undef __need_size_t
@@ -2900,7 +2893,8 @@ extern void *valloc (size_t __size) __attribute__ ((__nothrow__ , __leaf__)) __a
 extern int posix_memalign (void **__memptr, size_t __alignment, size_t __size)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) __attribute__ ((__warn_unused_result__));
 extern void *aligned_alloc (size_t __alignment, size_t __size)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__)) __attribute__ ((__alloc_size__ (2))) __attribute__ ((__warn_unused_result__));
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__)) __attribute__ ((__alloc_align__ (1)))
+     __attribute__ ((__alloc_size__ (2))) __attribute__ ((__warn_unused_result__));
 extern void abort (void) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
 extern int atexit (void (*__func) (void)) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
 extern int at_quick_exit (void (*__func) (void)) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
@@ -2932,7 +2926,8 @@ extern int mkostemps64 (char *__template, int __suffixlen, int __flags)
      __attribute__ ((__nonnull__ (1))) __attribute__ ((__warn_unused_result__));
 extern int system (const char *__command) __attribute__ ((__warn_unused_result__));
 extern char *canonicalize_file_name (const char *__name)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) __attribute__ ((__warn_unused_result__));
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) __attribute__ ((__malloc__))
+     __attribute__ ((__malloc__ (__builtin_free, 1))) __attribute__ ((__warn_unused_result__));
 extern char *realpath (const char *__restrict __name,
          char *__restrict __resolved) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
 #define __COMPAR_FN_T 
@@ -2954,14 +2949,19 @@ bsearch (const void *__key, const void *__base, size_t __nmemb, size_t __size,
   while (__l < __u)
     {
       __idx = (__l + __u) / 2;
-      __p = (void *) (((const char *) __base) + (__idx * __size));
+      __p = (const void *) (((const char *) __base) + (__idx * __size));
       __comparison = (*__compar) (__key, __p);
       if (__comparison < 0)
  __u = __idx;
       else if (__comparison > 0)
  __l = __idx + 1;
       else
- return (void *) __p;
+ {
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wcast-qual"
+   return (void *) __p;
+#pragma GCC diagnostic pop
+ }
     }
   return ((void *)0);
 }
@@ -3014,10 +3014,13 @@ extern int mbtowc (wchar_t *__restrict __pwc,
      const char *__restrict __s, size_t __n) __attribute__ ((__nothrow__ , __leaf__));
 extern int wctomb (char *__s, wchar_t __wchar) __attribute__ ((__nothrow__ , __leaf__));
 extern size_t mbstowcs (wchar_t *__restrict __pwcs,
-   const char *__restrict __s, size_t __n) __attribute__ ((__nothrow__ , __leaf__));
+   const char *__restrict __s, size_t __n) __attribute__ ((__nothrow__ , __leaf__))
+    __attribute__ ((__access__ (__read_only__, 2)));
 extern size_t wcstombs (char *__restrict __s,
    const wchar_t *__restrict __pwcs, size_t __n)
-     __attribute__ ((__nothrow__ , __leaf__));
+     __attribute__ ((__nothrow__ , __leaf__))
+  __attribute__ ((__access__ (__write_only__, 1, 3)))
+  __attribute__ ((__access__ (__read_only__, 2)));
 extern int rpmatch (const char *__response) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) __attribute__ ((__warn_unused_result__));
 extern int getsubopt (char **__restrict __optionp,
         char *const *__restrict __tokens,
@@ -3028,7 +3031,7 @@ extern int grantpt (int __fd) __attribute__ ((__nothrow__ , __leaf__));
 extern int unlockpt (int __fd) __attribute__ ((__nothrow__ , __leaf__));
 extern char *ptsname (int __fd) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
 extern int ptsname_r (int __fd, char *__buf, size_t __buflen)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2)));
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2))) __attribute__ ((__access__ (__write_only__, 2, 3)));
 extern int getpt (void);
 extern int getloadavg (double __loadavg[], int __nelem)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
@@ -3046,29 +3049,22 @@ extern char *__realpath_chk_warn (const char *__restrict __name, char *__restric
 extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) __attribute__ ((__warn_unused_result__)) char *
 __attribute__ ((__nothrow__ , __leaf__)) realpath (const char *__restrict __name, char *__restrict __resolved)
 {
-  if (__builtin_object_size (__resolved, 2 > 1) != (size_t) -1)
-    {
-      return __realpath_chk (__name, __resolved, __builtin_object_size (__resolved, 2 > 1));
-    }
-  return __realpath_alias (__name, __resolved);
+  size_t sz = __builtin_object_size (__resolved, 2 > 1);
+  if (sz == (size_t) -1)
+    return __realpath_alias (__name, __resolved);
+  return __realpath_chk (__name, __resolved, sz);
 }
 extern int __ptsname_r_chk (int __fd, char *__buf, size_t __buflen,
-       size_t __nreal) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2)));
+       size_t __nreal) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2)))
+    __attribute__ ((__access__ (__write_only__, 2, 3)));
 extern int __ptsname_r_alias (int __fd, char *__buf, size_t __buflen) __asm__ ("" "ptsname_r") __attribute__ ((__nothrow__ , __leaf__))
-     __attribute__ ((__nonnull__ (2)));
+     __attribute__ ((__nonnull__ (2))) __attribute__ ((__access__ (__write_only__, 2, 3)));
 extern int __ptsname_r_chk_warn (int __fd, char *__buf, size_t __buflen, size_t __nreal) __asm__ ("" "__ptsname_r_chk") __attribute__ ((__nothrow__ , __leaf__))
      __attribute__ ((__nonnull__ (2))) __attribute__((__warning__ ("ptsname_r called with buflen bigger than " "size of buf")));
 extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) int
 __attribute__ ((__nothrow__ , __leaf__)) ptsname_r (int __fd, char *__buf, size_t __buflen)
 {
-  if (__builtin_object_size (__buf, 2 > 1) != (size_t) -1)
-    {
-      if (!__builtin_constant_p (__buflen))
- return __ptsname_r_chk (__fd, __buf, __buflen, __builtin_object_size (__buf, 2 > 1));
-      if (__buflen > __builtin_object_size (__buf, 2 > 1))
- return __ptsname_r_chk_warn (__fd, __buf, __buflen, __builtin_object_size (__buf, 2 > 1));
-    }
-  return __ptsname_r_alias (__fd, __buf, __buflen);
+  return ((((__typeof (__buflen)) 0 < (__typeof (__buflen)) -1 || (__builtin_constant_p (__buflen) && (__buflen) > 0)) && __builtin_constant_p ((((long unsigned int) (__buflen)) <= (__builtin_object_size (__buf, 2 > 1)) / (sizeof (char)))) && (((long unsigned int) (__buflen)) <= (__builtin_object_size (__buf, 2 > 1)) / (sizeof (char)))) ? __ptsname_r_alias (__fd, __buf, __buflen) : ((((__typeof (__buflen)) 0 < (__typeof (__buflen)) -1 || (__builtin_constant_p (__buflen) && (__buflen) > 0)) && __builtin_constant_p ((((long unsigned int) (__buflen)) <= (__builtin_object_size (__buf, 2 > 1)) / (sizeof (char)))) && !(((long unsigned int) (__buflen)) <= (__builtin_object_size (__buf, 2 > 1)) / (sizeof (char)))) ? __ptsname_r_chk_warn (__fd, __buf, __buflen, __builtin_object_size (__buf, 2 > 1)) : __ptsname_r_chk (__fd, __buf, __buflen, __builtin_object_size (__buf, 2 > 1))));
 }
 extern int __wctomb_chk (char *__s, wchar_t __wchar, size_t __buflen)
   __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
@@ -3077,47 +3073,36 @@ extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline
 __attribute__ ((__nothrow__ , __leaf__)) wctomb (char *__s, wchar_t __wchar)
 {
 #define __STDLIB_MB_LEN_MAX 16
-  if (__builtin_object_size (__s, 2 > 1) != (size_t) -1 && 16 > __builtin_object_size (__s, 2 > 1))
+  if (__builtin_object_size (__s, 2 > 1) != (size_t) -1
+      && 16 > __builtin_object_size (__s, 2 > 1))
     return __wctomb_chk (__s, __wchar, __builtin_object_size (__s, 2 > 1));
   return __wctomb_alias (__s, __wchar);
 }
 extern size_t __mbstowcs_chk (wchar_t *__restrict __dst,
          const char *__restrict __src,
-         size_t __len, size_t __dstlen) __attribute__ ((__nothrow__ , __leaf__));
-extern size_t __mbstowcs_alias (wchar_t *__restrict __dst, const char *__restrict __src, size_t __len) __asm__ ("" "mbstowcs") __attribute__ ((__nothrow__ , __leaf__));
+         size_t __len, size_t __dstlen) __attribute__ ((__nothrow__ , __leaf__))
+    __attribute__ ((__access__ (__write_only__, 1, 3))) __attribute__ ((__access__ (__read_only__, 2)));
+extern size_t __mbstowcs_alias (wchar_t *__restrict __dst, const char *__restrict __src, size_t __len) __asm__ ("" "mbstowcs") __attribute__ ((__nothrow__ , __leaf__))
+    __attribute__ ((__access__ (__write_only__, 1, 3))) __attribute__ ((__access__ (__read_only__, 2)));
 extern size_t __mbstowcs_chk_warn (wchar_t *__restrict __dst, const char *__restrict __src, size_t __len, size_t __dstlen) __asm__ ("" "__mbstowcs_chk") __attribute__ ((__nothrow__ , __leaf__))
      __attribute__((__warning__ ("mbstowcs called with dst buffer smaller than len " "* sizeof (wchar_t)")));
 extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) size_t
 __attribute__ ((__nothrow__ , __leaf__)) mbstowcs (wchar_t *__restrict __dst, const char *__restrict __src, size_t __len)
 {
-  if (__builtin_object_size (__dst, 2 > 1) != (size_t) -1)
-    {
-      if (!__builtin_constant_p (__len))
- return __mbstowcs_chk (__dst, __src, __len,
-          __builtin_object_size (__dst, 2 > 1) / sizeof (wchar_t));
-      if (__len > __builtin_object_size (__dst, 2 > 1) / sizeof (wchar_t))
- return __mbstowcs_chk_warn (__dst, __src, __len,
-         __builtin_object_size (__dst, 2 > 1) / sizeof (wchar_t));
-    }
-  return __mbstowcs_alias (__dst, __src, __len);
+  return ((((__typeof (__len)) 0 < (__typeof (__len)) -1 || (__builtin_constant_p (__len) && (__len) > 0)) && __builtin_constant_p ((((long unsigned int) (__len)) <= (__builtin_object_size (__dst, 2 > 1)) / (sizeof (wchar_t)))) && (((long unsigned int) (__len)) <= (__builtin_object_size (__dst, 2 > 1)) / (sizeof (wchar_t)))) ? __mbstowcs_alias (__dst, __src, __len) : ((((__typeof (__len)) 0 < (__typeof (__len)) -1 || (__builtin_constant_p (__len) && (__len) > 0)) && __builtin_constant_p ((((long unsigned int) (__len)) <= (__builtin_object_size (__dst, 2 > 1)) / (sizeof (wchar_t)))) && !(((long unsigned int) (__len)) <= (__builtin_object_size (__dst, 2 > 1)) / (sizeof (wchar_t)))) ? __mbstowcs_chk_warn (__dst, __src, __len, (__builtin_object_size (__dst, 2 > 1)) / (sizeof (wchar_t))) : __mbstowcs_chk (__dst, __src, __len, (__builtin_object_size (__dst, 2 > 1)) / (sizeof (wchar_t)))));
 }
 extern size_t __wcstombs_chk (char *__restrict __dst,
          const wchar_t *__restrict __src,
-         size_t __len, size_t __dstlen) __attribute__ ((__nothrow__ , __leaf__));
-extern size_t __wcstombs_alias (char *__restrict __dst, const wchar_t *__restrict __src, size_t __len) __asm__ ("" "wcstombs") __attribute__ ((__nothrow__ , __leaf__));
+         size_t __len, size_t __dstlen) __attribute__ ((__nothrow__ , __leaf__))
+  __attribute__ ((__access__ (__write_only__, 1, 3))) __attribute__ ((__access__ (__read_only__, 2)));
+extern size_t __wcstombs_alias (char *__restrict __dst, const wchar_t *__restrict __src, size_t __len) __asm__ ("" "wcstombs") __attribute__ ((__nothrow__ , __leaf__))
+  __attribute__ ((__access__ (__write_only__, 1, 3))) __attribute__ ((__access__ (__read_only__, 2)));
 extern size_t __wcstombs_chk_warn (char *__restrict __dst, const wchar_t *__restrict __src, size_t __len, size_t __dstlen) __asm__ ("" "__wcstombs_chk") __attribute__ ((__nothrow__ , __leaf__))
      __attribute__((__warning__ ("wcstombs called with dst buffer smaller than len")));
 extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) size_t
 __attribute__ ((__nothrow__ , __leaf__)) wcstombs (char *__restrict __dst, const wchar_t *__restrict __src, size_t __len)
 {
-  if (__builtin_object_size (__dst, 2 > 1) != (size_t) -1)
-    {
-      if (!__builtin_constant_p (__len))
- return __wcstombs_chk (__dst, __src, __len, __builtin_object_size (__dst, 2 > 1));
-      if (__len > __builtin_object_size (__dst, 2 > 1))
- return __wcstombs_chk_warn (__dst, __src, __len, __builtin_object_size (__dst, 2 > 1));
-    }
-  return __wcstombs_alias (__dst, __src, __len);
+  return ((((__typeof (__len)) 0 < (__typeof (__len)) -1 || (__builtin_constant_p (__len) && (__len) > 0)) && __builtin_constant_p ((((long unsigned int) (__len)) <= (__builtin_object_size (__dst, 2 > 1)) / (sizeof (char)))) && (((long unsigned int) (__len)) <= (__builtin_object_size (__dst, 2 > 1)) / (sizeof (char)))) ? __wcstombs_alias (__dst, __src, __len) : ((((__typeof (__len)) 0 < (__typeof (__len)) -1 || (__builtin_constant_p (__len) && (__len) > 0)) && __builtin_constant_p ((((long unsigned int) (__len)) <= (__builtin_object_size (__dst, 2 > 1)) / (sizeof (char)))) && !(((long unsigned int) (__len)) <= (__builtin_object_size (__dst, 2 > 1)) / (sizeof (char)))) ? __wcstombs_chk_warn (__dst, __src, __len, __builtin_object_size (__dst, 2 > 1)) : __wcstombs_chk (__dst, __src, __len, __builtin_object_size (__dst, 2 > 1))));
 }
 
 #define _STDDEF_H 
@@ -3149,6 +3134,8 @@ typedef long int ptrdiff_t;
 #define __GLIBC_USE_IEC_60559_BFP_EXT 1
 #undef __GLIBC_USE_IEC_60559_BFP_EXT_C2X
 #define __GLIBC_USE_IEC_60559_BFP_EXT_C2X 1
+#undef __GLIBC_USE_IEC_60559_EXT
+#define __GLIBC_USE_IEC_60559_EXT 1
 #undef __GLIBC_USE_IEC_60559_FUNCS_EXT
 #define __GLIBC_USE_IEC_60559_FUNCS_EXT 1
 #undef __GLIBC_USE_IEC_60559_FUNCS_EXT_C2X
@@ -3171,16 +3158,19 @@ extern void *memmove (void *__dest, const void *__src, size_t __n)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
 extern void *memccpy (void *__restrict __dest, const void *__restrict __src,
         int __c, size_t __n)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
+    __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2))) __attribute__ ((__access__ (__write_only__, 1, 4)));
 extern void *memset (void *__s, int __c, size_t __n) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
 extern int memcmp (const void *__s1, const void *__s2, size_t __n)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+extern int __memcmpeq (const void *__s1, const void *__s2, size_t __n)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
 extern void *memchr (const void *__s, int __c, size_t __n)
       __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
 extern void *rawmemchr (const void *__s, int __c)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
 extern void *memrchr (const void *__s, int __c, size_t __n)
-      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)))
+      __attribute__ ((__access__ (__read_only__, 1, 3)));
 extern char *strcpy (char *__restrict __dest, const char *__restrict __src)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
 extern char *strncpy (char *__restrict __dest,
@@ -3198,11 +3188,12 @@ extern int strcoll (const char *__s1, const char *__s2)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
 extern size_t strxfrm (char *__restrict __dest,
          const char *__restrict __src, size_t __n)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2)));
+    __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2))) __attribute__ ((__access__ (__write_only__, 1, 3)));
 extern int strcoll_l (const char *__s1, const char *__s2, locale_t __l)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2, 3)));
 extern size_t strxfrm_l (char *__dest, const char *__src, size_t __n,
-    locale_t __l) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2, 4)));
+    locale_t __l) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2, 4)))
+     __attribute__ ((__access__ (__write_only__, 1, 3)));
 extern char *strdup (const char *__s)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__)) __attribute__ ((__nonnull__ (1)));
 extern char *strndup (const char *__string, size_t __n)
@@ -3236,7 +3227,9 @@ extern char *strcasestr (const char *__haystack, const char *__needle)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
 extern void *memmem (const void *__haystack, size_t __haystacklen,
        const void *__needle, size_t __needlelen)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 3)));
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 3)))
+    __attribute__ ((__access__ (__read_only__, 1, 2)))
+    __attribute__ ((__access__ (__read_only__, 3, 4)));
 extern void *__mempcpy (void *__restrict __dest,
    const void *__restrict __src, size_t __n)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
@@ -3249,7 +3242,9 @@ extern size_t strnlen (const char *__string, size_t __maxlen)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
 extern char *strerror (int __errnum) __attribute__ ((__nothrow__ , __leaf__));
 extern char *strerror_r (int __errnum, char *__buf, size_t __buflen)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2))) __attribute__ ((__warn_unused_result__));
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2))) __attribute__ ((__warn_unused_result__)) __attribute__ ((__access__ (__write_only__, 2, 3)));
+extern const char *strerrordesc_np (int __err) __attribute__ ((__nothrow__ , __leaf__));
+extern const char *strerrorname_np (int __err) __attribute__ ((__nothrow__ , __leaf__));
 extern char *strerror_l (int __errnum, locale_t __l) __attribute__ ((__nothrow__ , __leaf__));
 #define _STRINGS_H 1
 #define __need_size_t 
@@ -3288,18 +3283,23 @@ extern int strncasecmp_l (const char *__s1, const char *__s2,
 extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) void
 __attribute__ ((__nothrow__ , __leaf__)) bcopy (const void *__src, void *__dest, size_t __len)
 {
-  (void) __builtin___memmove_chk (__dest, __src, __len, __builtin_object_size (__dest, 0));
+  (void) __builtin___memmove_chk (__dest, __src, __len,
+      __builtin_object_size (__dest, 0));
 }
 extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) void
 __attribute__ ((__nothrow__ , __leaf__)) bzero (void *__dest, size_t __len)
 {
-  (void) __builtin___memset_chk (__dest, '\0', __len, __builtin_object_size (__dest, 0));
+  (void) __builtin___memset_chk (__dest, '\0', __len,
+     __builtin_object_size (__dest, 0));
 }
-extern void explicit_bzero (void *__s, size_t __n) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+extern void explicit_bzero (void *__s, size_t __n) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)))
+    __attribute__ ((__access__ (__write_only__, 1, 2)));
 extern char *strsep (char **__restrict __stringp,
        const char *__restrict __delim)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
 extern char *strsignal (int __sig) __attribute__ ((__nothrow__ , __leaf__));
+extern const char *sigabbrev_np (int __sig) __attribute__ ((__nothrow__ , __leaf__));
+extern const char *sigdescr_np (int __sig) __attribute__ ((__nothrow__ , __leaf__));
 extern char *__stpcpy (char *__restrict __dest, const char *__restrict __src)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
 extern char *stpcpy (char *__restrict __dest, const char *__restrict __src)
@@ -3313,31 +3313,36 @@ extern char *stpncpy (char *__restrict __dest,
 extern int strverscmp (const char *__s1, const char *__s2)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
 extern char *strfry (char *__string) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
-extern void *memfrob (void *__s, size_t __n) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+extern void *memfrob (void *__s, size_t __n) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)))
+    __attribute__ ((__access__ (__read_write__, 1, 2)));
 extern char *basename (const char *__filename) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
 #define _BITS_STRING_FORTIFIED_H 1
 extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) void *
 __attribute__ ((__nothrow__ , __leaf__)) memcpy (void *__restrict __dest, const void *__restrict __src, size_t __len)
 {
-  return __builtin___memcpy_chk (__dest, __src, __len, __builtin_object_size (__dest, 0));
+  return __builtin___memcpy_chk (__dest, __src, __len,
+     __builtin_object_size (__dest, 0));
 }
 extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) void *
 __attribute__ ((__nothrow__ , __leaf__)) memmove (void *__dest, const void *__src, size_t __len)
 {
-  return __builtin___memmove_chk (__dest, __src, __len, __builtin_object_size (__dest, 0));
+  return __builtin___memmove_chk (__dest, __src, __len,
+      __builtin_object_size (__dest, 0));
 }
 extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) void *
 __attribute__ ((__nothrow__ , __leaf__)) mempcpy (void *__restrict __dest, const void *__restrict __src, size_t __len)
 {
-  return __builtin___mempcpy_chk (__dest, __src, __len, __builtin_object_size (__dest, 0));
+  return __builtin___mempcpy_chk (__dest, __src, __len,
+      __builtin_object_size (__dest, 0));
 }
 extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) void *
 __attribute__ ((__nothrow__ , __leaf__)) memset (void *__dest, int __ch, size_t __len)
 {
-  return __builtin___memset_chk (__dest, __ch, __len, __builtin_object_size (__dest, 0));
+  return __builtin___memset_chk (__dest, __ch, __len,
+     __builtin_object_size (__dest, 0));
 }
 void __explicit_bzero_chk (void *__dest, size_t __len, size_t __destlen)
-  __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+  __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) __attribute__ ((__access__ (__write_only__, 1, 2)));
 extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) void
 __attribute__ ((__nothrow__ , __leaf__)) explicit_bzero (void *__dest, size_t __len)
 {
@@ -3356,18 +3361,14 @@ __attribute__ ((__nothrow__ , __leaf__)) stpcpy (char *__restrict __dest, const 
 extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) char *
 __attribute__ ((__nothrow__ , __leaf__)) strncpy (char *__restrict __dest, const char *__restrict __src, size_t __len)
 {
-  return __builtin___strncpy_chk (__dest, __src, __len, __builtin_object_size (__dest, 2 > 1));
+  return __builtin___strncpy_chk (__dest, __src, __len,
+      __builtin_object_size (__dest, 2 > 1));
 }
-extern char *__stpncpy_chk (char *__dest, const char *__src, size_t __n,
-       size_t __destlen) __attribute__ ((__nothrow__ , __leaf__));
-extern char *__stpncpy_alias (char *__dest, const char *__src, size_t __n) __asm__ ("" "stpncpy") __attribute__ ((__nothrow__ , __leaf__));
 extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) char *
 __attribute__ ((__nothrow__ , __leaf__)) stpncpy (char *__dest, const char *__src, size_t __n)
 {
-  if (__builtin_object_size (__dest, 2 > 1) != (size_t) -1
-      && (!__builtin_constant_p (__n) || __n > __builtin_object_size (__dest, 2 > 1)))
-    return __stpncpy_chk (__dest, __src, __n, __builtin_object_size (__dest, 2 > 1));
-  return __stpncpy_alias (__dest, __src, __n);
+  return __builtin___stpncpy_chk (__dest, __src, __n,
+      __builtin_object_size (__dest, 2 > 1));
 }
 extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) char *
 __attribute__ ((__nothrow__ , __leaf__)) strcat (char *__restrict __dest, const char *__restrict __src)
@@ -3377,7 +3378,8 @@ __attribute__ ((__nothrow__ , __leaf__)) strcat (char *__restrict __dest, const 
 extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) char *
 __attribute__ ((__nothrow__ , __leaf__)) strncat (char *__restrict __dest, const char *__restrict __src, size_t __len)
 {
-  return __builtin___strncat_chk (__dest, __src, __len, __builtin_object_size (__dest, 2 > 1));
+  return __builtin___strncat_chk (__dest, __src, __len,
+      __builtin_object_size (__dest, 2 > 1));
 }
 
 #define _INTTYPES_H 1
@@ -3390,6 +3392,8 @@ __attribute__ ((__nothrow__ , __leaf__)) strncat (char *__restrict __dest, const
 #define __GLIBC_USE_IEC_60559_BFP_EXT 1
 #undef __GLIBC_USE_IEC_60559_BFP_EXT_C2X
 #define __GLIBC_USE_IEC_60559_BFP_EXT_C2X 1
+#undef __GLIBC_USE_IEC_60559_EXT
+#define __GLIBC_USE_IEC_60559_EXT 1
 #undef __GLIBC_USE_IEC_60559_FUNCS_EXT
 #define __GLIBC_USE_IEC_60559_FUNCS_EXT 1
 #undef __GLIBC_USE_IEC_60559_FUNCS_EXT_C2X
@@ -3701,44 +3705,6 @@ extern intmax_t wcstoimax (const __gwchar_t *__restrict __nptr,
 extern uintmax_t wcstoumax (const __gwchar_t *__restrict __nptr,
        __gwchar_t ** __restrict __endptr, int __base)
      __attribute__ ((__nothrow__ , __leaf__));
-extern long int __strtol_internal (const char *__restrict __nptr,
-       char **__restrict __endptr,
-       int __base, int __group)
-  __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) __attribute__ ((__warn_unused_result__));
-extern __inline __attribute__ ((__gnu_inline__)) intmax_t
-__attribute__ ((__nothrow__ , __leaf__)) strtoimax (const char *__restrict nptr, char **__restrict endptr, int base)
-{
-  return __strtol_internal (nptr, endptr, base, 0);
-}
-extern unsigned long int __strtoul_internal (const char *__restrict __nptr,
-          char ** __restrict __endptr,
-          int __base, int __group)
-  __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) __attribute__ ((__warn_unused_result__));
-extern __inline __attribute__ ((__gnu_inline__)) uintmax_t
-__attribute__ ((__nothrow__ , __leaf__)) strtoumax (const char *__restrict nptr, char **__restrict endptr, int base)
-{
-  return __strtoul_internal (nptr, endptr, base, 0);
-}
-extern long int __wcstol_internal (const __gwchar_t * __restrict __nptr,
-       __gwchar_t **__restrict __endptr,
-       int __base, int __group)
-  __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) __attribute__ ((__warn_unused_result__));
-extern __inline __attribute__ ((__gnu_inline__)) intmax_t
-__attribute__ ((__nothrow__ , __leaf__)) wcstoimax (const __gwchar_t *__restrict nptr, __gwchar_t **__restrict endptr, int base)
-{
-  return __wcstol_internal (nptr, endptr, base, 0);
-}
-extern unsigned long int __wcstoul_internal (const __gwchar_t *
-          __restrict __nptr,
-          __gwchar_t **
-          __restrict __endptr,
-          int __base, int __group)
-  __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) __attribute__ ((__warn_unused_result__));
-extern __inline __attribute__ ((__gnu_inline__)) uintmax_t
-__attribute__ ((__nothrow__ , __leaf__)) wcstoumax (const __gwchar_t *__restrict nptr, __gwchar_t **__restrict endptr, int base)
-{
-  return __wcstoul_internal (nptr, endptr, base, 0);
-}
 
 #define _STDALIGN_H 
 #define alignas _Alignas
@@ -3862,6 +3828,9 @@ extern int euidaccess (const char *__name, int __type)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
 extern int eaccess (const char *__name, int __type)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+extern int execveat (int __fd, const char *__path, char *const __argv[],
+                     char *const __envp[], int __flags)
+    __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2, 3)));
 extern int faccessat (int __fd, const char *__file, int __type, int __flag)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2))) __attribute__ ((__warn_unused_result__));
 #define L_SET SEEK_SET
@@ -3871,16 +3840,23 @@ extern __off_t lseek (int __fd, __off_t __offset, int __whence) __attribute__ ((
 extern __off64_t lseek64 (int __fd, __off64_t __offset, int __whence)
      __attribute__ ((__nothrow__ , __leaf__));
 extern int close (int __fd);
-extern ssize_t read (int __fd, void *__buf, size_t __nbytes) __attribute__ ((__warn_unused_result__));
-extern ssize_t write (int __fd, const void *__buf, size_t __n) __attribute__ ((__warn_unused_result__));
+extern void closefrom (int __lowfd) __attribute__ ((__nothrow__ , __leaf__));
+extern ssize_t read (int __fd, void *__buf, size_t __nbytes) __attribute__ ((__warn_unused_result__))
+    __attribute__ ((__access__ (__write_only__, 2, 3)));
+extern ssize_t write (int __fd, const void *__buf, size_t __n) __attribute__ ((__warn_unused_result__))
+    __attribute__ ((__access__ (__read_only__, 2, 3)));
 extern ssize_t pread (int __fd, void *__buf, size_t __nbytes,
-        __off_t __offset) __attribute__ ((__warn_unused_result__));
+        __off_t __offset) __attribute__ ((__warn_unused_result__))
+    __attribute__ ((__access__ (__write_only__, 2, 3)));
 extern ssize_t pwrite (int __fd, const void *__buf, size_t __n,
-         __off_t __offset) __attribute__ ((__warn_unused_result__));
+         __off_t __offset) __attribute__ ((__warn_unused_result__))
+    __attribute__ ((__access__ (__read_only__, 2, 3)));
 extern ssize_t pread64 (int __fd, void *__buf, size_t __nbytes,
-   __off64_t __offset) __attribute__ ((__warn_unused_result__));
+   __off64_t __offset) __attribute__ ((__warn_unused_result__))
+    __attribute__ ((__access__ (__write_only__, 2, 3)));
 extern ssize_t pwrite64 (int __fd, const void *__buf, size_t __n,
-    __off64_t __offset) __attribute__ ((__warn_unused_result__));
+    __off64_t __offset) __attribute__ ((__warn_unused_result__))
+    __attribute__ ((__access__ (__read_only__, 2, 3)));
 extern int pipe (int __pipedes[2]) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
 extern int pipe2 (int __pipedes[2], int __flags) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
 extern unsigned int alarm (unsigned int __seconds) __attribute__ ((__nothrow__ , __leaf__));
@@ -3902,7 +3878,8 @@ extern int fchdir (int __fd) __attribute__ ((__nothrow__ , __leaf__)) __attribut
 extern char *getcwd (char *__buf, size_t __size) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
 extern char *get_current_dir_name (void) __attribute__ ((__nothrow__ , __leaf__));
 extern char *getwd (char *__buf)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) __attribute__ ((__deprecated__)) __attribute__ ((__warn_unused_result__));
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) __attribute__ ((__deprecated__)) __attribute__ ((__warn_unused_result__))
+    __attribute__ ((__access__ (__write_only__, 1)));
 extern int dup (int __fd) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
 extern int dup2 (int __fd, int __fd2) __attribute__ ((__nothrow__ , __leaf__));
 extern int dup3 (int __fd, int __fd2, int __flags) __attribute__ ((__nothrow__ , __leaf__));
@@ -4403,8 +4380,12 @@ enum
 #define _SC_XOPEN_STREAMS _SC_XOPEN_STREAMS
     _SC_THREAD_ROBUST_PRIO_INHERIT,
 #define _SC_THREAD_ROBUST_PRIO_INHERIT _SC_THREAD_ROBUST_PRIO_INHERIT
-    _SC_THREAD_ROBUST_PRIO_PROTECT
+    _SC_THREAD_ROBUST_PRIO_PROTECT,
 #define _SC_THREAD_ROBUST_PRIO_PROTECT _SC_THREAD_ROBUST_PRIO_PROTECT
+    _SC_MINSIGSTKSZ,
+#define _SC_MINSIGSTKSZ _SC_MINSIGSTKSZ
+    _SC_SIGSTKSZ
+#define _SC_SIGSTKSZ _SC_SIGSTKSZ
   };
 enum
   {
@@ -4544,7 +4525,8 @@ extern long int pathconf (const char *__path, int __name)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
 extern long int fpathconf (int __fd, int __name) __attribute__ ((__nothrow__ , __leaf__));
 extern long int sysconf (int __name) __attribute__ ((__nothrow__ , __leaf__));
-extern size_t confstr (int __name, char *__buf, size_t __len) __attribute__ ((__nothrow__ , __leaf__));
+extern size_t confstr (int __name, char *__buf, size_t __len) __attribute__ ((__nothrow__ , __leaf__))
+    __attribute__ ((__access__ (__write_only__, 2, 3)));
 extern __pid_t getpid (void) __attribute__ ((__nothrow__ , __leaf__));
 extern __pid_t getppid (void) __attribute__ ((__nothrow__ , __leaf__));
 extern __pid_t getpgrp (void) __attribute__ ((__nothrow__ , __leaf__));
@@ -4558,7 +4540,8 @@ extern __uid_t getuid (void) __attribute__ ((__nothrow__ , __leaf__));
 extern __uid_t geteuid (void) __attribute__ ((__nothrow__ , __leaf__));
 extern __gid_t getgid (void) __attribute__ ((__nothrow__ , __leaf__));
 extern __gid_t getegid (void) __attribute__ ((__nothrow__ , __leaf__));
-extern int getgroups (int __size, __gid_t __list[]) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
+extern int getgroups (int __size, __gid_t __list[]) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__))
+    __attribute__ ((__access__ (__write_only__, 2, 1)));
 extern int group_member (__gid_t __gid) __attribute__ ((__nothrow__ , __leaf__));
 extern int setuid (__uid_t __uid) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
 extern int setreuid (__uid_t __ruid, __uid_t __euid) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
@@ -4576,9 +4559,11 @@ extern int setresgid (__gid_t __rgid, __gid_t __egid, __gid_t __sgid)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
 extern __pid_t fork (void) __attribute__ ((__nothrow__));
 extern __pid_t vfork (void) __attribute__ ((__nothrow__ , __leaf__));
+extern __pid_t _Fork (void) __attribute__ ((__nothrow__ , __leaf__));
 extern char *ttyname (int __fd) __attribute__ ((__nothrow__ , __leaf__));
 extern int ttyname_r (int __fd, char *__buf, size_t __buflen)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2))) __attribute__ ((__warn_unused_result__));
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2))) __attribute__ ((__warn_unused_result__))
+     __attribute__ ((__access__ (__write_only__, 2, 3)));
 extern int isatty (int __fd) __attribute__ ((__nothrow__ , __leaf__));
 extern int ttyslot (void) __attribute__ ((__nothrow__ , __leaf__));
 extern int link (const char *__from, const char *__to)
@@ -4590,12 +4575,14 @@ extern int symlink (const char *__from, const char *__to)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2))) __attribute__ ((__warn_unused_result__));
 extern ssize_t readlink (const char *__restrict __path,
     char *__restrict __buf, size_t __len)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2))) __attribute__ ((__warn_unused_result__));
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2))) __attribute__ ((__warn_unused_result__))
+     __attribute__ ((__access__ (__write_only__, 2, 3)));
 extern int symlinkat (const char *__from, int __tofd,
         const char *__to) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 3))) __attribute__ ((__warn_unused_result__));
 extern ssize_t readlinkat (int __fd, const char *__restrict __path,
       char *__restrict __buf, size_t __len)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2, 3))) __attribute__ ((__warn_unused_result__));
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2, 3))) __attribute__ ((__warn_unused_result__))
+     __attribute__ ((__access__ (__write_only__, 3, 4)));
 extern int unlink (const char *__name) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
 extern int unlinkat (int __fd, const char *__name, int __flag)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2)));
@@ -4603,7 +4590,8 @@ extern int rmdir (const char *__path) __attribute__ ((__nothrow__ , __leaf__)) _
 extern __pid_t tcgetpgrp (int __fd) __attribute__ ((__nothrow__ , __leaf__));
 extern int tcsetpgrp (int __fd, __pid_t __pgrp_id) __attribute__ ((__nothrow__ , __leaf__));
 extern char *getlogin (void);
-extern int getlogin_r (char *__name, size_t __name_len) __attribute__ ((__nonnull__ (1)));
+extern int getlogin_r (char *__name, size_t __name_len) __attribute__ ((__nonnull__ (1)))
+    __attribute__ ((__access__ (__write_only__, 1, 2)));
 extern int setlogin (const char *__name) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
 #define _GETOPT_POSIX_H 1
 #define _GETOPT_CORE_H 1
@@ -4617,14 +4605,16 @@ extern int getopt (int ___argc, char *const *___argv, const char *__shortopts)
 
 
 
-extern int gethostname (char *__name, size_t __len) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+extern int gethostname (char *__name, size_t __len) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)))
+    __attribute__ ((__access__ (__write_only__, 1, 2)));
 extern int sethostname (const char *__name, size_t __len)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) __attribute__ ((__warn_unused_result__));
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) __attribute__ ((__warn_unused_result__)) __attribute__ ((__access__ (__read_only__, 1, 2)));
 extern int sethostid (long int __id) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
 extern int getdomainname (char *__name, size_t __len)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) __attribute__ ((__warn_unused_result__));
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) __attribute__ ((__warn_unused_result__))
+     __attribute__ ((__access__ (__write_only__, 1, 2)));
 extern int setdomainname (const char *__name, size_t __len)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) __attribute__ ((__warn_unused_result__));
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) __attribute__ ((__warn_unused_result__)) __attribute__ ((__access__ (__read_only__, 1, 2)));
 extern int vhangup (void) __attribute__ ((__nothrow__ , __leaf__));
 extern int revoke (const char *__file) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) __attribute__ ((__warn_unused_result__));
 extern int profil (unsigned short int *__sample_buffer, size_t __size,
@@ -4666,31 +4656,35 @@ extern int fdatasync (int __fildes);
 extern char *crypt (const char *__key, const char *__salt)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
 extern void swab (const void *__restrict __from, void *__restrict __to,
-    ssize_t __n) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
-int getentropy (void *__buffer, size_t __length) __attribute__ ((__warn_unused_result__));
+    ssize_t __n) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)))
+    __attribute__ ((__access__ (__read_only__, 1, 3)))
+    __attribute__ ((__access__ (__write_only__, 2, 3)));
+int getentropy (void *__buffer, size_t __length) __attribute__ ((__warn_unused_result__))
+    __attribute__ ((__access__ (__write_only__, 1, 2)));
+extern int close_range (unsigned int __fd, unsigned int __max_fd,
+   int __flags) __attribute__ ((__nothrow__ , __leaf__));
 extern ssize_t __read_chk (int __fd, void *__buf, size_t __nbytes,
-      size_t __buflen) __attribute__ ((__warn_unused_result__));
-extern ssize_t __read_alias (int __fd, void *__buf, size_t __nbytes) __asm__ ("" "read") __attribute__ ((__warn_unused_result__));
+      size_t __buflen)
+  __attribute__ ((__warn_unused_result__)) __attribute__ ((__access__ (__write_only__, 2, 3)));
+extern ssize_t __read_alias (int __fd, void *__buf, size_t __nbytes) __asm__ ("" "read")
+  __attribute__ ((__warn_unused_result__)) __attribute__ ((__access__ (__write_only__, 2, 3)));
 extern ssize_t __read_chk_warn (int __fd, void *__buf, size_t __nbytes, size_t __buflen) __asm__ ("" "__read_chk")
      __attribute__ ((__warn_unused_result__)) __attribute__((__warning__ ("read called with bigger length than size of " "the destination buffer")));
 extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) __attribute__ ((__warn_unused_result__)) ssize_t
 read (int __fd, void *__buf, size_t __nbytes)
 {
-  if (__builtin_object_size (__buf, 0) != (size_t) -1)
-    {
-      if (!__builtin_constant_p (__nbytes))
- return __read_chk (__fd, __buf, __nbytes, __builtin_object_size (__buf, 0));
-      if (__nbytes > __builtin_object_size (__buf, 0))
- return __read_chk_warn (__fd, __buf, __nbytes, __builtin_object_size (__buf, 0));
-    }
-  return __read_alias (__fd, __buf, __nbytes);
+  return ((((__typeof (__nbytes)) 0 < (__typeof (__nbytes)) -1 || (__builtin_constant_p (__nbytes) && (__nbytes) > 0)) && __builtin_constant_p ((((long unsigned int) (__nbytes)) <= (__builtin_object_size (__buf, 0)) / (sizeof (char)))) && (((long unsigned int) (__nbytes)) <= (__builtin_object_size (__buf, 0)) / (sizeof (char)))) ? __read_alias (__fd, __buf, __nbytes) : ((((__typeof (__nbytes)) 0 < (__typeof (__nbytes)) -1 || (__builtin_constant_p (__nbytes) && (__nbytes) > 0)) && __builtin_constant_p ((((long unsigned int) (__nbytes)) <= (__builtin_object_size (__buf, 0)) / (sizeof (char)))) && !(((long unsigned int) (__nbytes)) <= (__builtin_object_size (__buf, 0)) / (sizeof (char)))) ? __read_chk_warn (__fd, __buf, __nbytes, __builtin_object_size (__buf, 0)) : __read_chk (__fd, __buf, __nbytes, __builtin_object_size (__buf, 0))));
 }
 extern ssize_t __pread_chk (int __fd, void *__buf, size_t __nbytes,
-       __off_t __offset, size_t __bufsize) __attribute__ ((__warn_unused_result__));
+       __off_t __offset, size_t __bufsize)
+  __attribute__ ((__warn_unused_result__)) __attribute__ ((__access__ (__write_only__, 2, 3)));
 extern ssize_t __pread64_chk (int __fd, void *__buf, size_t __nbytes,
-         __off64_t __offset, size_t __bufsize) __attribute__ ((__warn_unused_result__));
-extern ssize_t __pread_alias (int __fd, void *__buf, size_t __nbytes, __off_t __offset) __asm__ ("" "pread") __attribute__ ((__warn_unused_result__));
-extern ssize_t __pread64_alias (int __fd, void *__buf, size_t __nbytes, __off64_t __offset) __asm__ ("" "pread64") __attribute__ ((__warn_unused_result__));
+         __off64_t __offset, size_t __bufsize)
+  __attribute__ ((__warn_unused_result__)) __attribute__ ((__access__ (__write_only__, 2, 3)));
+extern ssize_t __pread_alias (int __fd, void *__buf, size_t __nbytes, __off_t __offset) __asm__ ("" "pread")
+  __attribute__ ((__warn_unused_result__)) __attribute__ ((__access__ (__write_only__, 2, 3)));
+extern ssize_t __pread64_alias (int __fd, void *__buf, size_t __nbytes, __off64_t __offset) __asm__ ("" "pread64")
+  __attribute__ ((__warn_unused_result__)) __attribute__ ((__access__ (__write_only__, 2, 3)));
 extern ssize_t __pread_chk_warn (int __fd, void *__buf, size_t __nbytes, __off_t __offset, size_t __bufsize) __asm__ ("" "__pread_chk")
      __attribute__ ((__warn_unused_result__)) __attribute__((__warning__ ("pread called with bigger length than size of " "the destination buffer")));
 extern ssize_t __pread64_chk_warn (int __fd, void *__buf, size_t __nbytes, __off64_t __offset, size_t __bufsize) __asm__ ("" "__pread64_chk")
@@ -4698,69 +4692,38 @@ extern ssize_t __pread64_chk_warn (int __fd, void *__buf, size_t __nbytes, __off
 extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) __attribute__ ((__warn_unused_result__)) ssize_t
 pread (int __fd, void *__buf, size_t __nbytes, __off_t __offset)
 {
-  if (__builtin_object_size (__buf, 0) != (size_t) -1)
-    {
-      if (!__builtin_constant_p (__nbytes))
- return __pread_chk (__fd, __buf, __nbytes, __offset, __builtin_object_size (__buf, 0));
-      if ( __nbytes > __builtin_object_size (__buf, 0))
- return __pread_chk_warn (__fd, __buf, __nbytes, __offset,
-     __builtin_object_size (__buf, 0));
-    }
-  return __pread_alias (__fd, __buf, __nbytes, __offset);
+  return ((((__typeof (__nbytes)) 0 < (__typeof (__nbytes)) -1 || (__builtin_constant_p (__nbytes) && (__nbytes) > 0)) && __builtin_constant_p ((((long unsigned int) (__nbytes)) <= (__builtin_object_size (__buf, 0)) / (sizeof (char)))) && (((long unsigned int) (__nbytes)) <= (__builtin_object_size (__buf, 0)) / (sizeof (char)))) ? __pread_alias (__fd, __buf, __nbytes, __offset) : ((((__typeof (__nbytes)) 0 < (__typeof (__nbytes)) -1 || (__builtin_constant_p (__nbytes) && (__nbytes) > 0)) && __builtin_constant_p ((((long unsigned int) (__nbytes)) <= (__builtin_object_size (__buf, 0)) / (sizeof (char)))) && !(((long unsigned int) (__nbytes)) <= (__builtin_object_size (__buf, 0)) / (sizeof (char)))) ? __pread_chk_warn (__fd, __buf, __nbytes, __offset, __builtin_object_size (__buf, 0)) : __pread_chk (__fd, __buf, __nbytes, __offset, __builtin_object_size (__buf, 0))));
 }
 extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) __attribute__ ((__warn_unused_result__)) ssize_t
 pread64 (int __fd, void *__buf, size_t __nbytes, __off64_t __offset)
 {
-  if (__builtin_object_size (__buf, 0) != (size_t) -1)
-    {
-      if (!__builtin_constant_p (__nbytes))
- return __pread64_chk (__fd, __buf, __nbytes, __offset, __builtin_object_size (__buf, 0));
-      if ( __nbytes > __builtin_object_size (__buf, 0))
- return __pread64_chk_warn (__fd, __buf, __nbytes, __offset,
-       __builtin_object_size (__buf, 0));
-    }
-  return __pread64_alias (__fd, __buf, __nbytes, __offset);
+  return ((((__typeof (__nbytes)) 0 < (__typeof (__nbytes)) -1 || (__builtin_constant_p (__nbytes) && (__nbytes) > 0)) && __builtin_constant_p ((((long unsigned int) (__nbytes)) <= (__builtin_object_size (__buf, 0)) / (sizeof (char)))) && (((long unsigned int) (__nbytes)) <= (__builtin_object_size (__buf, 0)) / (sizeof (char)))) ? __pread64_alias (__fd, __buf, __nbytes, __offset) : ((((__typeof (__nbytes)) 0 < (__typeof (__nbytes)) -1 || (__builtin_constant_p (__nbytes) && (__nbytes) > 0)) && __builtin_constant_p ((((long unsigned int) (__nbytes)) <= (__builtin_object_size (__buf, 0)) / (sizeof (char)))) && !(((long unsigned int) (__nbytes)) <= (__builtin_object_size (__buf, 0)) / (sizeof (char)))) ? __pread64_chk_warn (__fd, __buf, __nbytes, __offset, __builtin_object_size (__buf, 0)) : __pread64_chk (__fd, __buf, __nbytes, __offset, __builtin_object_size (__buf, 0))));
 }
 extern ssize_t __readlink_chk (const char *__restrict __path,
           char *__restrict __buf, size_t __len,
           size_t __buflen)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2))) __attribute__ ((__warn_unused_result__));
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2))) __attribute__ ((__warn_unused_result__)) __attribute__ ((__access__ (__write_only__, 2, 3)));
 extern ssize_t __readlink_alias (const char *__restrict __path, char *__restrict __buf, size_t __len) __asm__ ("" "readlink") __attribute__ ((__nothrow__ , __leaf__))
-     __attribute__ ((__nonnull__ (1, 2))) __attribute__ ((__warn_unused_result__));
+     __attribute__ ((__nonnull__ (1, 2))) __attribute__ ((__warn_unused_result__)) __attribute__ ((__access__ (__write_only__, 2, 3)));
 extern ssize_t __readlink_chk_warn (const char *__restrict __path, char *__restrict __buf, size_t __len, size_t __buflen) __asm__ ("" "__readlink_chk") __attribute__ ((__nothrow__ , __leaf__))
      __attribute__ ((__nonnull__ (1, 2))) __attribute__ ((__warn_unused_result__)) __attribute__((__warning__ ("readlink called with bigger length " "than size of destination buffer")));
 extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) __attribute__ ((__nonnull__ (1, 2))) __attribute__ ((__warn_unused_result__)) ssize_t
 __attribute__ ((__nothrow__ , __leaf__)) readlink (const char *__restrict __path, char *__restrict __buf, size_t __len)
 {
-  if (__builtin_object_size (__buf, 2 > 1) != (size_t) -1)
-    {
-      if (!__builtin_constant_p (__len))
- return __readlink_chk (__path, __buf, __len, __builtin_object_size (__buf, 2 > 1));
-      if ( __len > __builtin_object_size (__buf, 2 > 1))
- return __readlink_chk_warn (__path, __buf, __len, __builtin_object_size (__buf, 2 > 1));
-    }
-  return __readlink_alias (__path, __buf, __len);
+  return ((((__typeof (__len)) 0 < (__typeof (__len)) -1 || (__builtin_constant_p (__len) && (__len) > 0)) && __builtin_constant_p ((((long unsigned int) (__len)) <= (__builtin_object_size (__buf, 2 > 1)) / (sizeof (char)))) && (((long unsigned int) (__len)) <= (__builtin_object_size (__buf, 2 > 1)) / (sizeof (char)))) ? __readlink_alias (__path, __buf, __len) : ((((__typeof (__len)) 0 < (__typeof (__len)) -1 || (__builtin_constant_p (__len) && (__len) > 0)) && __builtin_constant_p ((((long unsigned int) (__len)) <= (__builtin_object_size (__buf, 2 > 1)) / (sizeof (char)))) && !(((long unsigned int) (__len)) <= (__builtin_object_size (__buf, 2 > 1)) / (sizeof (char)))) ? __readlink_chk_warn (__path, __buf, __len, __builtin_object_size (__buf, 2 > 1)) : __readlink_chk (__path, __buf, __len, __builtin_object_size (__buf, 2 > 1))));
 }
 extern ssize_t __readlinkat_chk (int __fd, const char *__restrict __path,
      char *__restrict __buf, size_t __len,
      size_t __buflen)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2, 3))) __attribute__ ((__warn_unused_result__));
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2, 3))) __attribute__ ((__warn_unused_result__)) __attribute__ ((__access__ (__write_only__, 3, 4)));
 extern ssize_t __readlinkat_alias (int __fd, const char *__restrict __path, char *__restrict __buf, size_t __len) __asm__ ("" "readlinkat") __attribute__ ((__nothrow__ , __leaf__))
-     __attribute__ ((__nonnull__ (2, 3))) __attribute__ ((__warn_unused_result__));
+     __attribute__ ((__nonnull__ (2, 3))) __attribute__ ((__warn_unused_result__)) __attribute__ ((__access__ (__write_only__, 3, 4)));
 extern ssize_t __readlinkat_chk_warn (int __fd, const char *__restrict __path, char *__restrict __buf, size_t __len, size_t __buflen) __asm__ ("" "__readlinkat_chk") __attribute__ ((__nothrow__ , __leaf__))
      __attribute__ ((__nonnull__ (2, 3))) __attribute__ ((__warn_unused_result__)) __attribute__((__warning__ ("readlinkat called with bigger " "length than size of destination " "buffer")));
 extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) __attribute__ ((__nonnull__ (2, 3))) __attribute__ ((__warn_unused_result__)) ssize_t
 __attribute__ ((__nothrow__ , __leaf__)) readlinkat (int __fd, const char *__restrict __path, char *__restrict __buf, size_t __len)
 {
-  if (__builtin_object_size (__buf, 2 > 1) != (size_t) -1)
-    {
-      if (!__builtin_constant_p (__len))
- return __readlinkat_chk (__fd, __path, __buf, __len, __builtin_object_size (__buf, 2 > 1));
-      if (__len > __builtin_object_size (__buf, 2 > 1))
- return __readlinkat_chk_warn (__fd, __path, __buf, __len,
-          __builtin_object_size (__buf, 2 > 1));
-    }
-  return __readlinkat_alias (__fd, __path, __buf, __len);
+  return ((((__typeof (__len)) 0 < (__typeof (__len)) -1 || (__builtin_constant_p (__len) && (__len) > 0)) && __builtin_constant_p ((((long unsigned int) (__len)) <= (__builtin_object_size (__buf, 2 > 1)) / (sizeof (char)))) && (((long unsigned int) (__len)) <= (__builtin_object_size (__buf, 2 > 1)) / (sizeof (char)))) ? __readlinkat_alias (__fd, __path, __buf, __len) : ((((__typeof (__len)) 0 < (__typeof (__len)) -1 || (__builtin_constant_p (__len) && (__len) > 0)) && __builtin_constant_p ((((long unsigned int) (__len)) <= (__builtin_object_size (__buf, 2 > 1)) / (sizeof (char)))) && !(((long unsigned int) (__len)) <= (__builtin_object_size (__buf, 2 > 1)) / (sizeof (char)))) ? __readlinkat_chk_warn (__fd, __path, __buf, __len, __builtin_object_size (__buf, 2 > 1)) : __readlinkat_chk (__fd, __path, __buf, __len, __builtin_object_size (__buf, 2 > 1))));
 }
 extern char *__getcwd_chk (char *__buf, size_t __size, size_t __buflen)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
@@ -4770,17 +4733,10 @@ extern char *__getcwd_chk_warn (char *__buf, size_t __size, size_t __buflen) __a
 extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) __attribute__ ((__warn_unused_result__)) char *
 __attribute__ ((__nothrow__ , __leaf__)) getcwd (char *__buf, size_t __size)
 {
-  if (__builtin_object_size (__buf, 2 > 1) != (size_t) -1)
-    {
-      if (!__builtin_constant_p (__size))
- return __getcwd_chk (__buf, __size, __builtin_object_size (__buf, 2 > 1));
-      if (__size > __builtin_object_size (__buf, 2 > 1))
- return __getcwd_chk_warn (__buf, __size, __builtin_object_size (__buf, 2 > 1));
-    }
-  return __getcwd_alias (__buf, __size);
+  return ((((__typeof (__size)) 0 < (__typeof (__size)) -1 || (__builtin_constant_p (__size) && (__size) > 0)) && __builtin_constant_p ((((long unsigned int) (__size)) <= (__builtin_object_size (__buf, 2 > 1)) / (sizeof (char)))) && (((long unsigned int) (__size)) <= (__builtin_object_size (__buf, 2 > 1)) / (sizeof (char)))) ? __getcwd_alias (__buf, __size) : ((((__typeof (__size)) 0 < (__typeof (__size)) -1 || (__builtin_constant_p (__size) && (__size) > 0)) && __builtin_constant_p ((((long unsigned int) (__size)) <= (__builtin_object_size (__buf, 2 > 1)) / (sizeof (char)))) && !(((long unsigned int) (__size)) <= (__builtin_object_size (__buf, 2 > 1)) / (sizeof (char)))) ? __getcwd_chk_warn (__buf, __size, __builtin_object_size (__buf, 2 > 1)) : __getcwd_chk (__buf, __size, __builtin_object_size (__buf, 2 > 1))));
 }
 extern char *__getwd_chk (char *__buf, size_t buflen)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) __attribute__ ((__warn_unused_result__));
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) __attribute__ ((__warn_unused_result__)) __attribute__ ((__access__ (__write_only__, 1, 2)));
 extern char *__getwd_warn (char *__buf) __asm__ ("" "getwd") __attribute__ ((__nothrow__ , __leaf__))
      __attribute__ ((__nonnull__ (1))) __attribute__ ((__warn_unused_result__)) __attribute__((__warning__ ("please use getcwd instead, as getwd " "doesn't specify buffer size")));
 extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) __attribute__ ((__nonnull__ (1))) __attribute__ ((__deprecated__)) __attribute__ ((__warn_unused_result__)) char *
@@ -4791,41 +4747,30 @@ __attribute__ ((__nothrow__ , __leaf__)) getwd (char *__buf)
   return __getwd_warn (__buf);
 }
 extern size_t __confstr_chk (int __name, char *__buf, size_t __len,
-        size_t __buflen) __attribute__ ((__nothrow__ , __leaf__));
-extern size_t __confstr_alias (int __name, char *__buf, size_t __len) __asm__ ("" "confstr") __attribute__ ((__nothrow__ , __leaf__));
+        size_t __buflen) __attribute__ ((__nothrow__ , __leaf__))
+  __attribute__ ((__access__ (__write_only__, 2, 3)));
+extern size_t __confstr_alias (int __name, char *__buf, size_t __len) __asm__ ("" "confstr") __attribute__ ((__nothrow__ , __leaf__))
+   __attribute__ ((__access__ (__write_only__, 2, 3)));
 extern size_t __confstr_chk_warn (int __name, char *__buf, size_t __len, size_t __buflen) __asm__ ("" "__confstr_chk") __attribute__ ((__nothrow__ , __leaf__))
      __attribute__((__warning__ ("confstr called with bigger length than size of destination " "buffer")));
 extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) size_t
 __attribute__ ((__nothrow__ , __leaf__)) confstr (int __name, char *__buf, size_t __len)
 {
-  if (__builtin_object_size (__buf, 2 > 1) != (size_t) -1)
-    {
-      if (!__builtin_constant_p (__len))
- return __confstr_chk (__name, __buf, __len, __builtin_object_size (__buf, 2 > 1));
-      if (__builtin_object_size (__buf, 2 > 1) < __len)
- return __confstr_chk_warn (__name, __buf, __len, __builtin_object_size (__buf, 2 > 1));
-    }
-  return __confstr_alias (__name, __buf, __len);
+  return ((((__typeof (__len)) 0 < (__typeof (__len)) -1 || (__builtin_constant_p (__len) && (__len) > 0)) && __builtin_constant_p ((((long unsigned int) (__len)) <= (__builtin_object_size (__buf, 2 > 1)) / (sizeof (char)))) && (((long unsigned int) (__len)) <= (__builtin_object_size (__buf, 2 > 1)) / (sizeof (char)))) ? __confstr_alias (__name, __buf, __len) : ((((__typeof (__len)) 0 < (__typeof (__len)) -1 || (__builtin_constant_p (__len) && (__len) > 0)) && __builtin_constant_p ((((long unsigned int) (__len)) <= (__builtin_object_size (__buf, 2 > 1)) / (sizeof (char)))) && !(((long unsigned int) (__len)) <= (__builtin_object_size (__buf, 2 > 1)) / (sizeof (char)))) ? __confstr_chk_warn (__name, __buf, __len, __builtin_object_size (__buf, 2 > 1)) : __confstr_chk (__name, __buf, __len, __builtin_object_size (__buf, 2 > 1))));
 }
 extern int __getgroups_chk (int __size, __gid_t __list[], size_t __listlen)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
-extern int __getgroups_alias (int __size, __gid_t __list[]) __asm__ ("" "getgroups") __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
+  __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__)) __attribute__ ((__access__ (__write_only__, 2, 1)));
+extern int __getgroups_alias (int __size, __gid_t __list[]) __asm__ ("" "getgroups") __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__)) __attribute__ ((__access__ (__write_only__, 2, 1)));
 extern int __getgroups_chk_warn (int __size, __gid_t __list[], size_t __listlen) __asm__ ("" "__getgroups_chk") __attribute__ ((__nothrow__ , __leaf__))
      __attribute__ ((__warn_unused_result__)) __attribute__((__warning__ ("getgroups called with bigger group count than what " "can fit into destination buffer")));
 extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) int
 __attribute__ ((__nothrow__ , __leaf__)) getgroups (int __size, __gid_t __list[])
 {
-  if (__builtin_object_size (__list, 2 > 1) != (size_t) -1)
-    {
-      if (!__builtin_constant_p (__size) || __size < 0)
- return __getgroups_chk (__size, __list, __builtin_object_size (__list, 2 > 1));
-      if (__size * sizeof (__gid_t) > __builtin_object_size (__list, 2 > 1))
- return __getgroups_chk_warn (__size, __list, __builtin_object_size (__list, 2 > 1));
-    }
-  return __getgroups_alias (__size, __list);
+  return ((((__typeof (__size)) 0 < (__typeof (__size)) -1 || (__builtin_constant_p (__size) && (__size) > 0)) && __builtin_constant_p ((((long unsigned int) (__size)) <= (__builtin_object_size (__list, 2 > 1)) / (sizeof (__gid_t)))) && (((long unsigned int) (__size)) <= (__builtin_object_size (__list, 2 > 1)) / (sizeof (__gid_t)))) ? __getgroups_alias (__size, __list) : ((((__typeof (__size)) 0 < (__typeof (__size)) -1 || (__builtin_constant_p (__size) && (__size) > 0)) && __builtin_constant_p ((((long unsigned int) (__size)) <= (__builtin_object_size (__list, 2 > 1)) / (sizeof (__gid_t)))) && !(((long unsigned int) (__size)) <= (__builtin_object_size (__list, 2 > 1)) / (sizeof (__gid_t)))) ? __getgroups_chk_warn (__size, __list, __builtin_object_size (__list, 2 > 1)) : __getgroups_chk (__size, __list, __builtin_object_size (__list, 2 > 1))));
 }
 extern int __ttyname_r_chk (int __fd, char *__buf, size_t __buflen,
-       size_t __nreal) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2)));
+       size_t __nreal) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2)))
+   __attribute__ ((__access__ (__write_only__, 2, 3)));
 extern int __ttyname_r_alias (int __fd, char *__buf, size_t __buflen) __asm__ ("" "ttyname_r") __attribute__ ((__nothrow__ , __leaf__))
      __attribute__ ((__nonnull__ (2)));
 extern int __ttyname_r_chk_warn (int __fd, char *__buf, size_t __buflen, size_t __nreal) __asm__ ("" "__ttyname_r_chk") __attribute__ ((__nothrow__ , __leaf__))
@@ -4833,67 +4778,44 @@ extern int __ttyname_r_chk_warn (int __fd, char *__buf, size_t __buflen, size_t 
 extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) int
 __attribute__ ((__nothrow__ , __leaf__)) ttyname_r (int __fd, char *__buf, size_t __buflen)
 {
-  if (__builtin_object_size (__buf, 2 > 1) != (size_t) -1)
-    {
-      if (!__builtin_constant_p (__buflen))
- return __ttyname_r_chk (__fd, __buf, __buflen, __builtin_object_size (__buf, 2 > 1));
-      if (__buflen > __builtin_object_size (__buf, 2 > 1))
- return __ttyname_r_chk_warn (__fd, __buf, __buflen, __builtin_object_size (__buf, 2 > 1));
-    }
-  return __ttyname_r_alias (__fd, __buf, __buflen);
+  return ((((__typeof (__buflen)) 0 < (__typeof (__buflen)) -1 || (__builtin_constant_p (__buflen) && (__buflen) > 0)) && __builtin_constant_p ((((long unsigned int) (__buflen)) <= (__builtin_object_size (__buf, 2 > 1)) / (sizeof (char)))) && (((long unsigned int) (__buflen)) <= (__builtin_object_size (__buf, 2 > 1)) / (sizeof (char)))) ? __ttyname_r_alias (__fd, __buf, __buflen) : ((((__typeof (__buflen)) 0 < (__typeof (__buflen)) -1 || (__builtin_constant_p (__buflen) && (__buflen) > 0)) && __builtin_constant_p ((((long unsigned int) (__buflen)) <= (__builtin_object_size (__buf, 2 > 1)) / (sizeof (char)))) && !(((long unsigned int) (__buflen)) <= (__builtin_object_size (__buf, 2 > 1)) / (sizeof (char)))) ? __ttyname_r_chk_warn (__fd, __buf, __buflen, __builtin_object_size (__buf, 2 > 1)) : __ttyname_r_chk (__fd, __buf, __buflen, __builtin_object_size (__buf, 2 > 1))));
 }
 extern int __getlogin_r_chk (char *__buf, size_t __buflen, size_t __nreal)
-     __attribute__ ((__nonnull__ (1)));
+     __attribute__ ((__nonnull__ (1))) __attribute__ ((__access__ (__write_only__, 1, 2)));
 extern int __getlogin_r_alias (char *__buf, size_t __buflen) __asm__ ("" "getlogin_r") __attribute__ ((__nonnull__ (1)));
 extern int __getlogin_r_chk_warn (char *__buf, size_t __buflen, size_t __nreal) __asm__ ("" "__getlogin_r_chk")
      __attribute__ ((__nonnull__ (1))) __attribute__((__warning__ ("getlogin_r called with bigger buflen than " "size of destination buffer")));
 extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) int
 getlogin_r (char *__buf, size_t __buflen)
 {
-  if (__builtin_object_size (__buf, 2 > 1) != (size_t) -1)
-    {
-      if (!__builtin_constant_p (__buflen))
- return __getlogin_r_chk (__buf, __buflen, __builtin_object_size (__buf, 2 > 1));
-      if (__buflen > __builtin_object_size (__buf, 2 > 1))
- return __getlogin_r_chk_warn (__buf, __buflen, __builtin_object_size (__buf, 2 > 1));
-    }
-  return __getlogin_r_alias (__buf, __buflen);
+  return ((((__typeof (__buflen)) 0 < (__typeof (__buflen)) -1 || (__builtin_constant_p (__buflen) && (__buflen) > 0)) && __builtin_constant_p ((((long unsigned int) (__buflen)) <= (__builtin_object_size (__buf, 2 > 1)) / (sizeof (char)))) && (((long unsigned int) (__buflen)) <= (__builtin_object_size (__buf, 2 > 1)) / (sizeof (char)))) ? __getlogin_r_alias (__buf, __buflen) : ((((__typeof (__buflen)) 0 < (__typeof (__buflen)) -1 || (__builtin_constant_p (__buflen) && (__buflen) > 0)) && __builtin_constant_p ((((long unsigned int) (__buflen)) <= (__builtin_object_size (__buf, 2 > 1)) / (sizeof (char)))) && !(((long unsigned int) (__buflen)) <= (__builtin_object_size (__buf, 2 > 1)) / (sizeof (char)))) ? __getlogin_r_chk_warn (__buf, __buflen, __builtin_object_size (__buf, 2 > 1)) : __getlogin_r_chk (__buf, __buflen, __builtin_object_size (__buf, 2 > 1))));
 }
 extern int __gethostname_chk (char *__buf, size_t __buflen, size_t __nreal)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
-extern int __gethostname_alias (char *__buf, size_t __buflen) __asm__ ("" "gethostname") __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) __attribute__ ((__access__ (__write_only__, 1, 2)));
+extern int __gethostname_alias (char *__buf, size_t __buflen) __asm__ ("" "gethostname") __attribute__ ((__nothrow__ , __leaf__))
+  __attribute__ ((__nonnull__ (1))) __attribute__ ((__access__ (__write_only__, 1, 2)));
 extern int __gethostname_chk_warn (char *__buf, size_t __buflen, size_t __nreal) __asm__ ("" "__gethostname_chk") __attribute__ ((__nothrow__ , __leaf__))
      __attribute__ ((__nonnull__ (1))) __attribute__((__warning__ ("gethostname called with bigger buflen than " "size of destination buffer")));
 extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) int
 __attribute__ ((__nothrow__ , __leaf__)) gethostname (char *__buf, size_t __buflen)
 {
-  if (__builtin_object_size (__buf, 2 > 1) != (size_t) -1)
-    {
-      if (!__builtin_constant_p (__buflen))
- return __gethostname_chk (__buf, __buflen, __builtin_object_size (__buf, 2 > 1));
-      if (__buflen > __builtin_object_size (__buf, 2 > 1))
- return __gethostname_chk_warn (__buf, __buflen, __builtin_object_size (__buf, 2 > 1));
-    }
-  return __gethostname_alias (__buf, __buflen);
+  return ((((__typeof (__buflen)) 0 < (__typeof (__buflen)) -1 || (__builtin_constant_p (__buflen) && (__buflen) > 0)) && __builtin_constant_p ((((long unsigned int) (__buflen)) <= (__builtin_object_size (__buf, 2 > 1)) / (sizeof (char)))) && (((long unsigned int) (__buflen)) <= (__builtin_object_size (__buf, 2 > 1)) / (sizeof (char)))) ? __gethostname_alias (__buf, __buflen) : ((((__typeof (__buflen)) 0 < (__typeof (__buflen)) -1 || (__builtin_constant_p (__buflen) && (__buflen) > 0)) && __builtin_constant_p ((((long unsigned int) (__buflen)) <= (__builtin_object_size (__buf, 2 > 1)) / (sizeof (char)))) && !(((long unsigned int) (__buflen)) <= (__builtin_object_size (__buf, 2 > 1)) / (sizeof (char)))) ? __gethostname_chk_warn (__buf, __buflen, __builtin_object_size (__buf, 2 > 1)) : __gethostname_chk (__buf, __buflen, __builtin_object_size (__buf, 2 > 1))));
 }
 extern int __getdomainname_chk (char *__buf, size_t __buflen, size_t __nreal)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) __attribute__ ((__warn_unused_result__));
-extern int __getdomainname_alias (char *__buf, size_t __buflen) __asm__ ("" "getdomainname") __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) __attribute__ ((__warn_unused_result__));
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) __attribute__ ((__warn_unused_result__)) __attribute__ ((__access__ (__write_only__, 1, 2)));
+extern int __getdomainname_alias (char *__buf, size_t __buflen) __asm__ ("" "getdomainname") __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)))
+  __attribute__ ((__warn_unused_result__)) __attribute__ ((__access__ (__write_only__, 1, 2)));
 extern int __getdomainname_chk_warn (char *__buf, size_t __buflen, size_t __nreal) __asm__ ("" "__getdomainname_chk") __attribute__ ((__nothrow__ , __leaf__))
      __attribute__ ((__nonnull__ (1))) __attribute__ ((__warn_unused_result__)) __attribute__((__warning__ ("getdomainname called with bigger " "buflen than size of destination " "buffer")));
 extern __inline __attribute__ ((__always_inline__)) __attribute__ ((__gnu_inline__)) __attribute__ ((__artificial__)) int
 __attribute__ ((__nothrow__ , __leaf__)) getdomainname (char *__buf, size_t __buflen)
 {
-  if (__builtin_object_size (__buf, 2 > 1) != (size_t) -1)
-    {
-      if (!__builtin_constant_p (__buflen))
- return __getdomainname_chk (__buf, __buflen, __builtin_object_size (__buf, 2 > 1));
-      if (__buflen > __builtin_object_size (__buf, 2 > 1))
- return __getdomainname_chk_warn (__buf, __buflen, __builtin_object_size (__buf, 2 > 1));
-    }
-  return __getdomainname_alias (__buf, __buflen);
+  return ((((__typeof (__buflen)) 0 < (__typeof (__buflen)) -1 || (__builtin_constant_p (__buflen) && (__buflen) > 0)) && __builtin_constant_p ((((long unsigned int) (__buflen)) <= (__builtin_object_size (__buf, 2 > 1)) / (sizeof (char)))) && (((long unsigned int) (__buflen)) <= (__builtin_object_size (__buf, 2 > 1)) / (sizeof (char)))) ? __getdomainname_alias (__buf, __buflen) : ((((__typeof (__buflen)) 0 < (__typeof (__buflen)) -1 || (__builtin_constant_p (__buflen) && (__buflen) > 0)) && __builtin_constant_p ((((long unsigned int) (__buflen)) <= (__builtin_object_size (__buf, 2 > 1)) / (sizeof (char)))) && !(((long unsigned int) (__buflen)) <= (__builtin_object_size (__buf, 2 > 1)) / (sizeof (char)))) ? __getdomainname_chk_warn (__buf, __buflen, __builtin_object_size (__buf, 2 > 1)) : __getdomainname_chk (__buf, __buflen, __builtin_object_size (__buf, 2 > 1))));
 }
 extern __pid_t gettid (void) __attribute__ ((__nothrow__ , __leaf__));
+#define _LINUX_CLOSE_RANGE_H 
+#define CLOSE_RANGE_UNSHARE (1U << 1)
+#define CLOSE_RANGE_CLOEXEC (1U << 2)
 
 #define RBIMPL_DLLEXPORT_H 
 #undef RUBY_EXTERN
@@ -4912,11 +4834,11 @@ extern __pid_t gettid (void) __attribute__ ((__nothrow__ , __leaf__));
 #define RBIMPL_ATTR_ALLOC_SIZE(tuple) __attribute__((__alloc_size__ tuple))
 #define RBIMPL_ATTR_NODISCARD_H 
 #define RBIMPL_HAS_C_ATTRIBUTE_H 
-#define RBIMPL_HAS_C_ATTRIBUTE(_) 0
+#define RBIMPL_HAS_C_ATTRIBUTE(_) __has_c_attribute(_)
 #define RBIMPL_HAS_CPP_ATTRIBUTE_H 
 #define RBIMPL_HAS_CPP_ATTRIBUTE0(_) __has_cpp_attribute(_)
 #define RBIMPL_HAS_CPP_ATTRIBUTE(_) 0
-#define RBIMPL_ATTR_NODISCARD() __attribute__((__warn_unused_result__))
+#define RBIMPL_ATTR_NODISCARD() [[nodiscard]]
 #define RBIMPL_ATTR_NOEXCEPT_H 
 #define RBIMPL_HAS_FEATURE_H 
 #define RBIMPL_HAS_FEATURE(_) 0
@@ -4935,34 +4857,34 @@ extern __pid_t gettid (void) __attribute__ ((__nothrow__ , __leaf__));
 
 #pragma GCC visibility push(default)
 
-__attribute__((__warn_unused_result__))
+[[nodiscard]]
 __attribute__((__malloc__))
 __attribute__((__returns_nonnull__))
 __attribute__((__alloc_size__ (1)))
 void *ruby_xmalloc(size_t size)
 
 ;
-__attribute__((__warn_unused_result__))
+[[nodiscard]]
 __attribute__((__malloc__))
 __attribute__((__returns_nonnull__))
 __attribute__((__alloc_size__ (1,2)))
 void *ruby_xmalloc2(size_t nelems, size_t elemsiz)
 
 ;
-__attribute__((__warn_unused_result__))
+[[nodiscard]]
 __attribute__((__malloc__))
 __attribute__((__returns_nonnull__))
 __attribute__((__alloc_size__ (1,2)))
 void *ruby_xcalloc(size_t nelems, size_t elemsiz)
 
 ;
-__attribute__((__warn_unused_result__))
+[[nodiscard]]
 __attribute__((__returns_nonnull__))
 __attribute__((__alloc_size__ (2)))
 void *ruby_xrealloc(void *ptr, size_t newsiz)
 
 ;
-__attribute__((__warn_unused_result__))
+[[nodiscard]]
 __attribute__((__returns_nonnull__))
 __attribute__((__alloc_size__ (2,3)))
 void *ruby_xrealloc2(void *ptr, size_t newelems, size_t newsiz)
@@ -4989,33 +4911,8 @@ void ruby_xfree(void *ptr)
 #define RBIMPL_WARNING_IGNORED(flag) RBIMPL_WARNING_PRAGMA2(ignored, flag)
 #define RBIMPL_CAST(expr) (expr)
 #define RBIMPL_HAS_BUILTIN_H 
-#define RBIMPL_HAS_BUILTIN(_) (RBIMPL_HAS_BUILTIN_ ## _)
-#define RBIMPL_HAS_BUILTIN___builtin_add_overflow RBIMPL_COMPILER_SINCE(GCC, 5, 1, 0)
-#define RBIMPL_HAS_BUILTIN___builtin_alloca RBIMPL_COMPILER_SINCE(GCC, 0, 0, 0)
-#define RBIMPL_HAS_BUILTIN___builtin_alloca_with_align RBIMPL_COMPILER_SINCE(GCC, 6, 1, 0)
-#define RBIMPL_HAS_BUILTIN___builtin_assume 0
-#define RBIMPL_HAS_BUILTIN___builtin_bswap16 RBIMPL_COMPILER_SINCE(GCC, 4, 8, 0)
-#define RBIMPL_HAS_BUILTIN___builtin_bswap32 RBIMPL_COMPILER_SINCE(GCC, 3, 6, 0)
-#define RBIMPL_HAS_BUILTIN___builtin_bswap64 RBIMPL_COMPILER_SINCE(GCC, 3, 6, 0)
-#define RBIMPL_HAS_BUILTIN___builtin_clz RBIMPL_COMPILER_SINCE(GCC, 3, 6, 0)
-#define RBIMPL_HAS_BUILTIN___builtin_clzl RBIMPL_COMPILER_SINCE(GCC, 3, 6, 0)
-#define RBIMPL_HAS_BUILTIN___builtin_clzll RBIMPL_COMPILER_SINCE(GCC, 3, 6, 0)
-#define RBIMPL_HAS_BUILTIN___builtin_constant_p RBIMPL_COMPILER_SINCE(GCC, 2,95, 3)
-#define RBIMPL_HAS_BUILTIN___builtin_ctz RBIMPL_COMPILER_SINCE(GCC, 3, 6, 0)
-#define RBIMPL_HAS_BUILTIN___builtin_ctzl RBIMPL_COMPILER_SINCE(GCC, 3, 6, 0)
-#define RBIMPL_HAS_BUILTIN___builtin_ctzll RBIMPL_COMPILER_SINCE(GCC, 3, 6, 0)
-#define RBIMPL_HAS_BUILTIN___builtin_expect RBIMPL_COMPILER_SINCE(GCC, 3, 0, 0)
-#define RBIMPL_HAS_BUILTIN___builtin_mul_overflow RBIMPL_COMPILER_SINCE(GCC, 5, 1, 0)
-#define RBIMPL_HAS_BUILTIN___builtin_mul_overflow_p RBIMPL_COMPILER_SINCE(GCC, 7, 0, 0)
-#define RBIMPL_HAS_BUILTIN___builtin_popcount RBIMPL_COMPILER_SINCE(GCC, 3, 6, 0)
-#define RBIMPL_HAS_BUILTIN___builtin_popcountl RBIMPL_COMPILER_SINCE(GCC, 3, 6, 0)
-#define RBIMPL_HAS_BUILTIN___builtin_popcountll RBIMPL_COMPILER_SINCE(GCC, 3, 6, 0)
-#define RBIMPL_HAS_BUILTIN___builtin_rotateleft32 0
-#define RBIMPL_HAS_BUILTIN___builtin_rotateleft64 0
-#define RBIMPL_HAS_BUILTIN___builtin_rotateright32 0
-#define RBIMPL_HAS_BUILTIN___builtin_rotateright64 0
-#define RBIMPL_HAS_BUILTIN___builtin_sub_overflow RBIMPL_COMPILER_SINCE(GCC, 5, 1, 0)
-#define RBIMPL_HAS_BUILTIN___builtin_unreachable RBIMPL_COMPILER_SINCE(GCC, 4, 5, 0)
+#define RBIMPL_HAVE___HAS_BUILTIN 1
+#define RBIMPL_HAS_BUILTIN(_) __has_builtin(_)
 #define RBIMPL_UNREACHABLE_RETURN(_) __builtin_unreachable()
 #define RBIMPL_UNREACHABLE __builtin_unreachable
 #define RBIMPL_ASSUME(_) (RB_LIKELY(!!(_)) ? RBIMPL_CAST((void)0) : RBIMPL_UNREACHABLE())
@@ -5058,7 +4955,7 @@ void ruby_xfree(void *ptr)
 #define RBIMPL_ATTR_FORMAT(x,y,z) __attribute__((__format__(x, y, z)))
 #define RBIMPL_PRINTF_FORMAT __printf__
 #define RBIMPL_ATTR_MAYBE_UNUSED_H 
-#define RBIMPL_ATTR_MAYBE_UNUSED() __attribute__((__unused__))
+#define RBIMPL_ATTR_MAYBE_UNUSED() [[maybe_unused]]
 #define RBIMPL_ATTR_NOINLINE_H 
 #define RBIMPL_ATTR_NOINLINE() __attribute__((__noinline__))
 #define RBIMPL_ATTR_NONNULL_H 
@@ -5180,6 +5077,8 @@ void rb_assert_failure(const char *file, int line, const char *name, const char 
 #define __GLIBC_USE_IEC_60559_BFP_EXT 1
 #undef __GLIBC_USE_IEC_60559_BFP_EXT_C2X
 #define __GLIBC_USE_IEC_60559_BFP_EXT_C2X 1
+#undef __GLIBC_USE_IEC_60559_EXT
+#define __GLIBC_USE_IEC_60559_EXT 1
 #undef __GLIBC_USE_IEC_60559_FUNCS_EXT
 #define __GLIBC_USE_IEC_60559_FUNCS_EXT 1
 #undef __GLIBC_USE_IEC_60559_FUNCS_EXT_C2X
@@ -5248,6 +5147,216 @@ void rb_assert_failure(const char *file, int line, const char *name, const char 
 #define __DECL_SIMD_powf32x 
 #define __DECL_SIMD_powf64x 
 #define __DECL_SIMD_powf128x 
+#define __DECL_SIMD_acos 
+#define __DECL_SIMD_acosf 
+#define __DECL_SIMD_acosl 
+#define __DECL_SIMD_acosf16 
+#define __DECL_SIMD_acosf32 
+#define __DECL_SIMD_acosf64 
+#define __DECL_SIMD_acosf128 
+#define __DECL_SIMD_acosf32x 
+#define __DECL_SIMD_acosf64x 
+#define __DECL_SIMD_acosf128x 
+#define __DECL_SIMD_atan 
+#define __DECL_SIMD_atanf 
+#define __DECL_SIMD_atanl 
+#define __DECL_SIMD_atanf16 
+#define __DECL_SIMD_atanf32 
+#define __DECL_SIMD_atanf64 
+#define __DECL_SIMD_atanf128 
+#define __DECL_SIMD_atanf32x 
+#define __DECL_SIMD_atanf64x 
+#define __DECL_SIMD_atanf128x 
+#define __DECL_SIMD_asin 
+#define __DECL_SIMD_asinf 
+#define __DECL_SIMD_asinl 
+#define __DECL_SIMD_asinf16 
+#define __DECL_SIMD_asinf32 
+#define __DECL_SIMD_asinf64 
+#define __DECL_SIMD_asinf128 
+#define __DECL_SIMD_asinf32x 
+#define __DECL_SIMD_asinf64x 
+#define __DECL_SIMD_asinf128x 
+#define __DECL_SIMD_hypot 
+#define __DECL_SIMD_hypotf 
+#define __DECL_SIMD_hypotl 
+#define __DECL_SIMD_hypotf16 
+#define __DECL_SIMD_hypotf32 
+#define __DECL_SIMD_hypotf64 
+#define __DECL_SIMD_hypotf128 
+#define __DECL_SIMD_hypotf32x 
+#define __DECL_SIMD_hypotf64x 
+#define __DECL_SIMD_hypotf128x 
+#define __DECL_SIMD_exp2 
+#define __DECL_SIMD_exp2f 
+#define __DECL_SIMD_exp2l 
+#define __DECL_SIMD_exp2f16 
+#define __DECL_SIMD_exp2f32 
+#define __DECL_SIMD_exp2f64 
+#define __DECL_SIMD_exp2f128 
+#define __DECL_SIMD_exp2f32x 
+#define __DECL_SIMD_exp2f64x 
+#define __DECL_SIMD_exp2f128x 
+#define __DECL_SIMD_exp10 
+#define __DECL_SIMD_exp10f 
+#define __DECL_SIMD_exp10l 
+#define __DECL_SIMD_exp10f16 
+#define __DECL_SIMD_exp10f32 
+#define __DECL_SIMD_exp10f64 
+#define __DECL_SIMD_exp10f128 
+#define __DECL_SIMD_exp10f32x 
+#define __DECL_SIMD_exp10f64x 
+#define __DECL_SIMD_exp10f128x 
+#define __DECL_SIMD_cosh 
+#define __DECL_SIMD_coshf 
+#define __DECL_SIMD_coshl 
+#define __DECL_SIMD_coshf16 
+#define __DECL_SIMD_coshf32 
+#define __DECL_SIMD_coshf64 
+#define __DECL_SIMD_coshf128 
+#define __DECL_SIMD_coshf32x 
+#define __DECL_SIMD_coshf64x 
+#define __DECL_SIMD_coshf128x 
+#define __DECL_SIMD_expm1 
+#define __DECL_SIMD_expm1f 
+#define __DECL_SIMD_expm1l 
+#define __DECL_SIMD_expm1f16 
+#define __DECL_SIMD_expm1f32 
+#define __DECL_SIMD_expm1f64 
+#define __DECL_SIMD_expm1f128 
+#define __DECL_SIMD_expm1f32x 
+#define __DECL_SIMD_expm1f64x 
+#define __DECL_SIMD_expm1f128x 
+#define __DECL_SIMD_sinh 
+#define __DECL_SIMD_sinhf 
+#define __DECL_SIMD_sinhl 
+#define __DECL_SIMD_sinhf16 
+#define __DECL_SIMD_sinhf32 
+#define __DECL_SIMD_sinhf64 
+#define __DECL_SIMD_sinhf128 
+#define __DECL_SIMD_sinhf32x 
+#define __DECL_SIMD_sinhf64x 
+#define __DECL_SIMD_sinhf128x 
+#define __DECL_SIMD_cbrt 
+#define __DECL_SIMD_cbrtf 
+#define __DECL_SIMD_cbrtl 
+#define __DECL_SIMD_cbrtf16 
+#define __DECL_SIMD_cbrtf32 
+#define __DECL_SIMD_cbrtf64 
+#define __DECL_SIMD_cbrtf128 
+#define __DECL_SIMD_cbrtf32x 
+#define __DECL_SIMD_cbrtf64x 
+#define __DECL_SIMD_cbrtf128x 
+#define __DECL_SIMD_atan2 
+#define __DECL_SIMD_atan2f 
+#define __DECL_SIMD_atan2l 
+#define __DECL_SIMD_atan2f16 
+#define __DECL_SIMD_atan2f32 
+#define __DECL_SIMD_atan2f64 
+#define __DECL_SIMD_atan2f128 
+#define __DECL_SIMD_atan2f32x 
+#define __DECL_SIMD_atan2f64x 
+#define __DECL_SIMD_atan2f128x 
+#define __DECL_SIMD_log10 
+#define __DECL_SIMD_log10f 
+#define __DECL_SIMD_log10l 
+#define __DECL_SIMD_log10f16 
+#define __DECL_SIMD_log10f32 
+#define __DECL_SIMD_log10f64 
+#define __DECL_SIMD_log10f128 
+#define __DECL_SIMD_log10f32x 
+#define __DECL_SIMD_log10f64x 
+#define __DECL_SIMD_log10f128x 
+#define __DECL_SIMD_log2 
+#define __DECL_SIMD_log2f 
+#define __DECL_SIMD_log2l 
+#define __DECL_SIMD_log2f16 
+#define __DECL_SIMD_log2f32 
+#define __DECL_SIMD_log2f64 
+#define __DECL_SIMD_log2f128 
+#define __DECL_SIMD_log2f32x 
+#define __DECL_SIMD_log2f64x 
+#define __DECL_SIMD_log2f128x 
+#define __DECL_SIMD_log1p 
+#define __DECL_SIMD_log1pf 
+#define __DECL_SIMD_log1pl 
+#define __DECL_SIMD_log1pf16 
+#define __DECL_SIMD_log1pf32 
+#define __DECL_SIMD_log1pf64 
+#define __DECL_SIMD_log1pf128 
+#define __DECL_SIMD_log1pf32x 
+#define __DECL_SIMD_log1pf64x 
+#define __DECL_SIMD_log1pf128x 
+#define __DECL_SIMD_atanh 
+#define __DECL_SIMD_atanhf 
+#define __DECL_SIMD_atanhl 
+#define __DECL_SIMD_atanhf16 
+#define __DECL_SIMD_atanhf32 
+#define __DECL_SIMD_atanhf64 
+#define __DECL_SIMD_atanhf128 
+#define __DECL_SIMD_atanhf32x 
+#define __DECL_SIMD_atanhf64x 
+#define __DECL_SIMD_atanhf128x 
+#define __DECL_SIMD_acosh 
+#define __DECL_SIMD_acoshf 
+#define __DECL_SIMD_acoshl 
+#define __DECL_SIMD_acoshf16 
+#define __DECL_SIMD_acoshf32 
+#define __DECL_SIMD_acoshf64 
+#define __DECL_SIMD_acoshf128 
+#define __DECL_SIMD_acoshf32x 
+#define __DECL_SIMD_acoshf64x 
+#define __DECL_SIMD_acoshf128x 
+#define __DECL_SIMD_erf 
+#define __DECL_SIMD_erff 
+#define __DECL_SIMD_erfl 
+#define __DECL_SIMD_erff16 
+#define __DECL_SIMD_erff32 
+#define __DECL_SIMD_erff64 
+#define __DECL_SIMD_erff128 
+#define __DECL_SIMD_erff32x 
+#define __DECL_SIMD_erff64x 
+#define __DECL_SIMD_erff128x 
+#define __DECL_SIMD_tanh 
+#define __DECL_SIMD_tanhf 
+#define __DECL_SIMD_tanhl 
+#define __DECL_SIMD_tanhf16 
+#define __DECL_SIMD_tanhf32 
+#define __DECL_SIMD_tanhf64 
+#define __DECL_SIMD_tanhf128 
+#define __DECL_SIMD_tanhf32x 
+#define __DECL_SIMD_tanhf64x 
+#define __DECL_SIMD_tanhf128x 
+#define __DECL_SIMD_asinh 
+#define __DECL_SIMD_asinhf 
+#define __DECL_SIMD_asinhl 
+#define __DECL_SIMD_asinhf16 
+#define __DECL_SIMD_asinhf32 
+#define __DECL_SIMD_asinhf64 
+#define __DECL_SIMD_asinhf128 
+#define __DECL_SIMD_asinhf32x 
+#define __DECL_SIMD_asinhf64x 
+#define __DECL_SIMD_asinhf128x 
+#define __DECL_SIMD_erfc 
+#define __DECL_SIMD_erfcf 
+#define __DECL_SIMD_erfcl 
+#define __DECL_SIMD_erfcf16 
+#define __DECL_SIMD_erfcf32 
+#define __DECL_SIMD_erfcf64 
+#define __DECL_SIMD_erfcf128 
+#define __DECL_SIMD_erfcf32x 
+#define __DECL_SIMD_erfcf64x 
+#define __DECL_SIMD_erfcf128x 
+#define __DECL_SIMD_tan 
+#define __DECL_SIMD_tanf 
+#define __DECL_SIMD_tanl 
+#define __DECL_SIMD_tanf16 
+#define __DECL_SIMD_tanf32 
+#define __DECL_SIMD_tanf64 
+#define __DECL_SIMD_tanf128 
+#define __DECL_SIMD_tanf32x 
+#define __DECL_SIMD_tanf64x 
+#define __DECL_SIMD_tanf128x 
 #define HUGE_VAL (__builtin_huge_val ())
 #define HUGE_VALF (__builtin_huge_valf ())
 #define HUGE_VALL (__builtin_huge_vall ())
@@ -5303,7 +5412,10 @@ enum
 #define __MATHDECL(type,function,suffix,args) __MATHDECL_1(type, function,suffix, args); __MATHDECL_1(type, __CONCAT(__,function),suffix, args)
 #define __MATHCALLX(function,suffix,args,attrib) __MATHDECLX (_Mdouble_,function,suffix, args, attrib)
 #define __MATHDECLX(type,function,suffix,args,attrib) __MATHDECL_1(type, function,suffix, args) __attribute__ (attrib); __MATHDECL_1(type, __CONCAT(__,function),suffix, args) __attribute__ (attrib)
-#define __MATHDECL_1(type,function,suffix,args) extern type __MATH_PRECNAME(function,suffix) args __THROW
+#define __MATHDECL_1_IMPL(type,function,suffix,args) extern type __MATH_PRECNAME(function,suffix) args __THROW
+#define __MATHDECL_1(type,function,suffix,args) __MATHDECL_1_IMPL(type, function, suffix, args)
+#define __MATHDECL_ALIAS(type,function,suffix,args,alias) __MATHDECL_1(type, function, suffix, args)
+#define __MATHREDIR(type,function,suffix,args,to) extern type __REDIRECT_NTH (__MATH_PRECNAME (function, suffix), args, to)
 #define _Mdouble_ double
 #define __MATH_PRECNAME(name,r) __CONCAT(name,r)
 #define __MATH_DECLARING_DOUBLE 1
@@ -5312,61 +5424,67 @@ extern int __fpclassify (double __value) __attribute__ ((__nothrow__ , __leaf__)
      __attribute__ ((__const__));
 extern int __signbit (double __value) __attribute__ ((__nothrow__ , __leaf__))
      __attribute__ ((__const__));
-extern int __isinf (double __value) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
-extern int __finite (double __value) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
-extern int __isnan (double __value) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern int __isinf (double __value) __attribute__ ((__nothrow__ , __leaf__))
+  __attribute__ ((__const__));
+extern int __finite (double __value) __attribute__ ((__nothrow__ , __leaf__))
+  __attribute__ ((__const__));
+extern int __isnan (double __value) __attribute__ ((__nothrow__ , __leaf__))
+  __attribute__ ((__const__));
 extern int __iseqsig (double __x, double __y) __attribute__ ((__nothrow__ , __leaf__));
 extern int __issignaling (double __value) __attribute__ ((__nothrow__ , __leaf__))
      __attribute__ ((__const__));
-extern double acos (double __x) __attribute__ ((__nothrow__ , __leaf__)); extern double __acos (double __x) __attribute__ ((__nothrow__ , __leaf__));
-extern double asin (double __x) __attribute__ ((__nothrow__ , __leaf__)); extern double __asin (double __x) __attribute__ ((__nothrow__ , __leaf__));
-extern double atan (double __x) __attribute__ ((__nothrow__ , __leaf__)); extern double __atan (double __x) __attribute__ ((__nothrow__ , __leaf__));
-extern double atan2 (double __y, double __x) __attribute__ ((__nothrow__ , __leaf__)); extern double __atan2 (double __y, double __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern double acos (double __x) __attribute__ ((__nothrow__ , __leaf__)); extern double __acos (double __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern double asin (double __x) __attribute__ ((__nothrow__ , __leaf__)); extern double __asin (double __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern double atan (double __x) __attribute__ ((__nothrow__ , __leaf__)); extern double __atan (double __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern double atan2 (double __y, double __x) __attribute__ ((__nothrow__ , __leaf__)); extern double __atan2 (double __y, double __x) __attribute__ ((__nothrow__ , __leaf__));
  extern double cos (double __x) __attribute__ ((__nothrow__ , __leaf__)); extern double __cos (double __x) __attribute__ ((__nothrow__ , __leaf__));
  extern double sin (double __x) __attribute__ ((__nothrow__ , __leaf__)); extern double __sin (double __x) __attribute__ ((__nothrow__ , __leaf__));
-extern double tan (double __x) __attribute__ ((__nothrow__ , __leaf__)); extern double __tan (double __x) __attribute__ ((__nothrow__ , __leaf__));
-extern double cosh (double __x) __attribute__ ((__nothrow__ , __leaf__)); extern double __cosh (double __x) __attribute__ ((__nothrow__ , __leaf__));
-extern double sinh (double __x) __attribute__ ((__nothrow__ , __leaf__)); extern double __sinh (double __x) __attribute__ ((__nothrow__ , __leaf__));
-extern double tanh (double __x) __attribute__ ((__nothrow__ , __leaf__)); extern double __tanh (double __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern double tan (double __x) __attribute__ ((__nothrow__ , __leaf__)); extern double __tan (double __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern double cosh (double __x) __attribute__ ((__nothrow__ , __leaf__)); extern double __cosh (double __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern double sinh (double __x) __attribute__ ((__nothrow__ , __leaf__)); extern double __sinh (double __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern double tanh (double __x) __attribute__ ((__nothrow__ , __leaf__)); extern double __tanh (double __x) __attribute__ ((__nothrow__ , __leaf__));
  extern void sincos (double __x, double *__sinx, double *__cosx) __attribute__ ((__nothrow__ , __leaf__)); extern void __sincos (double __x, double *__sinx, double *__cosx) __attribute__ ((__nothrow__ , __leaf__));
-extern double acosh (double __x) __attribute__ ((__nothrow__ , __leaf__)); extern double __acosh (double __x) __attribute__ ((__nothrow__ , __leaf__));
-extern double asinh (double __x) __attribute__ ((__nothrow__ , __leaf__)); extern double __asinh (double __x) __attribute__ ((__nothrow__ , __leaf__));
-extern double atanh (double __x) __attribute__ ((__nothrow__ , __leaf__)); extern double __atanh (double __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern double acosh (double __x) __attribute__ ((__nothrow__ , __leaf__)); extern double __acosh (double __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern double asinh (double __x) __attribute__ ((__nothrow__ , __leaf__)); extern double __asinh (double __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern double atanh (double __x) __attribute__ ((__nothrow__ , __leaf__)); extern double __atanh (double __x) __attribute__ ((__nothrow__ , __leaf__));
  extern double exp (double __x) __attribute__ ((__nothrow__ , __leaf__)); extern double __exp (double __x) __attribute__ ((__nothrow__ , __leaf__));
 extern double frexp (double __x, int *__exponent) __attribute__ ((__nothrow__ , __leaf__)); extern double __frexp (double __x, int *__exponent) __attribute__ ((__nothrow__ , __leaf__));
 extern double ldexp (double __x, int __exponent) __attribute__ ((__nothrow__ , __leaf__)); extern double __ldexp (double __x, int __exponent) __attribute__ ((__nothrow__ , __leaf__));
  extern double log (double __x) __attribute__ ((__nothrow__ , __leaf__)); extern double __log (double __x) __attribute__ ((__nothrow__ , __leaf__));
-extern double log10 (double __x) __attribute__ ((__nothrow__ , __leaf__)); extern double __log10 (double __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern double log10 (double __x) __attribute__ ((__nothrow__ , __leaf__)); extern double __log10 (double __x) __attribute__ ((__nothrow__ , __leaf__));
 extern double modf (double __x, double *__iptr) __attribute__ ((__nothrow__ , __leaf__)); extern double __modf (double __x, double *__iptr) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2)));
-extern double exp10 (double __x) __attribute__ ((__nothrow__ , __leaf__)); extern double __exp10 (double __x) __attribute__ ((__nothrow__ , __leaf__));
-extern double expm1 (double __x) __attribute__ ((__nothrow__ , __leaf__)); extern double __expm1 (double __x) __attribute__ ((__nothrow__ , __leaf__));
-extern double log1p (double __x) __attribute__ ((__nothrow__ , __leaf__)); extern double __log1p (double __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern double exp10 (double __x) __attribute__ ((__nothrow__ , __leaf__)); extern double __exp10 (double __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern double expm1 (double __x) __attribute__ ((__nothrow__ , __leaf__)); extern double __expm1 (double __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern double log1p (double __x) __attribute__ ((__nothrow__ , __leaf__)); extern double __log1p (double __x) __attribute__ ((__nothrow__ , __leaf__));
 extern double logb (double __x) __attribute__ ((__nothrow__ , __leaf__)); extern double __logb (double __x) __attribute__ ((__nothrow__ , __leaf__));
-extern double exp2 (double __x) __attribute__ ((__nothrow__ , __leaf__)); extern double __exp2 (double __x) __attribute__ ((__nothrow__ , __leaf__));
-extern double log2 (double __x) __attribute__ ((__nothrow__ , __leaf__)); extern double __log2 (double __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern double exp2 (double __x) __attribute__ ((__nothrow__ , __leaf__)); extern double __exp2 (double __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern double log2 (double __x) __attribute__ ((__nothrow__ , __leaf__)); extern double __log2 (double __x) __attribute__ ((__nothrow__ , __leaf__));
  extern double pow (double __x, double __y) __attribute__ ((__nothrow__ , __leaf__)); extern double __pow (double __x, double __y) __attribute__ ((__nothrow__ , __leaf__));
 extern double sqrt (double __x) __attribute__ ((__nothrow__ , __leaf__)); extern double __sqrt (double __x) __attribute__ ((__nothrow__ , __leaf__));
-extern double hypot (double __x, double __y) __attribute__ ((__nothrow__ , __leaf__)); extern double __hypot (double __x, double __y) __attribute__ ((__nothrow__ , __leaf__));
-extern double cbrt (double __x) __attribute__ ((__nothrow__ , __leaf__)); extern double __cbrt (double __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern double hypot (double __x, double __y) __attribute__ ((__nothrow__ , __leaf__)); extern double __hypot (double __x, double __y) __attribute__ ((__nothrow__ , __leaf__));
+ extern double cbrt (double __x) __attribute__ ((__nothrow__ , __leaf__)); extern double __cbrt (double __x) __attribute__ ((__nothrow__ , __leaf__));
 extern double ceil (double __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern double __ceil (double __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
 extern double fabs (double __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern double __fabs (double __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
 extern double floor (double __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern double __floor (double __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
 extern double fmod (double __x, double __y) __attribute__ ((__nothrow__ , __leaf__)); extern double __fmod (double __x, double __y) __attribute__ ((__nothrow__ , __leaf__));
-extern int isinf (double __value) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
-extern int finite (double __value) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern int isinf (double __value) __attribute__ ((__nothrow__ , __leaf__))
+  __attribute__ ((__const__));
+extern int finite (double __value) __attribute__ ((__nothrow__ , __leaf__))
+  __attribute__ ((__const__));
 extern double drem (double __x, double __y) __attribute__ ((__nothrow__ , __leaf__)); extern double __drem (double __x, double __y) __attribute__ ((__nothrow__ , __leaf__));
 extern double significand (double __x) __attribute__ ((__nothrow__ , __leaf__)); extern double __significand (double __x) __attribute__ ((__nothrow__ , __leaf__));
 extern double copysign (double __x, double __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern double __copysign (double __x, double __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
 extern double nan (const char *__tagb) __attribute__ ((__nothrow__ , __leaf__)); extern double __nan (const char *__tagb) __attribute__ ((__nothrow__ , __leaf__));
-extern int isnan (double __value) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern int isnan (double __value) __attribute__ ((__nothrow__ , __leaf__))
+  __attribute__ ((__const__));
 extern double j0 (double) __attribute__ ((__nothrow__ , __leaf__)); extern double __j0 (double) __attribute__ ((__nothrow__ , __leaf__));
 extern double j1 (double) __attribute__ ((__nothrow__ , __leaf__)); extern double __j1 (double) __attribute__ ((__nothrow__ , __leaf__));
 extern double jn (int, double) __attribute__ ((__nothrow__ , __leaf__)); extern double __jn (int, double) __attribute__ ((__nothrow__ , __leaf__));
 extern double y0 (double) __attribute__ ((__nothrow__ , __leaf__)); extern double __y0 (double) __attribute__ ((__nothrow__ , __leaf__));
 extern double y1 (double) __attribute__ ((__nothrow__ , __leaf__)); extern double __y1 (double) __attribute__ ((__nothrow__ , __leaf__));
 extern double yn (int, double) __attribute__ ((__nothrow__ , __leaf__)); extern double __yn (int, double) __attribute__ ((__nothrow__ , __leaf__));
-extern double erf (double) __attribute__ ((__nothrow__ , __leaf__)); extern double __erf (double) __attribute__ ((__nothrow__ , __leaf__));
-extern double erfc (double) __attribute__ ((__nothrow__ , __leaf__)); extern double __erfc (double) __attribute__ ((__nothrow__ , __leaf__));
+ extern double erf (double) __attribute__ ((__nothrow__ , __leaf__)); extern double __erf (double) __attribute__ ((__nothrow__ , __leaf__));
+ extern double erfc (double) __attribute__ ((__nothrow__ , __leaf__)); extern double __erfc (double) __attribute__ ((__nothrow__ , __leaf__));
 extern double lgamma (double) __attribute__ ((__nothrow__ , __leaf__)); extern double __lgamma (double) __attribute__ ((__nothrow__ , __leaf__));
 extern double tgamma (double) __attribute__ ((__nothrow__ , __leaf__)); extern double __tgamma (double) __attribute__ ((__nothrow__ , __leaf__));
 extern double gamma (double) __attribute__ ((__nothrow__ , __leaf__)); extern double __gamma (double) __attribute__ ((__nothrow__ , __leaf__));
@@ -5400,9 +5518,17 @@ extern __intmax_t fromfp (double __x, int __round, unsigned int __width) __attri
 extern __uintmax_t ufromfp (double __x, int __round, unsigned int __width) __attribute__ ((__nothrow__ , __leaf__)); extern __uintmax_t __ufromfp (double __x, int __round, unsigned int __width) __attribute__ ((__nothrow__ , __leaf__));
 extern __intmax_t fromfpx (double __x, int __round, unsigned int __width) __attribute__ ((__nothrow__ , __leaf__)); extern __intmax_t __fromfpx (double __x, int __round, unsigned int __width) __attribute__ ((__nothrow__ , __leaf__));
 extern __uintmax_t ufromfpx (double __x, int __round, unsigned int __width) __attribute__ ((__nothrow__ , __leaf__)); extern __uintmax_t __ufromfpx (double __x, int __round, unsigned int __width) __attribute__ ((__nothrow__ , __leaf__));
+extern int canonicalize (double *__cx, const double *__x) __attribute__ ((__nothrow__ , __leaf__));
 extern double fmaxmag (double __x, double __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern double __fmaxmag (double __x, double __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
 extern double fminmag (double __x, double __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern double __fminmag (double __x, double __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
-extern int canonicalize (double *__cx, const double *__x) __attribute__ ((__nothrow__ , __leaf__));
+extern double fmaximum (double __x, double __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern double __fmaximum (double __x, double __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern double fminimum (double __x, double __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern double __fminimum (double __x, double __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern double fmaximum_num (double __x, double __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern double __fmaximum_num (double __x, double __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern double fminimum_num (double __x, double __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern double __fminimum_num (double __x, double __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern double fmaximum_mag (double __x, double __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern double __fmaximum_mag (double __x, double __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern double fminimum_mag (double __x, double __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern double __fminimum_mag (double __x, double __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern double fmaximum_mag_num (double __x, double __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern double __fmaximum_mag_num (double __x, double __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern double fminimum_mag_num (double __x, double __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern double __fminimum_mag_num (double __x, double __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
 extern int totalorder (const double *__x, const double *__y) __attribute__ ((__nothrow__ , __leaf__))
      __attribute__ ((__pure__));
 extern int totalordermag (const double *__x, const double *__y) __attribute__ ((__nothrow__ , __leaf__))
@@ -5423,61 +5549,67 @@ extern int __fpclassifyf (float __value) __attribute__ ((__nothrow__ , __leaf__)
      __attribute__ ((__const__));
 extern int __signbitf (float __value) __attribute__ ((__nothrow__ , __leaf__))
      __attribute__ ((__const__));
-extern int __isinff (float __value) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
-extern int __finitef (float __value) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
-extern int __isnanf (float __value) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern int __isinff (float __value) __attribute__ ((__nothrow__ , __leaf__))
+  __attribute__ ((__const__));
+extern int __finitef (float __value) __attribute__ ((__nothrow__ , __leaf__))
+  __attribute__ ((__const__));
+extern int __isnanf (float __value) __attribute__ ((__nothrow__ , __leaf__))
+  __attribute__ ((__const__));
 extern int __iseqsigf (float __x, float __y) __attribute__ ((__nothrow__ , __leaf__));
 extern int __issignalingf (float __value) __attribute__ ((__nothrow__ , __leaf__))
      __attribute__ ((__const__));
-extern float acosf (float __x) __attribute__ ((__nothrow__ , __leaf__)); extern float __acosf (float __x) __attribute__ ((__nothrow__ , __leaf__));
-extern float asinf (float __x) __attribute__ ((__nothrow__ , __leaf__)); extern float __asinf (float __x) __attribute__ ((__nothrow__ , __leaf__));
-extern float atanf (float __x) __attribute__ ((__nothrow__ , __leaf__)); extern float __atanf (float __x) __attribute__ ((__nothrow__ , __leaf__));
-extern float atan2f (float __y, float __x) __attribute__ ((__nothrow__ , __leaf__)); extern float __atan2f (float __y, float __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern float acosf (float __x) __attribute__ ((__nothrow__ , __leaf__)); extern float __acosf (float __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern float asinf (float __x) __attribute__ ((__nothrow__ , __leaf__)); extern float __asinf (float __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern float atanf (float __x) __attribute__ ((__nothrow__ , __leaf__)); extern float __atanf (float __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern float atan2f (float __y, float __x) __attribute__ ((__nothrow__ , __leaf__)); extern float __atan2f (float __y, float __x) __attribute__ ((__nothrow__ , __leaf__));
  extern float cosf (float __x) __attribute__ ((__nothrow__ , __leaf__)); extern float __cosf (float __x) __attribute__ ((__nothrow__ , __leaf__));
  extern float sinf (float __x) __attribute__ ((__nothrow__ , __leaf__)); extern float __sinf (float __x) __attribute__ ((__nothrow__ , __leaf__));
-extern float tanf (float __x) __attribute__ ((__nothrow__ , __leaf__)); extern float __tanf (float __x) __attribute__ ((__nothrow__ , __leaf__));
-extern float coshf (float __x) __attribute__ ((__nothrow__ , __leaf__)); extern float __coshf (float __x) __attribute__ ((__nothrow__ , __leaf__));
-extern float sinhf (float __x) __attribute__ ((__nothrow__ , __leaf__)); extern float __sinhf (float __x) __attribute__ ((__nothrow__ , __leaf__));
-extern float tanhf (float __x) __attribute__ ((__nothrow__ , __leaf__)); extern float __tanhf (float __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern float tanf (float __x) __attribute__ ((__nothrow__ , __leaf__)); extern float __tanf (float __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern float coshf (float __x) __attribute__ ((__nothrow__ , __leaf__)); extern float __coshf (float __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern float sinhf (float __x) __attribute__ ((__nothrow__ , __leaf__)); extern float __sinhf (float __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern float tanhf (float __x) __attribute__ ((__nothrow__ , __leaf__)); extern float __tanhf (float __x) __attribute__ ((__nothrow__ , __leaf__));
  extern void sincosf (float __x, float *__sinx, float *__cosx) __attribute__ ((__nothrow__ , __leaf__)); extern void __sincosf (float __x, float *__sinx, float *__cosx) __attribute__ ((__nothrow__ , __leaf__));
-extern float acoshf (float __x) __attribute__ ((__nothrow__ , __leaf__)); extern float __acoshf (float __x) __attribute__ ((__nothrow__ , __leaf__));
-extern float asinhf (float __x) __attribute__ ((__nothrow__ , __leaf__)); extern float __asinhf (float __x) __attribute__ ((__nothrow__ , __leaf__));
-extern float atanhf (float __x) __attribute__ ((__nothrow__ , __leaf__)); extern float __atanhf (float __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern float acoshf (float __x) __attribute__ ((__nothrow__ , __leaf__)); extern float __acoshf (float __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern float asinhf (float __x) __attribute__ ((__nothrow__ , __leaf__)); extern float __asinhf (float __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern float atanhf (float __x) __attribute__ ((__nothrow__ , __leaf__)); extern float __atanhf (float __x) __attribute__ ((__nothrow__ , __leaf__));
  extern float expf (float __x) __attribute__ ((__nothrow__ , __leaf__)); extern float __expf (float __x) __attribute__ ((__nothrow__ , __leaf__));
 extern float frexpf (float __x, int *__exponent) __attribute__ ((__nothrow__ , __leaf__)); extern float __frexpf (float __x, int *__exponent) __attribute__ ((__nothrow__ , __leaf__));
 extern float ldexpf (float __x, int __exponent) __attribute__ ((__nothrow__ , __leaf__)); extern float __ldexpf (float __x, int __exponent) __attribute__ ((__nothrow__ , __leaf__));
  extern float logf (float __x) __attribute__ ((__nothrow__ , __leaf__)); extern float __logf (float __x) __attribute__ ((__nothrow__ , __leaf__));
-extern float log10f (float __x) __attribute__ ((__nothrow__ , __leaf__)); extern float __log10f (float __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern float log10f (float __x) __attribute__ ((__nothrow__ , __leaf__)); extern float __log10f (float __x) __attribute__ ((__nothrow__ , __leaf__));
 extern float modff (float __x, float *__iptr) __attribute__ ((__nothrow__ , __leaf__)); extern float __modff (float __x, float *__iptr) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2)));
-extern float exp10f (float __x) __attribute__ ((__nothrow__ , __leaf__)); extern float __exp10f (float __x) __attribute__ ((__nothrow__ , __leaf__));
-extern float expm1f (float __x) __attribute__ ((__nothrow__ , __leaf__)); extern float __expm1f (float __x) __attribute__ ((__nothrow__ , __leaf__));
-extern float log1pf (float __x) __attribute__ ((__nothrow__ , __leaf__)); extern float __log1pf (float __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern float exp10f (float __x) __attribute__ ((__nothrow__ , __leaf__)); extern float __exp10f (float __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern float expm1f (float __x) __attribute__ ((__nothrow__ , __leaf__)); extern float __expm1f (float __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern float log1pf (float __x) __attribute__ ((__nothrow__ , __leaf__)); extern float __log1pf (float __x) __attribute__ ((__nothrow__ , __leaf__));
 extern float logbf (float __x) __attribute__ ((__nothrow__ , __leaf__)); extern float __logbf (float __x) __attribute__ ((__nothrow__ , __leaf__));
-extern float exp2f (float __x) __attribute__ ((__nothrow__ , __leaf__)); extern float __exp2f (float __x) __attribute__ ((__nothrow__ , __leaf__));
-extern float log2f (float __x) __attribute__ ((__nothrow__ , __leaf__)); extern float __log2f (float __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern float exp2f (float __x) __attribute__ ((__nothrow__ , __leaf__)); extern float __exp2f (float __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern float log2f (float __x) __attribute__ ((__nothrow__ , __leaf__)); extern float __log2f (float __x) __attribute__ ((__nothrow__ , __leaf__));
  extern float powf (float __x, float __y) __attribute__ ((__nothrow__ , __leaf__)); extern float __powf (float __x, float __y) __attribute__ ((__nothrow__ , __leaf__));
 extern float sqrtf (float __x) __attribute__ ((__nothrow__ , __leaf__)); extern float __sqrtf (float __x) __attribute__ ((__nothrow__ , __leaf__));
-extern float hypotf (float __x, float __y) __attribute__ ((__nothrow__ , __leaf__)); extern float __hypotf (float __x, float __y) __attribute__ ((__nothrow__ , __leaf__));
-extern float cbrtf (float __x) __attribute__ ((__nothrow__ , __leaf__)); extern float __cbrtf (float __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern float hypotf (float __x, float __y) __attribute__ ((__nothrow__ , __leaf__)); extern float __hypotf (float __x, float __y) __attribute__ ((__nothrow__ , __leaf__));
+ extern float cbrtf (float __x) __attribute__ ((__nothrow__ , __leaf__)); extern float __cbrtf (float __x) __attribute__ ((__nothrow__ , __leaf__));
 extern float ceilf (float __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern float __ceilf (float __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
 extern float fabsf (float __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern float __fabsf (float __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
 extern float floorf (float __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern float __floorf (float __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
 extern float fmodf (float __x, float __y) __attribute__ ((__nothrow__ , __leaf__)); extern float __fmodf (float __x, float __y) __attribute__ ((__nothrow__ , __leaf__));
-extern int isinff (float __value) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
-extern int finitef (float __value) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern int isinff (float __value) __attribute__ ((__nothrow__ , __leaf__))
+  __attribute__ ((__const__));
+extern int finitef (float __value) __attribute__ ((__nothrow__ , __leaf__))
+  __attribute__ ((__const__));
 extern float dremf (float __x, float __y) __attribute__ ((__nothrow__ , __leaf__)); extern float __dremf (float __x, float __y) __attribute__ ((__nothrow__ , __leaf__));
 extern float significandf (float __x) __attribute__ ((__nothrow__ , __leaf__)); extern float __significandf (float __x) __attribute__ ((__nothrow__ , __leaf__));
 extern float copysignf (float __x, float __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern float __copysignf (float __x, float __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
 extern float nanf (const char *__tagb) __attribute__ ((__nothrow__ , __leaf__)); extern float __nanf (const char *__tagb) __attribute__ ((__nothrow__ , __leaf__));
-extern int isnanf (float __value) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern int isnanf (float __value) __attribute__ ((__nothrow__ , __leaf__))
+  __attribute__ ((__const__));
 extern float j0f (float) __attribute__ ((__nothrow__ , __leaf__)); extern float __j0f (float) __attribute__ ((__nothrow__ , __leaf__));
 extern float j1f (float) __attribute__ ((__nothrow__ , __leaf__)); extern float __j1f (float) __attribute__ ((__nothrow__ , __leaf__));
 extern float jnf (int, float) __attribute__ ((__nothrow__ , __leaf__)); extern float __jnf (int, float) __attribute__ ((__nothrow__ , __leaf__));
 extern float y0f (float) __attribute__ ((__nothrow__ , __leaf__)); extern float __y0f (float) __attribute__ ((__nothrow__ , __leaf__));
 extern float y1f (float) __attribute__ ((__nothrow__ , __leaf__)); extern float __y1f (float) __attribute__ ((__nothrow__ , __leaf__));
 extern float ynf (int, float) __attribute__ ((__nothrow__ , __leaf__)); extern float __ynf (int, float) __attribute__ ((__nothrow__ , __leaf__));
-extern float erff (float) __attribute__ ((__nothrow__ , __leaf__)); extern float __erff (float) __attribute__ ((__nothrow__ , __leaf__));
-extern float erfcf (float) __attribute__ ((__nothrow__ , __leaf__)); extern float __erfcf (float) __attribute__ ((__nothrow__ , __leaf__));
+ extern float erff (float) __attribute__ ((__nothrow__ , __leaf__)); extern float __erff (float) __attribute__ ((__nothrow__ , __leaf__));
+ extern float erfcf (float) __attribute__ ((__nothrow__ , __leaf__)); extern float __erfcf (float) __attribute__ ((__nothrow__ , __leaf__));
 extern float lgammaf (float) __attribute__ ((__nothrow__ , __leaf__)); extern float __lgammaf (float) __attribute__ ((__nothrow__ , __leaf__));
 extern float tgammaf (float) __attribute__ ((__nothrow__ , __leaf__)); extern float __tgammaf (float) __attribute__ ((__nothrow__ , __leaf__));
 extern float gammaf (float) __attribute__ ((__nothrow__ , __leaf__)); extern float __gammaf (float) __attribute__ ((__nothrow__ , __leaf__));
@@ -5511,9 +5643,17 @@ extern __intmax_t fromfpf (float __x, int __round, unsigned int __width) __attri
 extern __uintmax_t ufromfpf (float __x, int __round, unsigned int __width) __attribute__ ((__nothrow__ , __leaf__)); extern __uintmax_t __ufromfpf (float __x, int __round, unsigned int __width) __attribute__ ((__nothrow__ , __leaf__));
 extern __intmax_t fromfpxf (float __x, int __round, unsigned int __width) __attribute__ ((__nothrow__ , __leaf__)); extern __intmax_t __fromfpxf (float __x, int __round, unsigned int __width) __attribute__ ((__nothrow__ , __leaf__));
 extern __uintmax_t ufromfpxf (float __x, int __round, unsigned int __width) __attribute__ ((__nothrow__ , __leaf__)); extern __uintmax_t __ufromfpxf (float __x, int __round, unsigned int __width) __attribute__ ((__nothrow__ , __leaf__));
+extern int canonicalizef (float *__cx, const float *__x) __attribute__ ((__nothrow__ , __leaf__));
 extern float fmaxmagf (float __x, float __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern float __fmaxmagf (float __x, float __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
 extern float fminmagf (float __x, float __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern float __fminmagf (float __x, float __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
-extern int canonicalizef (float *__cx, const float *__x) __attribute__ ((__nothrow__ , __leaf__));
+extern float fmaximumf (float __x, float __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern float __fmaximumf (float __x, float __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern float fminimumf (float __x, float __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern float __fminimumf (float __x, float __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern float fmaximum_numf (float __x, float __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern float __fmaximum_numf (float __x, float __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern float fminimum_numf (float __x, float __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern float __fminimum_numf (float __x, float __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern float fmaximum_magf (float __x, float __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern float __fmaximum_magf (float __x, float __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern float fminimum_magf (float __x, float __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern float __fminimum_magf (float __x, float __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern float fmaximum_mag_numf (float __x, float __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern float __fmaximum_mag_numf (float __x, float __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern float fminimum_mag_numf (float __x, float __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern float __fminimum_mag_numf (float __x, float __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
 extern int totalorderf (const float *__x, const float *__y) __attribute__ ((__nothrow__ , __leaf__))
      __attribute__ ((__pure__));
 extern int totalordermagf (const float *__x, const float *__y) __attribute__ ((__nothrow__ , __leaf__))
@@ -5535,61 +5675,67 @@ extern int __fpclassifyl (long double __value) __attribute__ ((__nothrow__ , __l
      __attribute__ ((__const__));
 extern int __signbitl (long double __value) __attribute__ ((__nothrow__ , __leaf__))
      __attribute__ ((__const__));
-extern int __isinfl (long double __value) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
-extern int __finitel (long double __value) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
-extern int __isnanl (long double __value) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern int __isinfl (long double __value) __attribute__ ((__nothrow__ , __leaf__))
+  __attribute__ ((__const__));
+extern int __finitel (long double __value) __attribute__ ((__nothrow__ , __leaf__))
+  __attribute__ ((__const__));
+extern int __isnanl (long double __value) __attribute__ ((__nothrow__ , __leaf__))
+  __attribute__ ((__const__));
 extern int __iseqsigl (long double __x, long double __y) __attribute__ ((__nothrow__ , __leaf__));
 extern int __issignalingl (long double __value) __attribute__ ((__nothrow__ , __leaf__))
      __attribute__ ((__const__));
-extern long double acosl (long double __x) __attribute__ ((__nothrow__ , __leaf__)); extern long double __acosl (long double __x) __attribute__ ((__nothrow__ , __leaf__));
-extern long double asinl (long double __x) __attribute__ ((__nothrow__ , __leaf__)); extern long double __asinl (long double __x) __attribute__ ((__nothrow__ , __leaf__));
-extern long double atanl (long double __x) __attribute__ ((__nothrow__ , __leaf__)); extern long double __atanl (long double __x) __attribute__ ((__nothrow__ , __leaf__));
-extern long double atan2l (long double __y, long double __x) __attribute__ ((__nothrow__ , __leaf__)); extern long double __atan2l (long double __y, long double __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern long double acosl (long double __x) __attribute__ ((__nothrow__ , __leaf__)); extern long double __acosl (long double __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern long double asinl (long double __x) __attribute__ ((__nothrow__ , __leaf__)); extern long double __asinl (long double __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern long double atanl (long double __x) __attribute__ ((__nothrow__ , __leaf__)); extern long double __atanl (long double __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern long double atan2l (long double __y, long double __x) __attribute__ ((__nothrow__ , __leaf__)); extern long double __atan2l (long double __y, long double __x) __attribute__ ((__nothrow__ , __leaf__));
  extern long double cosl (long double __x) __attribute__ ((__nothrow__ , __leaf__)); extern long double __cosl (long double __x) __attribute__ ((__nothrow__ , __leaf__));
  extern long double sinl (long double __x) __attribute__ ((__nothrow__ , __leaf__)); extern long double __sinl (long double __x) __attribute__ ((__nothrow__ , __leaf__));
-extern long double tanl (long double __x) __attribute__ ((__nothrow__ , __leaf__)); extern long double __tanl (long double __x) __attribute__ ((__nothrow__ , __leaf__));
-extern long double coshl (long double __x) __attribute__ ((__nothrow__ , __leaf__)); extern long double __coshl (long double __x) __attribute__ ((__nothrow__ , __leaf__));
-extern long double sinhl (long double __x) __attribute__ ((__nothrow__ , __leaf__)); extern long double __sinhl (long double __x) __attribute__ ((__nothrow__ , __leaf__));
-extern long double tanhl (long double __x) __attribute__ ((__nothrow__ , __leaf__)); extern long double __tanhl (long double __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern long double tanl (long double __x) __attribute__ ((__nothrow__ , __leaf__)); extern long double __tanl (long double __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern long double coshl (long double __x) __attribute__ ((__nothrow__ , __leaf__)); extern long double __coshl (long double __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern long double sinhl (long double __x) __attribute__ ((__nothrow__ , __leaf__)); extern long double __sinhl (long double __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern long double tanhl (long double __x) __attribute__ ((__nothrow__ , __leaf__)); extern long double __tanhl (long double __x) __attribute__ ((__nothrow__ , __leaf__));
  extern void sincosl (long double __x, long double *__sinx, long double *__cosx) __attribute__ ((__nothrow__ , __leaf__)); extern void __sincosl (long double __x, long double *__sinx, long double *__cosx) __attribute__ ((__nothrow__ , __leaf__));
-extern long double acoshl (long double __x) __attribute__ ((__nothrow__ , __leaf__)); extern long double __acoshl (long double __x) __attribute__ ((__nothrow__ , __leaf__));
-extern long double asinhl (long double __x) __attribute__ ((__nothrow__ , __leaf__)); extern long double __asinhl (long double __x) __attribute__ ((__nothrow__ , __leaf__));
-extern long double atanhl (long double __x) __attribute__ ((__nothrow__ , __leaf__)); extern long double __atanhl (long double __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern long double acoshl (long double __x) __attribute__ ((__nothrow__ , __leaf__)); extern long double __acoshl (long double __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern long double asinhl (long double __x) __attribute__ ((__nothrow__ , __leaf__)); extern long double __asinhl (long double __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern long double atanhl (long double __x) __attribute__ ((__nothrow__ , __leaf__)); extern long double __atanhl (long double __x) __attribute__ ((__nothrow__ , __leaf__));
  extern long double expl (long double __x) __attribute__ ((__nothrow__ , __leaf__)); extern long double __expl (long double __x) __attribute__ ((__nothrow__ , __leaf__));
 extern long double frexpl (long double __x, int *__exponent) __attribute__ ((__nothrow__ , __leaf__)); extern long double __frexpl (long double __x, int *__exponent) __attribute__ ((__nothrow__ , __leaf__));
 extern long double ldexpl (long double __x, int __exponent) __attribute__ ((__nothrow__ , __leaf__)); extern long double __ldexpl (long double __x, int __exponent) __attribute__ ((__nothrow__ , __leaf__));
  extern long double logl (long double __x) __attribute__ ((__nothrow__ , __leaf__)); extern long double __logl (long double __x) __attribute__ ((__nothrow__ , __leaf__));
-extern long double log10l (long double __x) __attribute__ ((__nothrow__ , __leaf__)); extern long double __log10l (long double __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern long double log10l (long double __x) __attribute__ ((__nothrow__ , __leaf__)); extern long double __log10l (long double __x) __attribute__ ((__nothrow__ , __leaf__));
 extern long double modfl (long double __x, long double *__iptr) __attribute__ ((__nothrow__ , __leaf__)); extern long double __modfl (long double __x, long double *__iptr) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2)));
-extern long double exp10l (long double __x) __attribute__ ((__nothrow__ , __leaf__)); extern long double __exp10l (long double __x) __attribute__ ((__nothrow__ , __leaf__));
-extern long double expm1l (long double __x) __attribute__ ((__nothrow__ , __leaf__)); extern long double __expm1l (long double __x) __attribute__ ((__nothrow__ , __leaf__));
-extern long double log1pl (long double __x) __attribute__ ((__nothrow__ , __leaf__)); extern long double __log1pl (long double __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern long double exp10l (long double __x) __attribute__ ((__nothrow__ , __leaf__)); extern long double __exp10l (long double __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern long double expm1l (long double __x) __attribute__ ((__nothrow__ , __leaf__)); extern long double __expm1l (long double __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern long double log1pl (long double __x) __attribute__ ((__nothrow__ , __leaf__)); extern long double __log1pl (long double __x) __attribute__ ((__nothrow__ , __leaf__));
 extern long double logbl (long double __x) __attribute__ ((__nothrow__ , __leaf__)); extern long double __logbl (long double __x) __attribute__ ((__nothrow__ , __leaf__));
-extern long double exp2l (long double __x) __attribute__ ((__nothrow__ , __leaf__)); extern long double __exp2l (long double __x) __attribute__ ((__nothrow__ , __leaf__));
-extern long double log2l (long double __x) __attribute__ ((__nothrow__ , __leaf__)); extern long double __log2l (long double __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern long double exp2l (long double __x) __attribute__ ((__nothrow__ , __leaf__)); extern long double __exp2l (long double __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern long double log2l (long double __x) __attribute__ ((__nothrow__ , __leaf__)); extern long double __log2l (long double __x) __attribute__ ((__nothrow__ , __leaf__));
  extern long double powl (long double __x, long double __y) __attribute__ ((__nothrow__ , __leaf__)); extern long double __powl (long double __x, long double __y) __attribute__ ((__nothrow__ , __leaf__));
 extern long double sqrtl (long double __x) __attribute__ ((__nothrow__ , __leaf__)); extern long double __sqrtl (long double __x) __attribute__ ((__nothrow__ , __leaf__));
-extern long double hypotl (long double __x, long double __y) __attribute__ ((__nothrow__ , __leaf__)); extern long double __hypotl (long double __x, long double __y) __attribute__ ((__nothrow__ , __leaf__));
-extern long double cbrtl (long double __x) __attribute__ ((__nothrow__ , __leaf__)); extern long double __cbrtl (long double __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern long double hypotl (long double __x, long double __y) __attribute__ ((__nothrow__ , __leaf__)); extern long double __hypotl (long double __x, long double __y) __attribute__ ((__nothrow__ , __leaf__));
+ extern long double cbrtl (long double __x) __attribute__ ((__nothrow__ , __leaf__)); extern long double __cbrtl (long double __x) __attribute__ ((__nothrow__ , __leaf__));
 extern long double ceill (long double __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern long double __ceill (long double __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
 extern long double fabsl (long double __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern long double __fabsl (long double __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
 extern long double floorl (long double __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern long double __floorl (long double __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
 extern long double fmodl (long double __x, long double __y) __attribute__ ((__nothrow__ , __leaf__)); extern long double __fmodl (long double __x, long double __y) __attribute__ ((__nothrow__ , __leaf__));
-extern int isinfl (long double __value) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
-extern int finitel (long double __value) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern int isinfl (long double __value) __attribute__ ((__nothrow__ , __leaf__))
+  __attribute__ ((__const__));
+extern int finitel (long double __value) __attribute__ ((__nothrow__ , __leaf__))
+  __attribute__ ((__const__));
 extern long double dreml (long double __x, long double __y) __attribute__ ((__nothrow__ , __leaf__)); extern long double __dreml (long double __x, long double __y) __attribute__ ((__nothrow__ , __leaf__));
 extern long double significandl (long double __x) __attribute__ ((__nothrow__ , __leaf__)); extern long double __significandl (long double __x) __attribute__ ((__nothrow__ , __leaf__));
 extern long double copysignl (long double __x, long double __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern long double __copysignl (long double __x, long double __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
 extern long double nanl (const char *__tagb) __attribute__ ((__nothrow__ , __leaf__)); extern long double __nanl (const char *__tagb) __attribute__ ((__nothrow__ , __leaf__));
-extern int isnanl (long double __value) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern int isnanl (long double __value) __attribute__ ((__nothrow__ , __leaf__))
+  __attribute__ ((__const__));
 extern long double j0l (long double) __attribute__ ((__nothrow__ , __leaf__)); extern long double __j0l (long double) __attribute__ ((__nothrow__ , __leaf__));
 extern long double j1l (long double) __attribute__ ((__nothrow__ , __leaf__)); extern long double __j1l (long double) __attribute__ ((__nothrow__ , __leaf__));
 extern long double jnl (int, long double) __attribute__ ((__nothrow__ , __leaf__)); extern long double __jnl (int, long double) __attribute__ ((__nothrow__ , __leaf__));
 extern long double y0l (long double) __attribute__ ((__nothrow__ , __leaf__)); extern long double __y0l (long double) __attribute__ ((__nothrow__ , __leaf__));
 extern long double y1l (long double) __attribute__ ((__nothrow__ , __leaf__)); extern long double __y1l (long double) __attribute__ ((__nothrow__ , __leaf__));
 extern long double ynl (int, long double) __attribute__ ((__nothrow__ , __leaf__)); extern long double __ynl (int, long double) __attribute__ ((__nothrow__ , __leaf__));
-extern long double erfl (long double) __attribute__ ((__nothrow__ , __leaf__)); extern long double __erfl (long double) __attribute__ ((__nothrow__ , __leaf__));
-extern long double erfcl (long double) __attribute__ ((__nothrow__ , __leaf__)); extern long double __erfcl (long double) __attribute__ ((__nothrow__ , __leaf__));
+ extern long double erfl (long double) __attribute__ ((__nothrow__ , __leaf__)); extern long double __erfl (long double) __attribute__ ((__nothrow__ , __leaf__));
+ extern long double erfcl (long double) __attribute__ ((__nothrow__ , __leaf__)); extern long double __erfcl (long double) __attribute__ ((__nothrow__ , __leaf__));
 extern long double lgammal (long double) __attribute__ ((__nothrow__ , __leaf__)); extern long double __lgammal (long double) __attribute__ ((__nothrow__ , __leaf__));
 extern long double tgammal (long double) __attribute__ ((__nothrow__ , __leaf__)); extern long double __tgammal (long double) __attribute__ ((__nothrow__ , __leaf__));
 extern long double gammal (long double) __attribute__ ((__nothrow__ , __leaf__)); extern long double __gammal (long double) __attribute__ ((__nothrow__ , __leaf__));
@@ -5623,9 +5769,17 @@ extern __intmax_t fromfpl (long double __x, int __round, unsigned int __width) _
 extern __uintmax_t ufromfpl (long double __x, int __round, unsigned int __width) __attribute__ ((__nothrow__ , __leaf__)); extern __uintmax_t __ufromfpl (long double __x, int __round, unsigned int __width) __attribute__ ((__nothrow__ , __leaf__));
 extern __intmax_t fromfpxl (long double __x, int __round, unsigned int __width) __attribute__ ((__nothrow__ , __leaf__)); extern __intmax_t __fromfpxl (long double __x, int __round, unsigned int __width) __attribute__ ((__nothrow__ , __leaf__));
 extern __uintmax_t ufromfpxl (long double __x, int __round, unsigned int __width) __attribute__ ((__nothrow__ , __leaf__)); extern __uintmax_t __ufromfpxl (long double __x, int __round, unsigned int __width) __attribute__ ((__nothrow__ , __leaf__));
+extern int canonicalizel (long double *__cx, const long double *__x) __attribute__ ((__nothrow__ , __leaf__));
 extern long double fmaxmagl (long double __x, long double __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern long double __fmaxmagl (long double __x, long double __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
 extern long double fminmagl (long double __x, long double __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern long double __fminmagl (long double __x, long double __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
-extern int canonicalizel (long double *__cx, const long double *__x) __attribute__ ((__nothrow__ , __leaf__));
+extern long double fmaximuml (long double __x, long double __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern long double __fmaximuml (long double __x, long double __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern long double fminimuml (long double __x, long double __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern long double __fminimuml (long double __x, long double __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern long double fmaximum_numl (long double __x, long double __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern long double __fmaximum_numl (long double __x, long double __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern long double fminimum_numl (long double __x, long double __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern long double __fminimum_numl (long double __x, long double __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern long double fmaximum_magl (long double __x, long double __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern long double __fmaximum_magl (long double __x, long double __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern long double fminimum_magl (long double __x, long double __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern long double __fminimum_magl (long double __x, long double __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern long double fmaximum_mag_numl (long double __x, long double __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern long double __fmaximum_mag_numl (long double __x, long double __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern long double fminimum_mag_numl (long double __x, long double __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern long double __fminimum_mag_numl (long double __x, long double __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
 extern int totalorderl (const long double *__x, const long double *__y) __attribute__ ((__nothrow__ , __leaf__))
      __attribute__ ((__pure__));
 extern int totalordermagl (const long double *__x, const long double *__y) __attribute__ ((__nothrow__ , __leaf__))
@@ -5642,36 +5796,36 @@ extern long double scalbl (long double __x, long double __n) __attribute__ ((__n
 #define __MATH_PRECNAME(name,r) name ##f32 ##r
 #define __MATH_DECLARING_DOUBLE 0
 #define __MATH_DECLARING_FLOATN 1
-extern _Float32 acosf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __acosf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float32 asinf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __asinf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float32 atanf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __atanf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float32 atan2f32 (_Float32 __y, _Float32 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __atan2f32 (_Float32 __y, _Float32 __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float32 acosf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __acosf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float32 asinf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __asinf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float32 atanf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __atanf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float32 atan2f32 (_Float32 __y, _Float32 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __atan2f32 (_Float32 __y, _Float32 __x) __attribute__ ((__nothrow__ , __leaf__));
  extern _Float32 cosf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __cosf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__));
  extern _Float32 sinf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __sinf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float32 tanf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __tanf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float32 coshf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __coshf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float32 sinhf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __sinhf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float32 tanhf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __tanhf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float32 tanf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __tanf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float32 coshf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __coshf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float32 sinhf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __sinhf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float32 tanhf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __tanhf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__));
  extern void sincosf32 (_Float32 __x, _Float32 *__sinx, _Float32 *__cosx) __attribute__ ((__nothrow__ , __leaf__)); extern void __sincosf32 (_Float32 __x, _Float32 *__sinx, _Float32 *__cosx) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float32 acoshf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __acoshf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float32 asinhf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __asinhf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float32 atanhf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __atanhf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float32 acoshf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __acoshf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float32 asinhf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __asinhf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float32 atanhf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __atanhf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__));
  extern _Float32 expf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __expf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float32 frexpf32 (_Float32 __x, int *__exponent) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __frexpf32 (_Float32 __x, int *__exponent) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float32 ldexpf32 (_Float32 __x, int __exponent) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __ldexpf32 (_Float32 __x, int __exponent) __attribute__ ((__nothrow__ , __leaf__));
  extern _Float32 logf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __logf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float32 log10f32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __log10f32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float32 log10f32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __log10f32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float32 modff32 (_Float32 __x, _Float32 *__iptr) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __modff32 (_Float32 __x, _Float32 *__iptr) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2)));
-extern _Float32 exp10f32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __exp10f32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float32 expm1f32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __expm1f32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float32 log1pf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __log1pf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float32 exp10f32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __exp10f32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float32 expm1f32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __expm1f32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float32 log1pf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __log1pf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float32 logbf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __logbf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float32 exp2f32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __exp2f32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float32 log2f32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __log2f32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float32 exp2f32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __exp2f32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float32 log2f32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __log2f32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__));
  extern _Float32 powf32 (_Float32 __x, _Float32 __y) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __powf32 (_Float32 __x, _Float32 __y) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float32 sqrtf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __sqrtf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float32 hypotf32 (_Float32 __x, _Float32 __y) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __hypotf32 (_Float32 __x, _Float32 __y) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float32 cbrtf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __cbrtf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float32 hypotf32 (_Float32 __x, _Float32 __y) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __hypotf32 (_Float32 __x, _Float32 __y) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float32 cbrtf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __cbrtf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float32 ceilf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float32 __ceilf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
 extern _Float32 fabsf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float32 __fabsf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
 extern _Float32 floorf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float32 __floorf32 (_Float32 __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
@@ -5684,8 +5838,8 @@ extern _Float32 jnf32 (int, _Float32) __attribute__ ((__nothrow__ , __leaf__)); 
 extern _Float32 y0f32 (_Float32) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __y0f32 (_Float32) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float32 y1f32 (_Float32) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __y1f32 (_Float32) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float32 ynf32 (int, _Float32) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __ynf32 (int, _Float32) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float32 erff32 (_Float32) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __erff32 (_Float32) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float32 erfcf32 (_Float32) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __erfcf32 (_Float32) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float32 erff32 (_Float32) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __erff32 (_Float32) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float32 erfcf32 (_Float32) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __erfcf32 (_Float32) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float32 lgammaf32 (_Float32) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __lgammaf32 (_Float32) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float32 tgammaf32 (_Float32) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __tgammaf32 (_Float32) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float32 lgammaf32_r (_Float32, int *__signgamp) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32 __lgammaf32_r (_Float32, int *__signgamp) __attribute__ ((__nothrow__ , __leaf__));
@@ -5717,9 +5871,17 @@ extern __intmax_t fromfpf32 (_Float32 __x, int __round, unsigned int __width) __
 extern __uintmax_t ufromfpf32 (_Float32 __x, int __round, unsigned int __width) __attribute__ ((__nothrow__ , __leaf__)); extern __uintmax_t __ufromfpf32 (_Float32 __x, int __round, unsigned int __width) __attribute__ ((__nothrow__ , __leaf__));
 extern __intmax_t fromfpxf32 (_Float32 __x, int __round, unsigned int __width) __attribute__ ((__nothrow__ , __leaf__)); extern __intmax_t __fromfpxf32 (_Float32 __x, int __round, unsigned int __width) __attribute__ ((__nothrow__ , __leaf__));
 extern __uintmax_t ufromfpxf32 (_Float32 __x, int __round, unsigned int __width) __attribute__ ((__nothrow__ , __leaf__)); extern __uintmax_t __ufromfpxf32 (_Float32 __x, int __round, unsigned int __width) __attribute__ ((__nothrow__ , __leaf__));
+extern int canonicalizef32 (_Float32 *__cx, const _Float32 *__x) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float32 fmaxmagf32 (_Float32 __x, _Float32 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float32 __fmaxmagf32 (_Float32 __x, _Float32 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
 extern _Float32 fminmagf32 (_Float32 __x, _Float32 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float32 __fminmagf32 (_Float32 __x, _Float32 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
-extern int canonicalizef32 (_Float32 *__cx, const _Float32 *__x) __attribute__ ((__nothrow__ , __leaf__));
+extern _Float32 fmaximumf32 (_Float32 __x, _Float32 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float32 __fmaximumf32 (_Float32 __x, _Float32 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern _Float32 fminimumf32 (_Float32 __x, _Float32 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float32 __fminimumf32 (_Float32 __x, _Float32 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern _Float32 fmaximum_numf32 (_Float32 __x, _Float32 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float32 __fmaximum_numf32 (_Float32 __x, _Float32 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern _Float32 fminimum_numf32 (_Float32 __x, _Float32 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float32 __fminimum_numf32 (_Float32 __x, _Float32 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern _Float32 fmaximum_magf32 (_Float32 __x, _Float32 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float32 __fmaximum_magf32 (_Float32 __x, _Float32 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern _Float32 fminimum_magf32 (_Float32 __x, _Float32 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float32 __fminimum_magf32 (_Float32 __x, _Float32 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern _Float32 fmaximum_mag_numf32 (_Float32 __x, _Float32 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float32 __fmaximum_mag_numf32 (_Float32 __x, _Float32 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern _Float32 fminimum_mag_numf32 (_Float32 __x, _Float32 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float32 __fminimum_mag_numf32 (_Float32 __x, _Float32 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
 extern int totalorderf32 (const _Float32 *__x, const _Float32 *__y) __attribute__ ((__nothrow__ , __leaf__))
      __attribute__ ((__pure__));
 extern int totalordermagf32 (const _Float32 *__x, const _Float32 *__y) __attribute__ ((__nothrow__ , __leaf__))
@@ -5735,36 +5897,36 @@ extern int setpayloadsigf32 (_Float32 *__x, _Float32 __payload) __attribute__ ((
 #define __MATH_PRECNAME(name,r) name ##f64 ##r
 #define __MATH_DECLARING_DOUBLE 0
 #define __MATH_DECLARING_FLOATN 1
-extern _Float64 acosf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __acosf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float64 asinf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __asinf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float64 atanf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __atanf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float64 atan2f64 (_Float64 __y, _Float64 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __atan2f64 (_Float64 __y, _Float64 __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float64 acosf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __acosf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float64 asinf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __asinf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float64 atanf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __atanf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float64 atan2f64 (_Float64 __y, _Float64 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __atan2f64 (_Float64 __y, _Float64 __x) __attribute__ ((__nothrow__ , __leaf__));
  extern _Float64 cosf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __cosf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__));
  extern _Float64 sinf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __sinf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float64 tanf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __tanf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float64 coshf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __coshf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float64 sinhf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __sinhf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float64 tanhf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __tanhf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float64 tanf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __tanf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float64 coshf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __coshf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float64 sinhf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __sinhf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float64 tanhf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __tanhf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__));
  extern void sincosf64 (_Float64 __x, _Float64 *__sinx, _Float64 *__cosx) __attribute__ ((__nothrow__ , __leaf__)); extern void __sincosf64 (_Float64 __x, _Float64 *__sinx, _Float64 *__cosx) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float64 acoshf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __acoshf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float64 asinhf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __asinhf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float64 atanhf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __atanhf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float64 acoshf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __acoshf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float64 asinhf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __asinhf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float64 atanhf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __atanhf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__));
  extern _Float64 expf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __expf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float64 frexpf64 (_Float64 __x, int *__exponent) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __frexpf64 (_Float64 __x, int *__exponent) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float64 ldexpf64 (_Float64 __x, int __exponent) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __ldexpf64 (_Float64 __x, int __exponent) __attribute__ ((__nothrow__ , __leaf__));
  extern _Float64 logf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __logf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float64 log10f64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __log10f64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float64 log10f64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __log10f64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float64 modff64 (_Float64 __x, _Float64 *__iptr) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __modff64 (_Float64 __x, _Float64 *__iptr) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2)));
-extern _Float64 exp10f64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __exp10f64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float64 expm1f64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __expm1f64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float64 log1pf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __log1pf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float64 exp10f64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __exp10f64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float64 expm1f64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __expm1f64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float64 log1pf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __log1pf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float64 logbf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __logbf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float64 exp2f64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __exp2f64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float64 log2f64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __log2f64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float64 exp2f64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __exp2f64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float64 log2f64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __log2f64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__));
  extern _Float64 powf64 (_Float64 __x, _Float64 __y) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __powf64 (_Float64 __x, _Float64 __y) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float64 sqrtf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __sqrtf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float64 hypotf64 (_Float64 __x, _Float64 __y) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __hypotf64 (_Float64 __x, _Float64 __y) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float64 cbrtf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __cbrtf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float64 hypotf64 (_Float64 __x, _Float64 __y) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __hypotf64 (_Float64 __x, _Float64 __y) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float64 cbrtf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __cbrtf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float64 ceilf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float64 __ceilf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
 extern _Float64 fabsf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float64 __fabsf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
 extern _Float64 floorf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float64 __floorf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
@@ -5777,8 +5939,8 @@ extern _Float64 jnf64 (int, _Float64) __attribute__ ((__nothrow__ , __leaf__)); 
 extern _Float64 y0f64 (_Float64) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __y0f64 (_Float64) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float64 y1f64 (_Float64) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __y1f64 (_Float64) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float64 ynf64 (int, _Float64) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __ynf64 (int, _Float64) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float64 erff64 (_Float64) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __erff64 (_Float64) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float64 erfcf64 (_Float64) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __erfcf64 (_Float64) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float64 erff64 (_Float64) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __erff64 (_Float64) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float64 erfcf64 (_Float64) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __erfcf64 (_Float64) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float64 lgammaf64 (_Float64) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __lgammaf64 (_Float64) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float64 tgammaf64 (_Float64) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __tgammaf64 (_Float64) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float64 lgammaf64_r (_Float64, int *__signgamp) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64 __lgammaf64_r (_Float64, int *__signgamp) __attribute__ ((__nothrow__ , __leaf__));
@@ -5810,9 +5972,17 @@ extern __intmax_t fromfpf64 (_Float64 __x, int __round, unsigned int __width) __
 extern __uintmax_t ufromfpf64 (_Float64 __x, int __round, unsigned int __width) __attribute__ ((__nothrow__ , __leaf__)); extern __uintmax_t __ufromfpf64 (_Float64 __x, int __round, unsigned int __width) __attribute__ ((__nothrow__ , __leaf__));
 extern __intmax_t fromfpxf64 (_Float64 __x, int __round, unsigned int __width) __attribute__ ((__nothrow__ , __leaf__)); extern __intmax_t __fromfpxf64 (_Float64 __x, int __round, unsigned int __width) __attribute__ ((__nothrow__ , __leaf__));
 extern __uintmax_t ufromfpxf64 (_Float64 __x, int __round, unsigned int __width) __attribute__ ((__nothrow__ , __leaf__)); extern __uintmax_t __ufromfpxf64 (_Float64 __x, int __round, unsigned int __width) __attribute__ ((__nothrow__ , __leaf__));
+extern int canonicalizef64 (_Float64 *__cx, const _Float64 *__x) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float64 fmaxmagf64 (_Float64 __x, _Float64 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float64 __fmaxmagf64 (_Float64 __x, _Float64 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
 extern _Float64 fminmagf64 (_Float64 __x, _Float64 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float64 __fminmagf64 (_Float64 __x, _Float64 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
-extern int canonicalizef64 (_Float64 *__cx, const _Float64 *__x) __attribute__ ((__nothrow__ , __leaf__));
+extern _Float64 fmaximumf64 (_Float64 __x, _Float64 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float64 __fmaximumf64 (_Float64 __x, _Float64 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern _Float64 fminimumf64 (_Float64 __x, _Float64 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float64 __fminimumf64 (_Float64 __x, _Float64 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern _Float64 fmaximum_numf64 (_Float64 __x, _Float64 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float64 __fmaximum_numf64 (_Float64 __x, _Float64 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern _Float64 fminimum_numf64 (_Float64 __x, _Float64 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float64 __fminimum_numf64 (_Float64 __x, _Float64 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern _Float64 fmaximum_magf64 (_Float64 __x, _Float64 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float64 __fmaximum_magf64 (_Float64 __x, _Float64 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern _Float64 fminimum_magf64 (_Float64 __x, _Float64 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float64 __fminimum_magf64 (_Float64 __x, _Float64 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern _Float64 fmaximum_mag_numf64 (_Float64 __x, _Float64 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float64 __fmaximum_mag_numf64 (_Float64 __x, _Float64 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern _Float64 fminimum_mag_numf64 (_Float64 __x, _Float64 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float64 __fminimum_mag_numf64 (_Float64 __x, _Float64 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
 extern int totalorderf64 (const _Float64 *__x, const _Float64 *__y) __attribute__ ((__nothrow__ , __leaf__))
      __attribute__ ((__pure__));
 extern int totalordermagf64 (const _Float64 *__x, const _Float64 *__y) __attribute__ ((__nothrow__ , __leaf__))
@@ -5828,36 +5998,36 @@ extern int setpayloadsigf64 (_Float64 *__x, _Float64 __payload) __attribute__ ((
 #define __MATH_PRECNAME(name,r) name ##f128 ##r
 #define __MATH_DECLARING_DOUBLE 0
 #define __MATH_DECLARING_FLOATN 1
-extern _Float128 acosf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __acosf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float128 asinf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __asinf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float128 atanf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __atanf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float128 atan2f128 (_Float128 __y, _Float128 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __atan2f128 (_Float128 __y, _Float128 __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float128 acosf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __acosf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float128 asinf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __asinf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float128 atanf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __atanf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float128 atan2f128 (_Float128 __y, _Float128 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __atan2f128 (_Float128 __y, _Float128 __x) __attribute__ ((__nothrow__ , __leaf__));
  extern _Float128 cosf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __cosf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__));
  extern _Float128 sinf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __sinf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float128 tanf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __tanf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float128 coshf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __coshf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float128 sinhf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __sinhf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float128 tanhf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __tanhf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float128 tanf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __tanf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float128 coshf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __coshf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float128 sinhf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __sinhf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float128 tanhf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __tanhf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__));
  extern void sincosf128 (_Float128 __x, _Float128 *__sinx, _Float128 *__cosx) __attribute__ ((__nothrow__ , __leaf__)); extern void __sincosf128 (_Float128 __x, _Float128 *__sinx, _Float128 *__cosx) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float128 acoshf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __acoshf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float128 asinhf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __asinhf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float128 atanhf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __atanhf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float128 acoshf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __acoshf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float128 asinhf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __asinhf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float128 atanhf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __atanhf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__));
  extern _Float128 expf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __expf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float128 frexpf128 (_Float128 __x, int *__exponent) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __frexpf128 (_Float128 __x, int *__exponent) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float128 ldexpf128 (_Float128 __x, int __exponent) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __ldexpf128 (_Float128 __x, int __exponent) __attribute__ ((__nothrow__ , __leaf__));
  extern _Float128 logf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __logf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float128 log10f128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __log10f128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float128 log10f128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __log10f128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float128 modff128 (_Float128 __x, _Float128 *__iptr) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __modff128 (_Float128 __x, _Float128 *__iptr) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2)));
-extern _Float128 exp10f128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __exp10f128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float128 expm1f128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __expm1f128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float128 log1pf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __log1pf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float128 exp10f128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __exp10f128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float128 expm1f128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __expm1f128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float128 log1pf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __log1pf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float128 logbf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __logbf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float128 exp2f128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __exp2f128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float128 log2f128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __log2f128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float128 exp2f128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __exp2f128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float128 log2f128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __log2f128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__));
  extern _Float128 powf128 (_Float128 __x, _Float128 __y) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __powf128 (_Float128 __x, _Float128 __y) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float128 sqrtf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __sqrtf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float128 hypotf128 (_Float128 __x, _Float128 __y) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __hypotf128 (_Float128 __x, _Float128 __y) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float128 cbrtf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __cbrtf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float128 hypotf128 (_Float128 __x, _Float128 __y) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __hypotf128 (_Float128 __x, _Float128 __y) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float128 cbrtf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __cbrtf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float128 ceilf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float128 __ceilf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
 extern _Float128 fabsf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float128 __fabsf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
 extern _Float128 floorf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float128 __floorf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
@@ -5870,8 +6040,8 @@ extern _Float128 jnf128 (int, _Float128) __attribute__ ((__nothrow__ , __leaf__)
 extern _Float128 y0f128 (_Float128) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __y0f128 (_Float128) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float128 y1f128 (_Float128) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __y1f128 (_Float128) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float128 ynf128 (int, _Float128) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __ynf128 (int, _Float128) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float128 erff128 (_Float128) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __erff128 (_Float128) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float128 erfcf128 (_Float128) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __erfcf128 (_Float128) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float128 erff128 (_Float128) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __erff128 (_Float128) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float128 erfcf128 (_Float128) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __erfcf128 (_Float128) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float128 lgammaf128 (_Float128) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __lgammaf128 (_Float128) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float128 tgammaf128 (_Float128) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __tgammaf128 (_Float128) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float128 lgammaf128_r (_Float128, int *__signgamp) __attribute__ ((__nothrow__ , __leaf__)); extern _Float128 __lgammaf128_r (_Float128, int *__signgamp) __attribute__ ((__nothrow__ , __leaf__));
@@ -5903,9 +6073,17 @@ extern __intmax_t fromfpf128 (_Float128 __x, int __round, unsigned int __width) 
 extern __uintmax_t ufromfpf128 (_Float128 __x, int __round, unsigned int __width) __attribute__ ((__nothrow__ , __leaf__)); extern __uintmax_t __ufromfpf128 (_Float128 __x, int __round, unsigned int __width) __attribute__ ((__nothrow__ , __leaf__));
 extern __intmax_t fromfpxf128 (_Float128 __x, int __round, unsigned int __width) __attribute__ ((__nothrow__ , __leaf__)); extern __intmax_t __fromfpxf128 (_Float128 __x, int __round, unsigned int __width) __attribute__ ((__nothrow__ , __leaf__));
 extern __uintmax_t ufromfpxf128 (_Float128 __x, int __round, unsigned int __width) __attribute__ ((__nothrow__ , __leaf__)); extern __uintmax_t __ufromfpxf128 (_Float128 __x, int __round, unsigned int __width) __attribute__ ((__nothrow__ , __leaf__));
+extern int canonicalizef128 (_Float128 *__cx, const _Float128 *__x) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float128 fmaxmagf128 (_Float128 __x, _Float128 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float128 __fmaxmagf128 (_Float128 __x, _Float128 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
 extern _Float128 fminmagf128 (_Float128 __x, _Float128 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float128 __fminmagf128 (_Float128 __x, _Float128 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
-extern int canonicalizef128 (_Float128 *__cx, const _Float128 *__x) __attribute__ ((__nothrow__ , __leaf__));
+extern _Float128 fmaximumf128 (_Float128 __x, _Float128 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float128 __fmaximumf128 (_Float128 __x, _Float128 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern _Float128 fminimumf128 (_Float128 __x, _Float128 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float128 __fminimumf128 (_Float128 __x, _Float128 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern _Float128 fmaximum_numf128 (_Float128 __x, _Float128 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float128 __fmaximum_numf128 (_Float128 __x, _Float128 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern _Float128 fminimum_numf128 (_Float128 __x, _Float128 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float128 __fminimum_numf128 (_Float128 __x, _Float128 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern _Float128 fmaximum_magf128 (_Float128 __x, _Float128 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float128 __fmaximum_magf128 (_Float128 __x, _Float128 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern _Float128 fminimum_magf128 (_Float128 __x, _Float128 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float128 __fminimum_magf128 (_Float128 __x, _Float128 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern _Float128 fmaximum_mag_numf128 (_Float128 __x, _Float128 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float128 __fmaximum_mag_numf128 (_Float128 __x, _Float128 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern _Float128 fminimum_mag_numf128 (_Float128 __x, _Float128 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float128 __fminimum_mag_numf128 (_Float128 __x, _Float128 __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
 extern int totalorderf128 (const _Float128 *__x, const _Float128 *__y) __attribute__ ((__nothrow__ , __leaf__))
      __attribute__ ((__pure__));
 extern int totalordermagf128 (const _Float128 *__x, const _Float128 *__y) __attribute__ ((__nothrow__ , __leaf__))
@@ -5921,36 +6099,36 @@ extern int setpayloadsigf128 (_Float128 *__x, _Float128 __payload) __attribute__
 #define __MATH_PRECNAME(name,r) name ##f32x ##r
 #define __MATH_DECLARING_DOUBLE 0
 #define __MATH_DECLARING_FLOATN 1
-extern _Float32x acosf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __acosf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float32x asinf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __asinf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float32x atanf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __atanf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float32x atan2f32x (_Float32x __y, _Float32x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __atan2f32x (_Float32x __y, _Float32x __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float32x acosf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __acosf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float32x asinf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __asinf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float32x atanf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __atanf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float32x atan2f32x (_Float32x __y, _Float32x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __atan2f32x (_Float32x __y, _Float32x __x) __attribute__ ((__nothrow__ , __leaf__));
  extern _Float32x cosf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __cosf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__));
  extern _Float32x sinf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __sinf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float32x tanf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __tanf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float32x coshf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __coshf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float32x sinhf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __sinhf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float32x tanhf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __tanhf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float32x tanf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __tanf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float32x coshf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __coshf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float32x sinhf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __sinhf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float32x tanhf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __tanhf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__));
  extern void sincosf32x (_Float32x __x, _Float32x *__sinx, _Float32x *__cosx) __attribute__ ((__nothrow__ , __leaf__)); extern void __sincosf32x (_Float32x __x, _Float32x *__sinx, _Float32x *__cosx) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float32x acoshf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __acoshf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float32x asinhf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __asinhf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float32x atanhf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __atanhf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float32x acoshf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __acoshf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float32x asinhf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __asinhf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float32x atanhf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __atanhf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__));
  extern _Float32x expf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __expf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float32x frexpf32x (_Float32x __x, int *__exponent) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __frexpf32x (_Float32x __x, int *__exponent) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float32x ldexpf32x (_Float32x __x, int __exponent) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __ldexpf32x (_Float32x __x, int __exponent) __attribute__ ((__nothrow__ , __leaf__));
  extern _Float32x logf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __logf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float32x log10f32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __log10f32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float32x log10f32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __log10f32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float32x modff32x (_Float32x __x, _Float32x *__iptr) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __modff32x (_Float32x __x, _Float32x *__iptr) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2)));
-extern _Float32x exp10f32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __exp10f32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float32x expm1f32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __expm1f32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float32x log1pf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __log1pf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float32x exp10f32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __exp10f32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float32x expm1f32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __expm1f32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float32x log1pf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __log1pf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float32x logbf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __logbf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float32x exp2f32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __exp2f32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float32x log2f32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __log2f32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float32x exp2f32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __exp2f32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float32x log2f32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __log2f32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__));
  extern _Float32x powf32x (_Float32x __x, _Float32x __y) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __powf32x (_Float32x __x, _Float32x __y) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float32x sqrtf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __sqrtf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float32x hypotf32x (_Float32x __x, _Float32x __y) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __hypotf32x (_Float32x __x, _Float32x __y) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float32x cbrtf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __cbrtf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float32x hypotf32x (_Float32x __x, _Float32x __y) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __hypotf32x (_Float32x __x, _Float32x __y) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float32x cbrtf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __cbrtf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float32x ceilf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float32x __ceilf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
 extern _Float32x fabsf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float32x __fabsf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
 extern _Float32x floorf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float32x __floorf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
@@ -5963,8 +6141,8 @@ extern _Float32x jnf32x (int, _Float32x) __attribute__ ((__nothrow__ , __leaf__)
 extern _Float32x y0f32x (_Float32x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __y0f32x (_Float32x) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float32x y1f32x (_Float32x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __y1f32x (_Float32x) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float32x ynf32x (int, _Float32x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __ynf32x (int, _Float32x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float32x erff32x (_Float32x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __erff32x (_Float32x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float32x erfcf32x (_Float32x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __erfcf32x (_Float32x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float32x erff32x (_Float32x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __erff32x (_Float32x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float32x erfcf32x (_Float32x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __erfcf32x (_Float32x) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float32x lgammaf32x (_Float32x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __lgammaf32x (_Float32x) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float32x tgammaf32x (_Float32x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __tgammaf32x (_Float32x) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float32x lgammaf32x_r (_Float32x, int *__signgamp) __attribute__ ((__nothrow__ , __leaf__)); extern _Float32x __lgammaf32x_r (_Float32x, int *__signgamp) __attribute__ ((__nothrow__ , __leaf__));
@@ -5996,9 +6174,17 @@ extern __intmax_t fromfpf32x (_Float32x __x, int __round, unsigned int __width) 
 extern __uintmax_t ufromfpf32x (_Float32x __x, int __round, unsigned int __width) __attribute__ ((__nothrow__ , __leaf__)); extern __uintmax_t __ufromfpf32x (_Float32x __x, int __round, unsigned int __width) __attribute__ ((__nothrow__ , __leaf__));
 extern __intmax_t fromfpxf32x (_Float32x __x, int __round, unsigned int __width) __attribute__ ((__nothrow__ , __leaf__)); extern __intmax_t __fromfpxf32x (_Float32x __x, int __round, unsigned int __width) __attribute__ ((__nothrow__ , __leaf__));
 extern __uintmax_t ufromfpxf32x (_Float32x __x, int __round, unsigned int __width) __attribute__ ((__nothrow__ , __leaf__)); extern __uintmax_t __ufromfpxf32x (_Float32x __x, int __round, unsigned int __width) __attribute__ ((__nothrow__ , __leaf__));
+extern int canonicalizef32x (_Float32x *__cx, const _Float32x *__x) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float32x fmaxmagf32x (_Float32x __x, _Float32x __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float32x __fmaxmagf32x (_Float32x __x, _Float32x __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
 extern _Float32x fminmagf32x (_Float32x __x, _Float32x __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float32x __fminmagf32x (_Float32x __x, _Float32x __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
-extern int canonicalizef32x (_Float32x *__cx, const _Float32x *__x) __attribute__ ((__nothrow__ , __leaf__));
+extern _Float32x fmaximumf32x (_Float32x __x, _Float32x __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float32x __fmaximumf32x (_Float32x __x, _Float32x __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern _Float32x fminimumf32x (_Float32x __x, _Float32x __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float32x __fminimumf32x (_Float32x __x, _Float32x __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern _Float32x fmaximum_numf32x (_Float32x __x, _Float32x __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float32x __fmaximum_numf32x (_Float32x __x, _Float32x __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern _Float32x fminimum_numf32x (_Float32x __x, _Float32x __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float32x __fminimum_numf32x (_Float32x __x, _Float32x __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern _Float32x fmaximum_magf32x (_Float32x __x, _Float32x __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float32x __fmaximum_magf32x (_Float32x __x, _Float32x __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern _Float32x fminimum_magf32x (_Float32x __x, _Float32x __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float32x __fminimum_magf32x (_Float32x __x, _Float32x __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern _Float32x fmaximum_mag_numf32x (_Float32x __x, _Float32x __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float32x __fmaximum_mag_numf32x (_Float32x __x, _Float32x __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern _Float32x fminimum_mag_numf32x (_Float32x __x, _Float32x __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float32x __fminimum_mag_numf32x (_Float32x __x, _Float32x __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
 extern int totalorderf32x (const _Float32x *__x, const _Float32x *__y) __attribute__ ((__nothrow__ , __leaf__))
      __attribute__ ((__pure__));
 extern int totalordermagf32x (const _Float32x *__x, const _Float32x *__y) __attribute__ ((__nothrow__ , __leaf__))
@@ -6014,36 +6200,36 @@ extern int setpayloadsigf32x (_Float32x *__x, _Float32x __payload) __attribute__
 #define __MATH_PRECNAME(name,r) name ##f64x ##r
 #define __MATH_DECLARING_DOUBLE 0
 #define __MATH_DECLARING_FLOATN 1
-extern _Float64x acosf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __acosf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float64x asinf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __asinf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float64x atanf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __atanf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float64x atan2f64x (_Float64x __y, _Float64x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __atan2f64x (_Float64x __y, _Float64x __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float64x acosf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __acosf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float64x asinf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __asinf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float64x atanf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __atanf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float64x atan2f64x (_Float64x __y, _Float64x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __atan2f64x (_Float64x __y, _Float64x __x) __attribute__ ((__nothrow__ , __leaf__));
  extern _Float64x cosf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __cosf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__));
  extern _Float64x sinf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __sinf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float64x tanf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __tanf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float64x coshf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __coshf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float64x sinhf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __sinhf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float64x tanhf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __tanhf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float64x tanf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __tanf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float64x coshf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __coshf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float64x sinhf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __sinhf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float64x tanhf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __tanhf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__));
  extern void sincosf64x (_Float64x __x, _Float64x *__sinx, _Float64x *__cosx) __attribute__ ((__nothrow__ , __leaf__)); extern void __sincosf64x (_Float64x __x, _Float64x *__sinx, _Float64x *__cosx) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float64x acoshf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __acoshf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float64x asinhf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __asinhf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float64x atanhf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __atanhf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float64x acoshf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __acoshf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float64x asinhf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __asinhf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float64x atanhf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __atanhf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__));
  extern _Float64x expf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __expf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float64x frexpf64x (_Float64x __x, int *__exponent) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __frexpf64x (_Float64x __x, int *__exponent) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float64x ldexpf64x (_Float64x __x, int __exponent) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __ldexpf64x (_Float64x __x, int __exponent) __attribute__ ((__nothrow__ , __leaf__));
  extern _Float64x logf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __logf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float64x log10f64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __log10f64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float64x log10f64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __log10f64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float64x modff64x (_Float64x __x, _Float64x *__iptr) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __modff64x (_Float64x __x, _Float64x *__iptr) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2)));
-extern _Float64x exp10f64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __exp10f64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float64x expm1f64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __expm1f64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float64x log1pf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __log1pf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float64x exp10f64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __exp10f64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float64x expm1f64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __expm1f64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float64x log1pf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __log1pf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float64x logbf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __logbf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float64x exp2f64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __exp2f64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float64x log2f64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __log2f64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float64x exp2f64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __exp2f64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float64x log2f64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __log2f64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__));
  extern _Float64x powf64x (_Float64x __x, _Float64x __y) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __powf64x (_Float64x __x, _Float64x __y) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float64x sqrtf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __sqrtf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float64x hypotf64x (_Float64x __x, _Float64x __y) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __hypotf64x (_Float64x __x, _Float64x __y) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float64x cbrtf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __cbrtf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float64x hypotf64x (_Float64x __x, _Float64x __y) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __hypotf64x (_Float64x __x, _Float64x __y) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float64x cbrtf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __cbrtf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float64x ceilf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float64x __ceilf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
 extern _Float64x fabsf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float64x __fabsf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
 extern _Float64x floorf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float64x __floorf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
@@ -6056,8 +6242,8 @@ extern _Float64x jnf64x (int, _Float64x) __attribute__ ((__nothrow__ , __leaf__)
 extern _Float64x y0f64x (_Float64x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __y0f64x (_Float64x) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float64x y1f64x (_Float64x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __y1f64x (_Float64x) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float64x ynf64x (int, _Float64x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __ynf64x (int, _Float64x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float64x erff64x (_Float64x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __erff64x (_Float64x) __attribute__ ((__nothrow__ , __leaf__));
-extern _Float64x erfcf64x (_Float64x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __erfcf64x (_Float64x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float64x erff64x (_Float64x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __erff64x (_Float64x) __attribute__ ((__nothrow__ , __leaf__));
+ extern _Float64x erfcf64x (_Float64x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __erfcf64x (_Float64x) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float64x lgammaf64x (_Float64x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __lgammaf64x (_Float64x) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float64x tgammaf64x (_Float64x) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __tgammaf64x (_Float64x) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float64x lgammaf64x_r (_Float64x, int *__signgamp) __attribute__ ((__nothrow__ , __leaf__)); extern _Float64x __lgammaf64x_r (_Float64x, int *__signgamp) __attribute__ ((__nothrow__ , __leaf__));
@@ -6089,9 +6275,17 @@ extern __intmax_t fromfpf64x (_Float64x __x, int __round, unsigned int __width) 
 extern __uintmax_t ufromfpf64x (_Float64x __x, int __round, unsigned int __width) __attribute__ ((__nothrow__ , __leaf__)); extern __uintmax_t __ufromfpf64x (_Float64x __x, int __round, unsigned int __width) __attribute__ ((__nothrow__ , __leaf__));
 extern __intmax_t fromfpxf64x (_Float64x __x, int __round, unsigned int __width) __attribute__ ((__nothrow__ , __leaf__)); extern __intmax_t __fromfpxf64x (_Float64x __x, int __round, unsigned int __width) __attribute__ ((__nothrow__ , __leaf__));
 extern __uintmax_t ufromfpxf64x (_Float64x __x, int __round, unsigned int __width) __attribute__ ((__nothrow__ , __leaf__)); extern __uintmax_t __ufromfpxf64x (_Float64x __x, int __round, unsigned int __width) __attribute__ ((__nothrow__ , __leaf__));
+extern int canonicalizef64x (_Float64x *__cx, const _Float64x *__x) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float64x fmaxmagf64x (_Float64x __x, _Float64x __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float64x __fmaxmagf64x (_Float64x __x, _Float64x __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
 extern _Float64x fminmagf64x (_Float64x __x, _Float64x __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float64x __fminmagf64x (_Float64x __x, _Float64x __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
-extern int canonicalizef64x (_Float64x *__cx, const _Float64x *__x) __attribute__ ((__nothrow__ , __leaf__));
+extern _Float64x fmaximumf64x (_Float64x __x, _Float64x __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float64x __fmaximumf64x (_Float64x __x, _Float64x __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern _Float64x fminimumf64x (_Float64x __x, _Float64x __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float64x __fminimumf64x (_Float64x __x, _Float64x __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern _Float64x fmaximum_numf64x (_Float64x __x, _Float64x __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float64x __fmaximum_numf64x (_Float64x __x, _Float64x __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern _Float64x fminimum_numf64x (_Float64x __x, _Float64x __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float64x __fminimum_numf64x (_Float64x __x, _Float64x __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern _Float64x fmaximum_magf64x (_Float64x __x, _Float64x __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float64x __fmaximum_magf64x (_Float64x __x, _Float64x __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern _Float64x fminimum_magf64x (_Float64x __x, _Float64x __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float64x __fminimum_magf64x (_Float64x __x, _Float64x __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern _Float64x fmaximum_mag_numf64x (_Float64x __x, _Float64x __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float64x __fmaximum_mag_numf64x (_Float64x __x, _Float64x __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
+extern _Float64x fminimum_mag_numf64x (_Float64x __x, _Float64x __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__)); extern _Float64x __fminimum_mag_numf64x (_Float64x __x, _Float64x __y) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__const__));
 extern int totalorderf64x (const _Float64x *__x, const _Float64x *__y) __attribute__ ((__nothrow__ , __leaf__))
      __attribute__ ((__pure__));
 extern int totalordermagf64x (const _Float64x *__x, const _Float64x *__y) __attribute__ ((__nothrow__ , __leaf__))
@@ -6103,7 +6297,9 @@ extern int setpayloadsigf64x (_Float64x *__x, _Float64x __payload) __attribute__
 #undef __MATH_PRECNAME
 #undef __MATH_DECLARING_DOUBLE
 #undef __MATH_DECLARING_FLOATN
+#undef __MATHDECL_1_IMPL
 #undef __MATHDECL_1
+#undef __MATHDECL_ALIAS
 #undef __MATHDECL
 #undef __MATHCALL
 #define __MATHCALL_NARROW_ARGS_1 (_Marg_ __x)
@@ -6117,7 +6313,9 @@ extern int setpayloadsigf64x (_Float64x *__x, _Float64x __payload) __attribute__
 #define __MATHCALL_NAME(name) f ## name
 extern float fadd (double __x, double __y) __attribute__ ((__nothrow__ , __leaf__));
 extern float fdiv (double __x, double __y) __attribute__ ((__nothrow__ , __leaf__));
+extern float ffma (double __x, double __y, double __z) __attribute__ ((__nothrow__ , __leaf__));
 extern float fmul (double __x, double __y) __attribute__ ((__nothrow__ , __leaf__));
+extern float fsqrt (double __x) __attribute__ ((__nothrow__ , __leaf__));
 extern float fsub (double __x, double __y) __attribute__ ((__nothrow__ , __leaf__));
 #undef _Mret_
 #undef _Marg_
@@ -6127,7 +6325,9 @@ extern float fsub (double __x, double __y) __attribute__ ((__nothrow__ , __leaf_
 #define __MATHCALL_NAME(name) f ## name ## l
 extern float faddl (long double __x, long double __y) __attribute__ ((__nothrow__ , __leaf__));
 extern float fdivl (long double __x, long double __y) __attribute__ ((__nothrow__ , __leaf__));
+extern float ffmal (long double __x, long double __y, long double __z) __attribute__ ((__nothrow__ , __leaf__));
 extern float fmull (long double __x, long double __y) __attribute__ ((__nothrow__ , __leaf__));
+extern float fsqrtl (long double __x) __attribute__ ((__nothrow__ , __leaf__));
 extern float fsubl (long double __x, long double __y) __attribute__ ((__nothrow__ , __leaf__));
 #undef _Mret_
 #undef _Marg_
@@ -6137,7 +6337,9 @@ extern float fsubl (long double __x, long double __y) __attribute__ ((__nothrow_
 #define __MATHCALL_NAME(name) d ## name ## l
 extern double daddl (long double __x, long double __y) __attribute__ ((__nothrow__ , __leaf__));
 extern double ddivl (long double __x, long double __y) __attribute__ ((__nothrow__ , __leaf__));
+extern double dfmal (long double __x, long double __y, long double __z) __attribute__ ((__nothrow__ , __leaf__));
 extern double dmull (long double __x, long double __y) __attribute__ ((__nothrow__ , __leaf__));
+extern double dsqrtl (long double __x) __attribute__ ((__nothrow__ , __leaf__));
 extern double dsubl (long double __x, long double __y) __attribute__ ((__nothrow__ , __leaf__));
 #undef _Mret_
 #undef _Marg_
@@ -6147,7 +6349,9 @@ extern double dsubl (long double __x, long double __y) __attribute__ ((__nothrow
 #define __MATHCALL_NAME(name) f32 ## name ## f32x
 extern _Float32 f32addf32x (_Float32x __x, _Float32x __y) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float32 f32divf32x (_Float32x __x, _Float32x __y) __attribute__ ((__nothrow__ , __leaf__));
+extern _Float32 f32fmaf32x (_Float32x __x, _Float32x __y, _Float32x __z) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float32 f32mulf32x (_Float32x __x, _Float32x __y) __attribute__ ((__nothrow__ , __leaf__));
+extern _Float32 f32sqrtf32x (_Float32x __x) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float32 f32subf32x (_Float32x __x, _Float32x __y) __attribute__ ((__nothrow__ , __leaf__));
 #undef _Mret_
 #undef _Marg_
@@ -6157,7 +6361,9 @@ extern _Float32 f32subf32x (_Float32x __x, _Float32x __y) __attribute__ ((__noth
 #define __MATHCALL_NAME(name) f32 ## name ## f64
 extern _Float32 f32addf64 (_Float64 __x, _Float64 __y) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float32 f32divf64 (_Float64 __x, _Float64 __y) __attribute__ ((__nothrow__ , __leaf__));
+extern _Float32 f32fmaf64 (_Float64 __x, _Float64 __y, _Float64 __z) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float32 f32mulf64 (_Float64 __x, _Float64 __y) __attribute__ ((__nothrow__ , __leaf__));
+extern _Float32 f32sqrtf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float32 f32subf64 (_Float64 __x, _Float64 __y) __attribute__ ((__nothrow__ , __leaf__));
 #undef _Mret_
 #undef _Marg_
@@ -6167,7 +6373,9 @@ extern _Float32 f32subf64 (_Float64 __x, _Float64 __y) __attribute__ ((__nothrow
 #define __MATHCALL_NAME(name) f32 ## name ## f64x
 extern _Float32 f32addf64x (_Float64x __x, _Float64x __y) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float32 f32divf64x (_Float64x __x, _Float64x __y) __attribute__ ((__nothrow__ , __leaf__));
+extern _Float32 f32fmaf64x (_Float64x __x, _Float64x __y, _Float64x __z) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float32 f32mulf64x (_Float64x __x, _Float64x __y) __attribute__ ((__nothrow__ , __leaf__));
+extern _Float32 f32sqrtf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float32 f32subf64x (_Float64x __x, _Float64x __y) __attribute__ ((__nothrow__ , __leaf__));
 #undef _Mret_
 #undef _Marg_
@@ -6177,7 +6385,9 @@ extern _Float32 f32subf64x (_Float64x __x, _Float64x __y) __attribute__ ((__noth
 #define __MATHCALL_NAME(name) f32 ## name ## f128
 extern _Float32 f32addf128 (_Float128 __x, _Float128 __y) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float32 f32divf128 (_Float128 __x, _Float128 __y) __attribute__ ((__nothrow__ , __leaf__));
+extern _Float32 f32fmaf128 (_Float128 __x, _Float128 __y, _Float128 __z) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float32 f32mulf128 (_Float128 __x, _Float128 __y) __attribute__ ((__nothrow__ , __leaf__));
+extern _Float32 f32sqrtf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float32 f32subf128 (_Float128 __x, _Float128 __y) __attribute__ ((__nothrow__ , __leaf__));
 #undef _Mret_
 #undef _Marg_
@@ -6187,7 +6397,9 @@ extern _Float32 f32subf128 (_Float128 __x, _Float128 __y) __attribute__ ((__noth
 #define __MATHCALL_NAME(name) f32x ## name ## f64
 extern _Float32x f32xaddf64 (_Float64 __x, _Float64 __y) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float32x f32xdivf64 (_Float64 __x, _Float64 __y) __attribute__ ((__nothrow__ , __leaf__));
+extern _Float32x f32xfmaf64 (_Float64 __x, _Float64 __y, _Float64 __z) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float32x f32xmulf64 (_Float64 __x, _Float64 __y) __attribute__ ((__nothrow__ , __leaf__));
+extern _Float32x f32xsqrtf64 (_Float64 __x) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float32x f32xsubf64 (_Float64 __x, _Float64 __y) __attribute__ ((__nothrow__ , __leaf__));
 #undef _Mret_
 #undef _Marg_
@@ -6197,7 +6409,9 @@ extern _Float32x f32xsubf64 (_Float64 __x, _Float64 __y) __attribute__ ((__nothr
 #define __MATHCALL_NAME(name) f32x ## name ## f64x
 extern _Float32x f32xaddf64x (_Float64x __x, _Float64x __y) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float32x f32xdivf64x (_Float64x __x, _Float64x __y) __attribute__ ((__nothrow__ , __leaf__));
+extern _Float32x f32xfmaf64x (_Float64x __x, _Float64x __y, _Float64x __z) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float32x f32xmulf64x (_Float64x __x, _Float64x __y) __attribute__ ((__nothrow__ , __leaf__));
+extern _Float32x f32xsqrtf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float32x f32xsubf64x (_Float64x __x, _Float64x __y) __attribute__ ((__nothrow__ , __leaf__));
 #undef _Mret_
 #undef _Marg_
@@ -6207,7 +6421,9 @@ extern _Float32x f32xsubf64x (_Float64x __x, _Float64x __y) __attribute__ ((__no
 #define __MATHCALL_NAME(name) f32x ## name ## f128
 extern _Float32x f32xaddf128 (_Float128 __x, _Float128 __y) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float32x f32xdivf128 (_Float128 __x, _Float128 __y) __attribute__ ((__nothrow__ , __leaf__));
+extern _Float32x f32xfmaf128 (_Float128 __x, _Float128 __y, _Float128 __z) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float32x f32xmulf128 (_Float128 __x, _Float128 __y) __attribute__ ((__nothrow__ , __leaf__));
+extern _Float32x f32xsqrtf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float32x f32xsubf128 (_Float128 __x, _Float128 __y) __attribute__ ((__nothrow__ , __leaf__));
 #undef _Mret_
 #undef _Marg_
@@ -6217,7 +6433,9 @@ extern _Float32x f32xsubf128 (_Float128 __x, _Float128 __y) __attribute__ ((__no
 #define __MATHCALL_NAME(name) f64 ## name ## f64x
 extern _Float64 f64addf64x (_Float64x __x, _Float64x __y) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float64 f64divf64x (_Float64x __x, _Float64x __y) __attribute__ ((__nothrow__ , __leaf__));
+extern _Float64 f64fmaf64x (_Float64x __x, _Float64x __y, _Float64x __z) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float64 f64mulf64x (_Float64x __x, _Float64x __y) __attribute__ ((__nothrow__ , __leaf__));
+extern _Float64 f64sqrtf64x (_Float64x __x) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float64 f64subf64x (_Float64x __x, _Float64x __y) __attribute__ ((__nothrow__ , __leaf__));
 #undef _Mret_
 #undef _Marg_
@@ -6227,7 +6445,9 @@ extern _Float64 f64subf64x (_Float64x __x, _Float64x __y) __attribute__ ((__noth
 #define __MATHCALL_NAME(name) f64 ## name ## f128
 extern _Float64 f64addf128 (_Float128 __x, _Float128 __y) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float64 f64divf128 (_Float128 __x, _Float128 __y) __attribute__ ((__nothrow__ , __leaf__));
+extern _Float64 f64fmaf128 (_Float128 __x, _Float128 __y, _Float128 __z) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float64 f64mulf128 (_Float128 __x, _Float128 __y) __attribute__ ((__nothrow__ , __leaf__));
+extern _Float64 f64sqrtf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float64 f64subf128 (_Float128 __x, _Float128 __y) __attribute__ ((__nothrow__ , __leaf__));
 #undef _Mret_
 #undef _Marg_
@@ -6237,7 +6457,9 @@ extern _Float64 f64subf128 (_Float128 __x, _Float128 __y) __attribute__ ((__noth
 #define __MATHCALL_NAME(name) f64x ## name ## f128
 extern _Float64x f64xaddf128 (_Float128 __x, _Float128 __y) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float64x f64xdivf128 (_Float128 __x, _Float128 __y) __attribute__ ((__nothrow__ , __leaf__));
+extern _Float64x f64xfmaf128 (_Float128 __x, _Float128 __y, _Float128 __z) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float64x f64xmulf128 (_Float128 __x, _Float128 __y) __attribute__ ((__nothrow__ , __leaf__));
+extern _Float64x f64xsqrtf128 (_Float128 __x) __attribute__ ((__nothrow__ , __leaf__));
 extern _Float64x f64xsubf128 (_Float128 __x, _Float128 __y) __attribute__ ((__nothrow__ , __leaf__));
 #undef _Mret_
 #undef _Marg_
@@ -6295,6 +6517,19 @@ enum
 #define M_2_SQRTPI 1.12837916709551257390
 #define M_SQRT2 1.41421356237309504880
 #define M_SQRT1_2 0.70710678118654752440
+#define M_Ef 2.7182818284590452354f
+#define M_LOG2Ef 1.4426950408889634074f
+#define M_LOG10Ef 0.43429448190325182765f
+#define M_LN2f 0.69314718055994530942f
+#define M_LN10f 2.30258509299404568402f
+#define M_PIf 3.14159265358979323846f
+#define M_PI_2f 1.57079632679489661923f
+#define M_PI_4f 0.78539816339744830962f
+#define M_1_PIf 0.31830988618379067154f
+#define M_2_PIf 0.63661977236758134308f
+#define M_2_SQRTPIf 1.12837916709551257390f
+#define M_SQRT2f 1.41421356237309504880f
+#define M_SQRT1_2f 0.70710678118654752440f
 #define M_El 2.718281828459045235360287471352662498L
 #define M_LOG2El 1.442695040888963407359924681001892137L
 #define M_LOG10El 0.434294481903251827651128918916605082L
@@ -6564,6 +6799,8 @@ extern int timer_gettime (timer_t __timerid, struct itimerspec *__value)
 extern int timer_getoverrun (timer_t __timerid) __attribute__ ((__nothrow__ , __leaf__));
 extern int timespec_get (struct timespec *__ts, int __base)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+extern int timespec_getres (struct timespec *__ts, int __base)
+     __attribute__ ((__nothrow__ , __leaf__));
 extern int getdate_err;
 extern struct tm *getdate (const char *__string);
 extern int getdate_r (const char *__restrict __string,
@@ -6661,6 +6898,8 @@ extern void setproctitle(const char *fmt, ...);
 #define __GLIBC_USE_IEC_60559_BFP_EXT 1
 #undef __GLIBC_USE_IEC_60559_BFP_EXT_C2X
 #define __GLIBC_USE_IEC_60559_BFP_EXT_C2X 1
+#undef __GLIBC_USE_IEC_60559_EXT
+#define __GLIBC_USE_IEC_60559_EXT 1
 #undef __GLIBC_USE_IEC_60559_FUNCS_EXT
 #define __GLIBC_USE_IEC_60559_FUNCS_EXT 1
 #undef __GLIBC_USE_IEC_60559_FUNCS_EXT_C2X
@@ -6682,6 +6921,8 @@ extern void setproctitle(const char *fmt, ...);
 #define ULONG_WIDTH __WORDSIZE
 #define LLONG_WIDTH 64
 #define ULLONG_WIDTH 64
+#define BOOL_MAX 1
+#define BOOL_WIDTH 1
 #define _BITS_POSIX1_LIM_H 1
 #define __WORDSIZE 64
 #define __WORDSIZE_TIME64_COMPAT32 0
@@ -6752,7 +6993,11 @@ extern void setproctitle(const char *fmt, ...);
 #define _POSIX_THREAD_THREADS_MAX 64
 #undef PTHREAD_THREADS_MAX
 #define AIO_PRIO_DELTA_MAX 20
-#define PTHREAD_STACK_MIN 131072
+#define __SC_THREAD_STACK_MIN_VALUE 75
+
+extern long int __sysconf (int __name) __attribute__ ((__nothrow__ , __leaf__));
+
+#define PTHREAD_STACK_MIN __sysconf (__SC_THREAD_STACK_MIN_VALUE)
 #define DELAYTIMER_MAX 2147483647
 #define TTY_NAME_MAX 32
 #define LOGIN_NAME_MAX 256
@@ -6837,6 +7082,28 @@ extern void setproctitle(const char *fmt, ...);
 #define LONG_LONG_MAX __LONG_LONG_MAX__
 #undef ULONG_LONG_MAX
 #define ULONG_LONG_MAX (LONG_LONG_MAX * 2ULL + 1ULL)
+#undef CHAR_WIDTH
+#define CHAR_WIDTH __SCHAR_WIDTH__
+#undef SCHAR_WIDTH
+#define SCHAR_WIDTH __SCHAR_WIDTH__
+#undef UCHAR_WIDTH
+#define UCHAR_WIDTH __SCHAR_WIDTH__
+#undef SHRT_WIDTH
+#define SHRT_WIDTH __SHRT_WIDTH__
+#undef USHRT_WIDTH
+#define USHRT_WIDTH __SHRT_WIDTH__
+#undef INT_WIDTH
+#define INT_WIDTH __INT_WIDTH__
+#undef UINT_WIDTH
+#define UINT_WIDTH __INT_WIDTH__
+#undef LONG_WIDTH
+#define LONG_WIDTH __LONG_WIDTH__
+#undef ULONG_WIDTH
+#define ULONG_WIDTH __LONG_WIDTH__
+#undef LLONG_WIDTH
+#define LLONG_WIDTH __LONG_LONG_WIDTH__
+#undef ULLONG_WIDTH
+#define ULLONG_WIDTH __LONG_LONG_WIDTH__
 typedef unsigned long VALUE;
 typedef unsigned long ID;
 #define SIGNED_VALUE long
@@ -7076,13 +7343,13 @@ void rb_define_attr(VALUE klass, const char *name, int read, int write);
 #define RBIMPL_ANYARGS_DISPATCH_rb_define_method(n,f) RBIMPL_ANYARGS_DISPATCH(RBIMPL_CFUNC_IS_rb_f_notimplement(f), rb_define_method_m3, RBIMPL_ANYARGS_DISPATCH_rb_define_method_15(n))
 #define RBIMPL_ANYARGS_ATTRSET(sym) RBIMPL_ATTR_MAYBE_UNUSED() RBIMPL_ATTR_NONNULL(()) RBIMPL_ATTR_WEAKREF(sym)
 #define RBIMPL_ANYARGS_DECL(sym,...) RBIMPL_ANYARGS_ATTRSET(sym) static void sym ## _m3(__VA_ARGS__, VALUE(*)(ANYARGS), int); RBIMPL_ANYARGS_ATTRSET(sym) static void sym ## _m2(__VA_ARGS__, VALUE(*)(VALUE, VALUE), int); RBIMPL_ANYARGS_ATTRSET(sym) static void sym ## _m1(__VA_ARGS__, VALUE(*)(int, union { VALUE *x; const VALUE *y; } __attribute__((__transparent_union__)), VALUE), int); RBIMPL_ANYARGS_ATTRSET(sym) static void sym ## _00(__VA_ARGS__, VALUE(*)(VALUE), int); RBIMPL_ANYARGS_ATTRSET(sym) static void sym ## _01(__VA_ARGS__, VALUE(*)(VALUE, VALUE), int); RBIMPL_ANYARGS_ATTRSET(sym) static void sym ## _02(__VA_ARGS__, VALUE(*)(VALUE, VALUE, VALUE), int); RBIMPL_ANYARGS_ATTRSET(sym) static void sym ## _03(__VA_ARGS__, VALUE(*)(VALUE, VALUE, VALUE, VALUE), int); RBIMPL_ANYARGS_ATTRSET(sym) static void sym ## _04(__VA_ARGS__, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE), int); RBIMPL_ANYARGS_ATTRSET(sym) static void sym ## _05(__VA_ARGS__, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); RBIMPL_ANYARGS_ATTRSET(sym) static void sym ## _06(__VA_ARGS__, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); RBIMPL_ANYARGS_ATTRSET(sym) static void sym ## _07(__VA_ARGS__, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); RBIMPL_ANYARGS_ATTRSET(sym) static void sym ## _08(__VA_ARGS__, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); RBIMPL_ANYARGS_ATTRSET(sym) static void sym ## _09(__VA_ARGS__, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); RBIMPL_ANYARGS_ATTRSET(sym) static void sym ## _10(__VA_ARGS__, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); RBIMPL_ANYARGS_ATTRSET(sym) static void sym ## _11(__VA_ARGS__, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); RBIMPL_ANYARGS_ATTRSET(sym) static void sym ## _12(__VA_ARGS__, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); RBIMPL_ANYARGS_ATTRSET(sym) static void sym ## _13(__VA_ARGS__, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); RBIMPL_ANYARGS_ATTRSET(sym) static void sym ## _14(__VA_ARGS__, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); RBIMPL_ANYARGS_ATTRSET(sym) static void sym ## _15(__VA_ARGS__, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int);
-__attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_singleton_method"))) static void rb_define_singleton_method_m3(VALUE, const char *, VALUE(*)(), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_singleton_method"))) static void rb_define_singleton_method_m2(VALUE, const char *, VALUE(*)(VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_singleton_method"))) static void rb_define_singleton_method_m1(VALUE, const char *, VALUE(*)(int, union { VALUE *x; const VALUE *y; } __attribute__((__transparent_union__)), VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_singleton_method"))) static void rb_define_singleton_method_00(VALUE, const char *, VALUE(*)(VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_singleton_method"))) static void rb_define_singleton_method_01(VALUE, const char *, VALUE(*)(VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_singleton_method"))) static void rb_define_singleton_method_02(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_singleton_method"))) static void rb_define_singleton_method_03(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_singleton_method"))) static void rb_define_singleton_method_04(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_singleton_method"))) static void rb_define_singleton_method_05(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_singleton_method"))) static void rb_define_singleton_method_06(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_singleton_method"))) static void rb_define_singleton_method_07(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_singleton_method"))) static void rb_define_singleton_method_08(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_singleton_method"))) static void rb_define_singleton_method_09(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_singleton_method"))) static void rb_define_singleton_method_10(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_singleton_method"))) static void rb_define_singleton_method_11(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_singleton_method"))) static void rb_define_singleton_method_12(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_singleton_method"))) static void rb_define_singleton_method_13(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_singleton_method"))) static void rb_define_singleton_method_14(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_singleton_method"))) static void rb_define_singleton_method_15(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int);
-__attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_protected_method"))) static void rb_define_protected_method_m3(VALUE, const char *, VALUE(*)(), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_protected_method"))) static void rb_define_protected_method_m2(VALUE, const char *, VALUE(*)(VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_protected_method"))) static void rb_define_protected_method_m1(VALUE, const char *, VALUE(*)(int, union { VALUE *x; const VALUE *y; } __attribute__((__transparent_union__)), VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_protected_method"))) static void rb_define_protected_method_00(VALUE, const char *, VALUE(*)(VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_protected_method"))) static void rb_define_protected_method_01(VALUE, const char *, VALUE(*)(VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_protected_method"))) static void rb_define_protected_method_02(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_protected_method"))) static void rb_define_protected_method_03(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_protected_method"))) static void rb_define_protected_method_04(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_protected_method"))) static void rb_define_protected_method_05(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_protected_method"))) static void rb_define_protected_method_06(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_protected_method"))) static void rb_define_protected_method_07(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_protected_method"))) static void rb_define_protected_method_08(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_protected_method"))) static void rb_define_protected_method_09(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_protected_method"))) static void rb_define_protected_method_10(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_protected_method"))) static void rb_define_protected_method_11(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_protected_method"))) static void rb_define_protected_method_12(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_protected_method"))) static void rb_define_protected_method_13(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_protected_method"))) static void rb_define_protected_method_14(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_protected_method"))) static void rb_define_protected_method_15(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int);
-__attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_private_method"))) static void rb_define_private_method_m3(VALUE, const char *, VALUE(*)(), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_private_method"))) static void rb_define_private_method_m2(VALUE, const char *, VALUE(*)(VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_private_method"))) static void rb_define_private_method_m1(VALUE, const char *, VALUE(*)(int, union { VALUE *x; const VALUE *y; } __attribute__((__transparent_union__)), VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_private_method"))) static void rb_define_private_method_00(VALUE, const char *, VALUE(*)(VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_private_method"))) static void rb_define_private_method_01(VALUE, const char *, VALUE(*)(VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_private_method"))) static void rb_define_private_method_02(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_private_method"))) static void rb_define_private_method_03(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_private_method"))) static void rb_define_private_method_04(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_private_method"))) static void rb_define_private_method_05(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_private_method"))) static void rb_define_private_method_06(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_private_method"))) static void rb_define_private_method_07(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_private_method"))) static void rb_define_private_method_08(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_private_method"))) static void rb_define_private_method_09(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_private_method"))) static void rb_define_private_method_10(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_private_method"))) static void rb_define_private_method_11(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_private_method"))) static void rb_define_private_method_12(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_private_method"))) static void rb_define_private_method_13(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_private_method"))) static void rb_define_private_method_14(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_private_method"))) static void rb_define_private_method_15(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int);
-__attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_module_function"))) static void rb_define_module_function_m3(VALUE, const char *, VALUE(*)(), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_module_function"))) static void rb_define_module_function_m2(VALUE, const char *, VALUE(*)(VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_module_function"))) static void rb_define_module_function_m1(VALUE, const char *, VALUE(*)(int, union { VALUE *x; const VALUE *y; } __attribute__((__transparent_union__)), VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_module_function"))) static void rb_define_module_function_00(VALUE, const char *, VALUE(*)(VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_module_function"))) static void rb_define_module_function_01(VALUE, const char *, VALUE(*)(VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_module_function"))) static void rb_define_module_function_02(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_module_function"))) static void rb_define_module_function_03(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_module_function"))) static void rb_define_module_function_04(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_module_function"))) static void rb_define_module_function_05(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_module_function"))) static void rb_define_module_function_06(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_module_function"))) static void rb_define_module_function_07(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_module_function"))) static void rb_define_module_function_08(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_module_function"))) static void rb_define_module_function_09(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_module_function"))) static void rb_define_module_function_10(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_module_function"))) static void rb_define_module_function_11(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_module_function"))) static void rb_define_module_function_12(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_module_function"))) static void rb_define_module_function_13(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_module_function"))) static void rb_define_module_function_14(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_module_function"))) static void rb_define_module_function_15(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int);
-__attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_global_function"))) static void rb_define_global_function_m3(const char *, VALUE(*)(), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_global_function"))) static void rb_define_global_function_m2(const char *, VALUE(*)(VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_global_function"))) static void rb_define_global_function_m1(const char *, VALUE(*)(int, union { VALUE *x; const VALUE *y; } __attribute__((__transparent_union__)), VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_global_function"))) static void rb_define_global_function_00(const char *, VALUE(*)(VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_global_function"))) static void rb_define_global_function_01(const char *, VALUE(*)(VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_global_function"))) static void rb_define_global_function_02(const char *, VALUE(*)(VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_global_function"))) static void rb_define_global_function_03(const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_global_function"))) static void rb_define_global_function_04(const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_global_function"))) static void rb_define_global_function_05(const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_global_function"))) static void rb_define_global_function_06(const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_global_function"))) static void rb_define_global_function_07(const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_global_function"))) static void rb_define_global_function_08(const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_global_function"))) static void rb_define_global_function_09(const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_global_function"))) static void rb_define_global_function_10(const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_global_function"))) static void rb_define_global_function_11(const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_global_function"))) static void rb_define_global_function_12(const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_global_function"))) static void rb_define_global_function_13(const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_global_function"))) static void rb_define_global_function_14(const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_global_function"))) static void rb_define_global_function_15(const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int);
-__attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method_id"))) static void rb_define_method_id_m3(VALUE, ID, VALUE(*)(), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method_id"))) static void rb_define_method_id_m2(VALUE, ID, VALUE(*)(VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method_id"))) static void rb_define_method_id_m1(VALUE, ID, VALUE(*)(int, union { VALUE *x; const VALUE *y; } __attribute__((__transparent_union__)), VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method_id"))) static void rb_define_method_id_00(VALUE, ID, VALUE(*)(VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method_id"))) static void rb_define_method_id_01(VALUE, ID, VALUE(*)(VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method_id"))) static void rb_define_method_id_02(VALUE, ID, VALUE(*)(VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method_id"))) static void rb_define_method_id_03(VALUE, ID, VALUE(*)(VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method_id"))) static void rb_define_method_id_04(VALUE, ID, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method_id"))) static void rb_define_method_id_05(VALUE, ID, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method_id"))) static void rb_define_method_id_06(VALUE, ID, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method_id"))) static void rb_define_method_id_07(VALUE, ID, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method_id"))) static void rb_define_method_id_08(VALUE, ID, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method_id"))) static void rb_define_method_id_09(VALUE, ID, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method_id"))) static void rb_define_method_id_10(VALUE, ID, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method_id"))) static void rb_define_method_id_11(VALUE, ID, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method_id"))) static void rb_define_method_id_12(VALUE, ID, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method_id"))) static void rb_define_method_id_13(VALUE, ID, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method_id"))) static void rb_define_method_id_14(VALUE, ID, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method_id"))) static void rb_define_method_id_15(VALUE, ID, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int);
-__attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method"))) static void rb_define_method_m3(VALUE, const char *, VALUE(*)(), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method"))) static void rb_define_method_m2(VALUE, const char *, VALUE(*)(VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method"))) static void rb_define_method_m1(VALUE, const char *, VALUE(*)(int, union { VALUE *x; const VALUE *y; } __attribute__((__transparent_union__)), VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method"))) static void rb_define_method_00(VALUE, const char *, VALUE(*)(VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method"))) static void rb_define_method_01(VALUE, const char *, VALUE(*)(VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method"))) static void rb_define_method_02(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method"))) static void rb_define_method_03(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method"))) static void rb_define_method_04(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method"))) static void rb_define_method_05(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method"))) static void rb_define_method_06(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method"))) static void rb_define_method_07(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method"))) static void rb_define_method_08(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method"))) static void rb_define_method_09(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method"))) static void rb_define_method_10(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method"))) static void rb_define_method_11(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method"))) static void rb_define_method_12(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method"))) static void rb_define_method_13(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method"))) static void rb_define_method_14(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); __attribute__((__unused__)) __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method"))) static void rb_define_method_15(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int);
+[[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_singleton_method"))) static void rb_define_singleton_method_m3(VALUE, const char *, VALUE(*)(), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_singleton_method"))) static void rb_define_singleton_method_m2(VALUE, const char *, VALUE(*)(VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_singleton_method"))) static void rb_define_singleton_method_m1(VALUE, const char *, VALUE(*)(int, union { VALUE *x; const VALUE *y; } __attribute__((__transparent_union__)), VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_singleton_method"))) static void rb_define_singleton_method_00(VALUE, const char *, VALUE(*)(VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_singleton_method"))) static void rb_define_singleton_method_01(VALUE, const char *, VALUE(*)(VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_singleton_method"))) static void rb_define_singleton_method_02(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_singleton_method"))) static void rb_define_singleton_method_03(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_singleton_method"))) static void rb_define_singleton_method_04(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_singleton_method"))) static void rb_define_singleton_method_05(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_singleton_method"))) static void rb_define_singleton_method_06(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_singleton_method"))) static void rb_define_singleton_method_07(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_singleton_method"))) static void rb_define_singleton_method_08(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_singleton_method"))) static void rb_define_singleton_method_09(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_singleton_method"))) static void rb_define_singleton_method_10(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_singleton_method"))) static void rb_define_singleton_method_11(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_singleton_method"))) static void rb_define_singleton_method_12(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_singleton_method"))) static void rb_define_singleton_method_13(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_singleton_method"))) static void rb_define_singleton_method_14(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_singleton_method"))) static void rb_define_singleton_method_15(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int);
+[[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_protected_method"))) static void rb_define_protected_method_m3(VALUE, const char *, VALUE(*)(), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_protected_method"))) static void rb_define_protected_method_m2(VALUE, const char *, VALUE(*)(VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_protected_method"))) static void rb_define_protected_method_m1(VALUE, const char *, VALUE(*)(int, union { VALUE *x; const VALUE *y; } __attribute__((__transparent_union__)), VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_protected_method"))) static void rb_define_protected_method_00(VALUE, const char *, VALUE(*)(VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_protected_method"))) static void rb_define_protected_method_01(VALUE, const char *, VALUE(*)(VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_protected_method"))) static void rb_define_protected_method_02(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_protected_method"))) static void rb_define_protected_method_03(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_protected_method"))) static void rb_define_protected_method_04(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_protected_method"))) static void rb_define_protected_method_05(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_protected_method"))) static void rb_define_protected_method_06(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_protected_method"))) static void rb_define_protected_method_07(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_protected_method"))) static void rb_define_protected_method_08(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_protected_method"))) static void rb_define_protected_method_09(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_protected_method"))) static void rb_define_protected_method_10(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_protected_method"))) static void rb_define_protected_method_11(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_protected_method"))) static void rb_define_protected_method_12(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_protected_method"))) static void rb_define_protected_method_13(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_protected_method"))) static void rb_define_protected_method_14(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_protected_method"))) static void rb_define_protected_method_15(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int);
+[[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_private_method"))) static void rb_define_private_method_m3(VALUE, const char *, VALUE(*)(), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_private_method"))) static void rb_define_private_method_m2(VALUE, const char *, VALUE(*)(VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_private_method"))) static void rb_define_private_method_m1(VALUE, const char *, VALUE(*)(int, union { VALUE *x; const VALUE *y; } __attribute__((__transparent_union__)), VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_private_method"))) static void rb_define_private_method_00(VALUE, const char *, VALUE(*)(VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_private_method"))) static void rb_define_private_method_01(VALUE, const char *, VALUE(*)(VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_private_method"))) static void rb_define_private_method_02(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_private_method"))) static void rb_define_private_method_03(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_private_method"))) static void rb_define_private_method_04(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_private_method"))) static void rb_define_private_method_05(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_private_method"))) static void rb_define_private_method_06(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_private_method"))) static void rb_define_private_method_07(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_private_method"))) static void rb_define_private_method_08(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_private_method"))) static void rb_define_private_method_09(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_private_method"))) static void rb_define_private_method_10(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_private_method"))) static void rb_define_private_method_11(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_private_method"))) static void rb_define_private_method_12(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_private_method"))) static void rb_define_private_method_13(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_private_method"))) static void rb_define_private_method_14(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_private_method"))) static void rb_define_private_method_15(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int);
+[[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_module_function"))) static void rb_define_module_function_m3(VALUE, const char *, VALUE(*)(), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_module_function"))) static void rb_define_module_function_m2(VALUE, const char *, VALUE(*)(VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_module_function"))) static void rb_define_module_function_m1(VALUE, const char *, VALUE(*)(int, union { VALUE *x; const VALUE *y; } __attribute__((__transparent_union__)), VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_module_function"))) static void rb_define_module_function_00(VALUE, const char *, VALUE(*)(VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_module_function"))) static void rb_define_module_function_01(VALUE, const char *, VALUE(*)(VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_module_function"))) static void rb_define_module_function_02(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_module_function"))) static void rb_define_module_function_03(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_module_function"))) static void rb_define_module_function_04(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_module_function"))) static void rb_define_module_function_05(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_module_function"))) static void rb_define_module_function_06(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_module_function"))) static void rb_define_module_function_07(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_module_function"))) static void rb_define_module_function_08(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_module_function"))) static void rb_define_module_function_09(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_module_function"))) static void rb_define_module_function_10(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_module_function"))) static void rb_define_module_function_11(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_module_function"))) static void rb_define_module_function_12(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_module_function"))) static void rb_define_module_function_13(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_module_function"))) static void rb_define_module_function_14(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_module_function"))) static void rb_define_module_function_15(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int);
+[[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_global_function"))) static void rb_define_global_function_m3(const char *, VALUE(*)(), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_global_function"))) static void rb_define_global_function_m2(const char *, VALUE(*)(VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_global_function"))) static void rb_define_global_function_m1(const char *, VALUE(*)(int, union { VALUE *x; const VALUE *y; } __attribute__((__transparent_union__)), VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_global_function"))) static void rb_define_global_function_00(const char *, VALUE(*)(VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_global_function"))) static void rb_define_global_function_01(const char *, VALUE(*)(VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_global_function"))) static void rb_define_global_function_02(const char *, VALUE(*)(VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_global_function"))) static void rb_define_global_function_03(const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_global_function"))) static void rb_define_global_function_04(const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_global_function"))) static void rb_define_global_function_05(const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_global_function"))) static void rb_define_global_function_06(const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_global_function"))) static void rb_define_global_function_07(const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_global_function"))) static void rb_define_global_function_08(const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_global_function"))) static void rb_define_global_function_09(const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_global_function"))) static void rb_define_global_function_10(const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_global_function"))) static void rb_define_global_function_11(const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_global_function"))) static void rb_define_global_function_12(const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_global_function"))) static void rb_define_global_function_13(const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_global_function"))) static void rb_define_global_function_14(const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_global_function"))) static void rb_define_global_function_15(const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int);
+[[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method_id"))) static void rb_define_method_id_m3(VALUE, ID, VALUE(*)(), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method_id"))) static void rb_define_method_id_m2(VALUE, ID, VALUE(*)(VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method_id"))) static void rb_define_method_id_m1(VALUE, ID, VALUE(*)(int, union { VALUE *x; const VALUE *y; } __attribute__((__transparent_union__)), VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method_id"))) static void rb_define_method_id_00(VALUE, ID, VALUE(*)(VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method_id"))) static void rb_define_method_id_01(VALUE, ID, VALUE(*)(VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method_id"))) static void rb_define_method_id_02(VALUE, ID, VALUE(*)(VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method_id"))) static void rb_define_method_id_03(VALUE, ID, VALUE(*)(VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method_id"))) static void rb_define_method_id_04(VALUE, ID, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method_id"))) static void rb_define_method_id_05(VALUE, ID, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method_id"))) static void rb_define_method_id_06(VALUE, ID, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method_id"))) static void rb_define_method_id_07(VALUE, ID, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method_id"))) static void rb_define_method_id_08(VALUE, ID, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method_id"))) static void rb_define_method_id_09(VALUE, ID, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method_id"))) static void rb_define_method_id_10(VALUE, ID, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method_id"))) static void rb_define_method_id_11(VALUE, ID, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method_id"))) static void rb_define_method_id_12(VALUE, ID, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method_id"))) static void rb_define_method_id_13(VALUE, ID, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method_id"))) static void rb_define_method_id_14(VALUE, ID, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method_id"))) static void rb_define_method_id_15(VALUE, ID, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int);
+[[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method"))) static void rb_define_method_m3(VALUE, const char *, VALUE(*)(), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method"))) static void rb_define_method_m2(VALUE, const char *, VALUE(*)(VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method"))) static void rb_define_method_m1(VALUE, const char *, VALUE(*)(int, union { VALUE *x; const VALUE *y; } __attribute__((__transparent_union__)), VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method"))) static void rb_define_method_00(VALUE, const char *, VALUE(*)(VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method"))) static void rb_define_method_01(VALUE, const char *, VALUE(*)(VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method"))) static void rb_define_method_02(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method"))) static void rb_define_method_03(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method"))) static void rb_define_method_04(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method"))) static void rb_define_method_05(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method"))) static void rb_define_method_06(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method"))) static void rb_define_method_07(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method"))) static void rb_define_method_08(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method"))) static void rb_define_method_09(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method"))) static void rb_define_method_10(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method"))) static void rb_define_method_11(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method"))) static void rb_define_method_12(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method"))) static void rb_define_method_13(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method"))) static void rb_define_method_14(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int); [[maybe_unused]] __attribute__((__nonnull__ ())) __attribute__((__weakref__("rb_define_method"))) static void rb_define_method_15(VALUE, const char *, VALUE(*)(VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE, VALUE), int);
 #define rb_define_method(klass,mid,func,arity) RBIMPL_ANYARGS_DISPATCH_rb_define_method((arity), (func))((klass), (mid), (func), (arity))
 #define rb_define_method_id(klass,mid,func,arity) RBIMPL_ANYARGS_DISPATCH_rb_define_method_id((arity), (func))((klass), (mid), (func), (arity))
 #define rb_define_singleton_method(obj,mid,func,arity) RBIMPL_ANYARGS_DISPATCH_rb_define_singleton_method((arity), (func))((obj), (mid), (func), (arity))
@@ -8664,9 +8931,9 @@ RB_OBJ_PROMOTED(VALUE obj)
 static inline VALUE
 rb_obj_wb_unprotect(
     VALUE x,
-    __attribute__((__unused__))
+    [[maybe_unused]]
     const char *filename,
-    __attribute__((__unused__))
+    [[maybe_unused]]
     int line)
 {
     rb_gc_writebarrier_unprotect(x);
@@ -8675,12 +8942,12 @@ rb_obj_wb_unprotect(
 static inline VALUE
 rb_obj_written(
     VALUE a,
-    __attribute__((__unused__))
+    [[maybe_unused]]
     VALUE oldv,
     VALUE b,
-    __attribute__((__unused__))
+    [[maybe_unused]]
     const char *filename,
-    __attribute__((__unused__))
+    [[maybe_unused]]
     int line)
 {
     if (!RB_SPECIAL_CONST_P(b)) {
@@ -8691,9 +8958,9 @@ rb_obj_written(
 static inline VALUE
 rb_obj_write(
     VALUE a, VALUE *slot, VALUE b,
-    __attribute__((__unused__))
+    [[maybe_unused]]
     const char *filename,
-    __attribute__((__unused__))
+    [[maybe_unused]]
     int line)
 {
     *slot = b;
@@ -8811,7 +9078,7 @@ rb_array_const_ptr(VALUE a)
 }
 static inline VALUE *
 rb_array_ptr_use_start(VALUE a,
-                       __attribute__((__unused__))
+                       [[maybe_unused]]
                        int allow_transient)
 {
     ((void)0);
@@ -8824,7 +9091,7 @@ rb_array_ptr_use_start(VALUE a,
 }
 static inline void
 rb_array_ptr_use_end(VALUE a,
-                     __attribute__((__unused__))
+                     [[maybe_unused]]
                      int allow_transient)
 {
     ((void)0);
@@ -10265,7 +10532,7 @@ static int
 rb_scan_args_set(int kw_flag, int argc, const VALUE *argv,
                  int n_lead, int n_opt, int n_trail,
                  _Bool f_var, _Bool f_hash, _Bool f_block,
-                 VALUE *vars[], const char *fmt __attribute__((__unused__)), int varc __attribute__((__unused__)))
+                 VALUE *vars[], const char *fmt [[maybe_unused]], int varc [[maybe_unused]])
    
    
 {
@@ -11490,7 +11757,6 @@ int ruby_vsnprintf(char *str, size_t n, char const *fmt, va_list ap);
 #define VMDEBUG 0
 #define _SIGNAL_H 
 
-#define _BITS_SIGNUM_H 1
 #define _BITS_SIGNUM_GENERIC_H 1
 #define SIG_ERR ((__sighandler_t) -1)
 #define SIG_DFL ((__sighandler_t) 0)
@@ -11506,55 +11772,37 @@ int ruby_vsnprintf(char *str, size_t n, char const *fmt, va_list ap);
 #define SIGQUIT 3
 #define SIGTRAP 5
 #define SIGKILL 9
-#define SIGBUS 10
-#define SIGSYS 12
 #define SIGPIPE 13
 #define SIGALRM 14
-#define SIGURG 16
-#define SIGSTOP 17
-#define SIGTSTP 18
-#define SIGCONT 19
-#define SIGCHLD 20
+#define SIGIO SIGPOLL
+#define SIGIOT SIGABRT
+#define SIGCLD SIGCHLD
+#define _BITS_SIGNUM_ARCH_H 1
+#define SIGSTKFLT 16
+#define SIGPWR 30
+#define SIGBUS 7
+#define SIGSYS 31
+#define SIGURG 23
+#define SIGSTOP 19
+#define SIGTSTP 20
+#define SIGCONT 18
+#define SIGCHLD 17
 #define SIGTTIN 21
 #define SIGTTOU 22
-#define SIGPOLL 23
-#define SIGXCPU 24
+#define SIGPOLL 29
 #define SIGXFSZ 25
+#define SIGXCPU 24
 #define SIGVTALRM 26
 #define SIGPROF 27
-#define SIGUSR1 30
-#define SIGUSR2 31
+#define SIGUSR1 10
+#define SIGUSR2 12
 #define SIGWINCH 28
 #define SIGIO SIGPOLL
 #define SIGIOT SIGABRT
 #define SIGCLD SIGCHLD
 #define __SIGRTMIN 32
-#define __SIGRTMAX __SIGRTMIN
-#define _NSIG (__SIGRTMAX + 1)
-#define SIGSTKFLT 16
-#define SIGPWR 30
-#undef SIGBUS
-#define SIGBUS 7
-#undef SIGUSR1
-#define SIGUSR1 10
-#undef SIGUSR2
-#define SIGUSR2 12
-#undef SIGCHLD
-#define SIGCHLD 17
-#undef SIGCONT
-#define SIGCONT 18
-#undef SIGSTOP
-#define SIGSTOP 19
-#undef SIGTSTP
-#define SIGTSTP 20
-#undef SIGURG
-#define SIGURG 23
-#undef SIGPOLL
-#define SIGPOLL 29
-#undef SIGSYS
-#define SIGSYS 31
-#undef __SIGRTMAX
 #define __SIGRTMAX 64
+#define _NSIG (__SIGRTMAX + 1)
 #define __sig_atomic_t_defined 1
 typedef __sig_atomic_t sig_atomic_t;
 #define __siginfo_t_defined 1
@@ -11742,8 +11990,12 @@ enum
 #define SEGV_ACCADI SEGV_ACCADI
   SEGV_ADIDERR,
 #define SEGV_ADIDERR SEGV_ADIDERR
-  SEGV_ADIPERR
+  SEGV_ADIPERR,
 #define SEGV_ADIPERR SEGV_ADIPERR
+  SEGV_MTEAERR,
+#define SEGV_MTEAERR SEGV_MTEAERR
+  SEGV_MTESERR
+#define SEGV_MTESERR SEGV_MTESERR
 };
 enum
 {
@@ -11854,8 +12106,9 @@ extern __sighandler_t ssignal (int __sig, __sighandler_t __handler)
 extern int gsignal (int __sig) __attribute__ ((__nothrow__ , __leaf__));
 extern void psignal (int __sig, const char *__s);
 extern void psiginfo (const siginfo_t *__pinfo, const char *__s);
-extern int sigpause (int __sig) __asm__ ("__xpg_sigpause");
-#define sigmask(sig) ((int)(1u << ((sig) - 1)))
+extern int sigpause (int __sig) __asm__ ("__xpg_sigpause")
+  __attribute__ ((__deprecated__ ("Use the sigsuspend function instead")));
+#define sigmask(sig) __glibc_macro_warning ("sigmask is deprecated") ((int)(1u << ((sig) - 1)))
 extern int sigblock (int __mask) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__deprecated__));
 extern int sigsetmask (int __mask) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__deprecated__));
 extern int siggetmask (void) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__deprecated__));
@@ -11918,8 +12171,6 @@ extern int sigtimedwait (const sigset_t *__restrict __set,
      __attribute__ ((__nonnull__ (1)));
 extern int sigqueue (__pid_t __pid, int __sig, const union sigval __val)
      __attribute__ ((__nothrow__ , __leaf__));
-extern const char *const _sys_siglist[(64 + 1)];
-extern const char *const sys_siglist[(64 + 1)];
 #define _BITS_SIGCONTEXT_H 1
 #define sigcontext_struct sigcontext
 #define __ASM_SIGCONTEXT_H 
@@ -12127,10 +12378,15 @@ typedef struct ucontext_t
     mcontext_t uc_mcontext;
   } ucontext_t;
 #undef __ctx
-extern int siginterrupt (int __sig, int __interrupt) __attribute__ ((__nothrow__ , __leaf__));
+extern int siginterrupt (int __sig, int __interrupt) __attribute__ ((__nothrow__ , __leaf__))
+  __attribute__ ((__deprecated__ ("Use sigaction with SA_RESTART instead")));
 #define _BITS_SIGSTACK_H 1
 #define MINSIGSTKSZ 5120
 #define SIGSTKSZ 16384
+#undef SIGSTKSZ
+#define SIGSTKSZ sysconf (_SC_SIGSTKSZ)
+#undef MINSIGSTKSZ
+#define MINSIGSTKSZ SIGSTKSZ
 #define _BITS_SS_FLAGS_H 1
 enum
 {
@@ -12149,10 +12405,14 @@ struct sigstack
   };
 extern int sigstack (struct sigstack *__ss, struct sigstack *__oss)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__deprecated__));
-extern int sighold (int __sig) __attribute__ ((__nothrow__ , __leaf__));
-extern int sigrelse (int __sig) __attribute__ ((__nothrow__ , __leaf__));
-extern int sigignore (int __sig) __attribute__ ((__nothrow__ , __leaf__));
-extern __sighandler_t sigset (int __sig, __sighandler_t __disp) __attribute__ ((__nothrow__ , __leaf__));
+extern int sighold (int __sig) __attribute__ ((__nothrow__ , __leaf__))
+  __attribute__ ((__deprecated__ ("Use the sigprocmask function instead")));
+extern int sigrelse (int __sig) __attribute__ ((__nothrow__ , __leaf__))
+  __attribute__ ((__deprecated__ ("Use the sigprocmask function instead")));
+extern int sigignore (int __sig) __attribute__ ((__nothrow__ , __leaf__))
+  __attribute__ ((__deprecated__ ("Use the signal function instead")));
+extern __sighandler_t sigset (int __sig, __sighandler_t __disp) __attribute__ ((__nothrow__ , __leaf__))
+  __attribute__ ((__deprecated__ ("Use the signal and sigprocmask functions instead")));
 #define _BITS_SIGTHREAD_H 1
 extern int pthread_sigmask (int __how,
        const __sigset_t *__restrict __newmask,
@@ -12175,6 +12435,7 @@ extern int tgkill (__pid_t __tgid, __pid_t __tid, int __signal);
 
 #define _BITS_SETJMP_H 1
 __extension__ typedef unsigned long long __jmp_buf [22];
+#define __jmp_buf_tag_defined 1
 struct __jmp_buf_tag
   {
     __jmp_buf __jmpbuf;
@@ -12912,9 +13173,7 @@ void rb_backtrace_use_iseq_first_lineno_for_last_location(VALUE self);
 #define GCC_VERSION_BEFORE(x,y,z) (RBIMPL_COMPILER_BEFORE(GCC, (x), (y), (z)) || (RBIMPL_COMPILER_IS(GCC) && ((RBIMPL_COMPILER_VERSION_MAJOR == (x)) && ((RBIMPL_COMPILER_VERSION_MINOR == (y)) && (RBIMPL_COMPILER_VERSION_PATCH == (z))))))
 #define MSC_VERSION_SINCE(_) RBIMPL_COMPILER_SINCE(MSVC, (_) / 100, (_) % 100, 0)
 #define MSC_VERSION_BEFORE(_) RBIMPL_COMPILER_BEFORE(MSVC, (_) / 100, (_) % 100, 0)
-#define __has_c_attribute(...) 0
 #define __has_declspec_attribute(...) RBIMPL_HAS_DECLSPEC_ATTRIBUTE(__VA_ARGS__)
-#define __has_builtin(...) RBIMPL_HAS_BUILTIN(__VA_ARGS__)
 #define __has_feature(...) RBIMPL_HAS_FEATURE(__VA_ARGS__)
 #define __has_extension(...) RBIMPL_HAS_EXTENSION(__VA_ARGS__)
 #define __has_warning(...) RBIMPL_HAS_WARNING(__VA_ARGS__)
@@ -14430,6 +14689,11 @@ extern int pthread_attr_getaffinity_np (const pthread_attr_t *__attr,
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 3)));
 extern int pthread_getattr_default_np (pthread_attr_t *__attr)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+extern int pthread_attr_setsigmask_np (pthread_attr_t *__attr,
+           const __sigset_t *sigmask);
+extern int pthread_attr_getsigmask_np (const pthread_attr_t *__attr,
+           __sigset_t *sigmask);
+#define PTHREAD_ATTR_NO_SIGMASK_NP (-1)
 extern int pthread_setattr_default_np (const pthread_attr_t *__attr)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
 extern int pthread_getattr_np (pthread_t __th, pthread_attr_t *__attr)
@@ -14451,6 +14715,8 @@ extern int pthread_setname_np (pthread_t __target_thread, const char *__name)
 extern int pthread_getconcurrency (void) __attribute__ ((__nothrow__ , __leaf__));
 extern int pthread_setconcurrency (int __level) __attribute__ ((__nothrow__ , __leaf__));
 extern int pthread_yield (void) __attribute__ ((__nothrow__ , __leaf__));
+extern int pthread_yield (void) __asm__ ("" "sched_yield") __attribute__ ((__nothrow__ , __leaf__))
+  __attribute__ ((__deprecated__ ("pthread_yield is deprecated, use sched_yield instead")));
 extern int pthread_setaffinity_np (pthread_t __th, size_t __cpusetsize,
        const cpu_set_t *__cpuset)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (3)));
@@ -14463,13 +14729,14 @@ extern int pthread_setcancelstate (int __state, int *__oldstate);
 extern int pthread_setcanceltype (int __type, int *__oldtype);
 extern int pthread_cancel (pthread_t __th);
 extern void pthread_testcancel (void);
+struct __cancel_jmp_buf_tag
+{
+  __jmp_buf __cancel_jmp_buf;
+  int __mask_was_saved;
+};
 typedef struct
 {
-  struct
-  {
-    __jmp_buf __cancel_jmp_buf;
-    int __mask_was_saved;
-  } __cancel_jmp_buf[1];
+  struct __cancel_jmp_buf_tag __cancel_jmp_buf[1];
   void *__pad[4];
 } __pthread_unwind_buf_t __attribute__ ((__aligned__));
 #define __cleanup_fct_attribute 
@@ -14480,13 +14747,13 @@ struct __pthread_cleanup_frame
   int __do_it;
   int __cancel_type;
 };
-#define pthread_cleanup_push(routine,arg) do { __pthread_unwind_buf_t __cancel_buf; void (*__cancel_routine) (void *) = (routine); void *__cancel_arg = (arg); int __not_first_call = __sigsetjmp ((struct __jmp_buf_tag *) (void *) __cancel_buf.__cancel_jmp_buf, 0); if (__glibc_unlikely (__not_first_call)) { __cancel_routine (__cancel_arg); __pthread_unwind_next (&__cancel_buf); } __pthread_register_cancel (&__cancel_buf); do {
+#define pthread_cleanup_push(routine,arg) do { __pthread_unwind_buf_t __cancel_buf; void (*__cancel_routine) (void *) = (routine); void *__cancel_arg = (arg); int __not_first_call = __sigsetjmp_cancel (__cancel_buf.__cancel_jmp_buf, 0); if (__glibc_unlikely (__not_first_call)) { __cancel_routine (__cancel_arg); __pthread_unwind_next (&__cancel_buf); } __pthread_register_cancel (&__cancel_buf); do {
 extern void __pthread_register_cancel (__pthread_unwind_buf_t *__buf)
      ;
 #define pthread_cleanup_pop(execute) do { } while (0); } while (0); __pthread_unregister_cancel (&__cancel_buf); if (execute) __cancel_routine (__cancel_arg); } while (0)
 extern void __pthread_unregister_cancel (__pthread_unwind_buf_t *__buf)
   ;
-#define pthread_cleanup_push_defer_np(routine,arg) do { __pthread_unwind_buf_t __cancel_buf; void (*__cancel_routine) (void *) = (routine); void *__cancel_arg = (arg); int __not_first_call = __sigsetjmp ((struct __jmp_buf_tag *) (void *) __cancel_buf.__cancel_jmp_buf, 0); if (__glibc_unlikely (__not_first_call)) { __cancel_routine (__cancel_arg); __pthread_unwind_next (&__cancel_buf); } __pthread_register_cancel_defer (&__cancel_buf); do {
+#define pthread_cleanup_push_defer_np(routine,arg) do { __pthread_unwind_buf_t __cancel_buf; void (*__cancel_routine) (void *) = (routine); void *__cancel_arg = (arg); int __not_first_call = __sigsetjmp_cancel (__cancel_buf.__cancel_jmp_buf, 0); if (__glibc_unlikely (__not_first_call)) { __cancel_routine (__cancel_arg); __pthread_unwind_next (&__cancel_buf); } __pthread_register_cancel_defer (&__cancel_buf); do {
 extern void __pthread_register_cancel_defer (__pthread_unwind_buf_t *__buf)
      ;
 #define pthread_cleanup_pop_restore_np(execute) do { } while (0); } while (0); __pthread_unregister_cancel_restore (&__cancel_buf); if (execute) __cancel_routine (__cancel_arg); } while (0)
@@ -14496,8 +14763,7 @@ extern void __pthread_unwind_next (__pthread_unwind_buf_t *__buf)
      __attribute__ ((__noreturn__))
      __attribute__ ((__weak__))
      ;
-struct __jmp_buf_tag;
-extern int __sigsetjmp (struct __jmp_buf_tag *__env, int __savemask) __attribute__ ((__nothrow__));
+extern int __sigsetjmp_cancel (struct __cancel_jmp_buf_tag __env[1], int __savemask) __asm__ ("" "__sigsetjmp") __attribute__ ((__nothrow__)) __attribute__ ((__returns_twice__));
 extern int pthread_mutex_init (pthread_mutex_t *__mutex,
           const pthread_mutexattr_t *__mutexattr)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
@@ -14526,8 +14792,8 @@ extern int pthread_mutex_setprioceiling (pthread_mutex_t *__restrict __mutex,
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 3)));
 extern int pthread_mutex_consistent (pthread_mutex_t *__mutex)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
-extern int pthread_mutex_consistent_np (pthread_mutex_t *__mutex)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+extern int pthread_mutex_consistent_np (pthread_mutex_t *) __asm__ ("" "pthread_mutex_consistent") __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)))
+  __attribute__ ((__deprecated__ ("pthread_mutex_consistent_np is deprecated, use pthread_mutex_consistent")));
 extern int pthread_mutexattr_init (pthread_mutexattr_t *__attr)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
 extern int pthread_mutexattr_destroy (pthread_mutexattr_t *__attr)
@@ -14561,15 +14827,13 @@ extern int pthread_mutexattr_setprioceiling (pthread_mutexattr_t *__attr,
 extern int pthread_mutexattr_getrobust (const pthread_mutexattr_t *__attr,
      int *__robustness)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
-extern int pthread_mutexattr_getrobust_np (const pthread_mutexattr_t *__attr,
-        int *__robustness)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
+extern int pthread_mutexattr_getrobust_np (pthread_mutexattr_t *, int *) __asm__ ("" "pthread_mutexattr_getrobust") __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)))
+  __attribute__ ((__deprecated__ ("pthread_mutexattr_getrobust_np is deprecated, use pthread_mutexattr_getrobust")));
 extern int pthread_mutexattr_setrobust (pthread_mutexattr_t *__attr,
      int __robustness)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
-extern int pthread_mutexattr_setrobust_np (pthread_mutexattr_t *__attr,
-        int __robustness)
-     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+extern int pthread_mutexattr_setrobust_np (pthread_mutexattr_t *, int) __asm__ ("" "pthread_mutexattr_setrobust") __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)))
+  __attribute__ ((__deprecated__ ("pthread_mutexattr_setrobust_np is deprecated, use pthread_mutexattr_setrobust")));
 extern int pthread_rwlock_init (pthread_rwlock_t *__restrict __rwlock,
     const pthread_rwlockattr_t *__restrict
     __attr) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
@@ -14689,7 +14953,8 @@ extern int pthread_key_create (pthread_key_t *__key,
 extern int pthread_key_delete (pthread_key_t __key) __attribute__ ((__nothrow__ , __leaf__));
 extern void *pthread_getspecific (pthread_key_t __key) __attribute__ ((__nothrow__ , __leaf__));
 extern int pthread_setspecific (pthread_key_t __key,
-    const void *__pointer) __attribute__ ((__nothrow__ , __leaf__)) ;
+    const void *__pointer)
+  __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__access__ (__none__, 2)));
 extern int pthread_getcpuclockid (pthread_t __thread_id,
       __clockid_t *__clock_id)
      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2)));
@@ -18248,96 +18513,98 @@ int rb_threadptr_execute_interrupts(struct rb_thread_struct *th, int blocking_ti
 #define INTERNAL_SANITIZERS_H 
 #define SANITIZER_ASAN_INTERFACE_H 
 #define SANITIZER_COMMON_INTERFACE_DEFS_H 
-  typedef struct {
-    int coverage_sandboxed;
-    intptr_t coverage_fd;
-    unsigned int coverage_max_block_size;
-  } __sanitizer_sandbox_arguments;
-  void __sanitizer_set_report_path(const char *path);
-  void __sanitizer_set_report_fd(void *fd);
-  void __sanitizer_sandbox_on_notify(__sanitizer_sandbox_arguments *args);
-  void __sanitizer_report_error_summary(const char *error_summary);
-  uint16_t __sanitizer_unaligned_load16(const void *p);
-  uint32_t __sanitizer_unaligned_load32(const void *p);
-  uint64_t __sanitizer_unaligned_load64(const void *p);
-  void __sanitizer_unaligned_store16(void *p, uint16_t x);
-  void __sanitizer_unaligned_store32(void *p, uint32_t x);
-  void __sanitizer_unaligned_store64(void *p, uint64_t x);
-  int __sanitizer_acquire_crash_state();
-  void __sanitizer_annotate_contiguous_container(const void *beg,
-                                                 const void *end,
-                                                 const void *old_mid,
-                                                 const void *new_mid);
-  int __sanitizer_verify_contiguous_container(const void *beg, const void *mid,
-                                              const void *end);
-  const void *__sanitizer_contiguous_container_find_bad_address(
-      const void *beg, const void *mid, const void *end);
-  void __sanitizer_print_stack_trace(void);
-  void __sanitizer_symbolize_pc(void *pc, const char *fmt, char *out_buf,
-                                size_t out_buf_size);
-  void __sanitizer_symbolize_global(void *data_ptr, const char *fmt,
-                                    char *out_buf, size_t out_buf_size);
-  void __sanitizer_set_death_callback(void (*callback)(void));
-  void __sanitizer_weak_hook_memcmp(void *called_pc, const void *s1,
-                                    const void *s2, size_t n, int result);
-  void __sanitizer_weak_hook_strncmp(void *called_pc, const char *s1,
-                                    const char *s2, size_t n, int result);
-  void __sanitizer_weak_hook_strncasecmp(void *called_pc, const char *s1,
-                                         const char *s2, size_t n, int result);
-  void __sanitizer_weak_hook_strcmp(void *called_pc, const char *s1,
-                                    const char *s2, int result);
-  void __sanitizer_weak_hook_strcasecmp(void *called_pc, const char *s1,
-                                        const char *s2, int result);
-  void __sanitizer_weak_hook_strstr(void *called_pc, const char *s1,
-                                    const char *s2, char *result);
-  void __sanitizer_weak_hook_strcasestr(void *called_pc, const char *s1,
-                                        const char *s2, char *result);
-  void __sanitizer_weak_hook_memmem(void *called_pc,
-                                    const void *s1, size_t len1,
-                                    const void *s2, size_t len2, void *result);
-  void __sanitizer_print_memory_profile(size_t top_percent,
-                                        size_t max_number_of_contexts);
-  void __sanitizer_start_switch_fiber(void **fake_stack_save,
-                                      const void *bottom, size_t size);
-  void __sanitizer_finish_switch_fiber(void *fake_stack_save,
-                                       const void **bottom_old,
-                                       size_t *size_old);
-  int __sanitizer_get_module_and_offset_for_pc(void *pc, char *module_path,
-                                               size_t module_path_len,
-                                               void **pc_offset);
-  void __asan_poison_memory_region(void const volatile *addr, size_t size);
-  void __asan_unpoison_memory_region(void const volatile *addr, size_t size);
+typedef struct {
+  int coverage_sandboxed;
+  intptr_t coverage_fd;
+  unsigned int coverage_max_block_size;
+} __sanitizer_sandbox_arguments;
+void __sanitizer_set_report_path(const char *path);
+void __sanitizer_set_report_fd(void *fd);
+void __sanitizer_sandbox_on_notify(__sanitizer_sandbox_arguments *args);
+void __sanitizer_report_error_summary(const char *error_summary);
+uint16_t __sanitizer_unaligned_load16(const void *p);
+uint32_t __sanitizer_unaligned_load32(const void *p);
+uint64_t __sanitizer_unaligned_load64(const void *p);
+void __sanitizer_unaligned_store16(void *p, uint16_t x);
+void __sanitizer_unaligned_store32(void *p, uint32_t x);
+void __sanitizer_unaligned_store64(void *p, uint64_t x);
+int __sanitizer_acquire_crash_state();
+void __sanitizer_annotate_contiguous_container(const void *beg,
+                                               const void *end,
+                                               const void *old_mid,
+                                               const void *new_mid);
+int __sanitizer_verify_contiguous_container(const void *beg, const void *mid,
+                                            const void *end);
+const void *__sanitizer_contiguous_container_find_bad_address(const void *beg,
+                                                              const void *mid,
+                                                              const void *end);
+void __sanitizer_print_stack_trace(void);
+void __sanitizer_symbolize_pc(void *pc, const char *fmt, char *out_buf,
+                              size_t out_buf_size);
+void __sanitizer_symbolize_global(void *data_ptr, const char *fmt,
+                                  char *out_buf, size_t out_buf_size);
+void __sanitizer_set_death_callback(void (*callback)(void));
+void __sanitizer_weak_hook_memcmp(void *called_pc, const void *s1,
+                                  const void *s2, size_t n, int result);
+void __sanitizer_weak_hook_strncmp(void *called_pc, const char *s1,
+                                  const char *s2, size_t n, int result);
+void __sanitizer_weak_hook_strncasecmp(void *called_pc, const char *s1,
+                                       const char *s2, size_t n, int result);
+void __sanitizer_weak_hook_strcmp(void *called_pc, const char *s1,
+                                  const char *s2, int result);
+void __sanitizer_weak_hook_strcasecmp(void *called_pc, const char *s1,
+                                      const char *s2, int result);
+void __sanitizer_weak_hook_strstr(void *called_pc, const char *s1,
+                                  const char *s2, char *result);
+void __sanitizer_weak_hook_strcasestr(void *called_pc, const char *s1,
+                                      const char *s2, char *result);
+void __sanitizer_weak_hook_memmem(void *called_pc,
+                                  const void *s1, size_t len1,
+                                  const void *s2, size_t len2, void *result);
+void __sanitizer_print_memory_profile(size_t top_percent,
+                                      size_t max_number_of_contexts);
+void __sanitizer_start_switch_fiber(void **fake_stack_save,
+                                    const void *bottom, size_t size);
+void __sanitizer_finish_switch_fiber(void *fake_stack_save,
+                                     const void **bottom_old,
+                                     size_t *size_old);
+int __sanitizer_get_module_and_offset_for_pc(void *pc, char *module_path,
+                                             size_t module_path_len,
+                                             void **pc_offset);
+void __asan_poison_memory_region(void const volatile *addr, size_t size);
+void __asan_unpoison_memory_region(void const volatile *addr, size_t size);
 #define ASAN_POISON_MEMORY_REGION(addr,size) ((void)(addr), (void)(size))
 #define ASAN_UNPOISON_MEMORY_REGION(addr,size) ((void)(addr), (void)(size))
-  int __asan_address_is_poisoned(void const volatile *addr);
-  void *__asan_region_is_poisoned(void *beg, size_t size);
-  void __asan_describe_address(void *addr);
-  int __asan_report_present(void);
-  void *__asan_get_report_pc(void);
-  void *__asan_get_report_bp(void);
-  void *__asan_get_report_sp(void);
-  void *__asan_get_report_address(void);
-  int __asan_get_report_access_type(void);
-  size_t __asan_get_report_access_size(void);
-  const char *__asan_get_report_description(void);
-  const char *__asan_locate_address(void *addr, char *name, size_t name_size,
-                                    void **region_address, size_t *region_size);
-  size_t __asan_get_alloc_stack(void *addr, void **trace, size_t size,
-                                int *thread_id);
-  size_t __asan_get_free_stack(void *addr, void **trace, size_t size,
-                               int *thread_id);
-  void __asan_get_shadow_mapping(size_t *shadow_scale, size_t *shadow_offset);
-  void __asan_report_error(void *pc, void *bp, void *sp,
-                           void *addr, int is_write, size_t access_size);
-  void __asan_set_death_callback(void (*callback)(void));
-  void __asan_set_error_report_callback(void (*callback)(const char*));
-  void __asan_on_error(void);
-  void __asan_print_accumulated_stats(void);
-  const char* __asan_default_options(void);
-  void *__asan_get_current_fake_stack(void);
-  void *__asan_addr_is_in_fake_stack(void *fake_stack, void *addr, void **beg,
-                                     void **end);
-  void __asan_handle_no_return(void);
+int __asan_address_is_poisoned(void const volatile *addr);
+void *__asan_region_is_poisoned(void *beg, size_t size);
+void __asan_describe_address(void *addr);
+int __asan_report_present(void);
+void *__asan_get_report_pc(void);
+void *__asan_get_report_bp(void);
+void *__asan_get_report_sp(void);
+void *__asan_get_report_address(void);
+int __asan_get_report_access_type(void);
+size_t __asan_get_report_access_size(void);
+const char *__asan_get_report_description(void);
+const char *__asan_locate_address(void *addr, char *name, size_t name_size,
+                                  void **region_address, size_t *region_size);
+size_t __asan_get_alloc_stack(void *addr, void **trace, size_t size,
+                              int *thread_id);
+size_t __asan_get_free_stack(void *addr, void **trace, size_t size,
+                             int *thread_id);
+void __asan_get_shadow_mapping(size_t *shadow_scale, size_t *shadow_offset);
+void __asan_report_error(void *pc, void *bp, void *sp,
+                         void *addr, int is_write, size_t access_size);
+void __asan_set_death_callback(void (*callback)(void));
+void __asan_set_error_report_callback(void (*callback)(const char *));
+void __asan_on_error(void);
+void __asan_print_accumulated_stats(void);
+const char* __asan_default_options(void);
+void *__asan_get_current_fake_stack(void);
+void *__asan_addr_is_in_fake_stack(void *fake_stack, void *addr, void **beg,
+                                   void **end);
+void __asan_handle_no_return(void);
+int __asan_update_allocation_context(void* addr);
 #define ATTRIBUTE_NO_ADDRESS_SAFETY_ANALYSIS(x) NO_SANITIZE_ADDRESS(NOINLINE(x))
 #undef NO_SANITIZE
 #define NO_SANITIZE(x,y) COMPILER_WARNING_PUSH; COMPILER_WARNING_IGNORED(-Wattributes); __attribute__((__no_sanitize__(x))) y; COMPILER_WARNING_POP
@@ -23645,14 +23912,14 @@ rb_iseq_only_kwparam_p(const rb_iseq_t *iseq)
            iseq->body->param.flags.has_block == 0;
 }
 static _Bool
-rb_splat_or_kwargs_p(const struct rb_callinfo *__restrict ci)
+rb_splat_or_kwargs_p(const struct rb_callinfo *__restrict__ ci)
 {
     return (vm_ci_flag(ci) & (0x01 << VM_CALL_ARGS_SPLAT_bit)) || (vm_ci_flag(ci) & ((0x01 << VM_CALL_KWARG_bit) | (0x01 << VM_CALL_KW_SPLAT_bit)));
 }
 static inline void
-CALLER_SETUP_ARG(struct rb_control_frame_struct *__restrict cfp,
-                 struct rb_calling_info *__restrict calling,
-                 const struct rb_callinfo *__restrict ci)
+CALLER_SETUP_ARG(struct rb_control_frame_struct *__restrict__ cfp,
+                 struct rb_calling_info *__restrict__ calling,
+                 const struct rb_callinfo *__restrict__ ci)
 {
     if ((__builtin_expect(!!((vm_ci_flag(ci) & (0x01 << VM_CALL_ARGS_SPLAT_bit))), 0))) {
         VALUE final_hash;
@@ -23681,9 +23948,9 @@ CALLER_SETUP_ARG(struct rb_control_frame_struct *__restrict cfp,
     }
 }
 static inline void
-CALLER_REMOVE_EMPTY_KW_SPLAT(struct rb_control_frame_struct *__restrict cfp,
-                             struct rb_calling_info *__restrict calling,
-                             const struct rb_callinfo *__restrict ci)
+CALLER_REMOVE_EMPTY_KW_SPLAT(struct rb_control_frame_struct *__restrict__ cfp,
+                             struct rb_calling_info *__restrict__ calling,
+                             const struct rb_callinfo *__restrict__ ci)
 {
     if ((__builtin_expect(!!(calling->kw_splat), 0))) {
         if (RHASH_EMPTY_P(cfp->sp[-1])) {

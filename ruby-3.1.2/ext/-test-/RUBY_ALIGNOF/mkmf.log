@@ -1,4 +1,4 @@
-LD_LIBRARY_PATH=.:../../.. "g++ -o conftest -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/-test-/RUBY_ALIGNOF     conftest.cc  -L. -L../../.. -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lruby-static -lpthread -lrt -lrt -lgmp -ldl -lcrypt -lm   -lm  -lc"
+LD_LIBRARY_PATH=.:../../.. "g++ -o conftest -I../../../.ext/include/aarch64-linux -I../../.././include -I../../.././ext/-test-/RUBY_ALIGNOF     conftest.cc  -L. -L../../.. -L. -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/usr/local/lib -L/usr/local/lib -lruby-static -lz -lpthread -lrt -lrt -lgmp -ldl -lcrypt -lm   -lm  -lc"
 checked program was:
 /* begin */
 1: #include "ruby.h"

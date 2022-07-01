@@ -1,21 +1,33 @@
 #ifndef INCLUDE_RUBY_CONFIG_H
 #define INCLUDE_RUBY_CONFIG_H 1
 /* confdefs.h */
-#define STDC_HEADERS 1
-#define HAVE_SYS_TYPES_H 1
-#define HAVE_SYS_STAT_H 1
+#define HAVE_STDIO_H 1
 #define HAVE_STDLIB_H 1
 #define HAVE_STRING_H 1
-#define HAVE_MEMORY_H 1
-#define HAVE_STRINGS_H 1
 #define HAVE_INTTYPES_H 1
 #define HAVE_STDINT_H 1
+#define HAVE_STRINGS_H 1
+#define HAVE_SYS_STAT_H 1
+#define HAVE_SYS_TYPES_H 1
 #define HAVE_UNISTD_H 1
-#define __EXTENSIONS__ 1
+#define HAVE_WCHAR_H 1
+#define STDC_HEADERS 1
 #define _ALL_SOURCE 1
+#define _DARWIN_C_SOURCE 1
 #define _GNU_SOURCE 1
+#define _HPUX_ALT_XOPEN_SOCKET_API 1
+#define _NETBSD_SOURCE 1
+#define _OPENBSD_SOURCE 1
 #define _POSIX_PTHREAD_SEMANTICS 1
+#define __STDC_WANT_IEC_60559_ATTRIBS_EXT__ 1
+#define __STDC_WANT_IEC_60559_BFP_EXT__ 1
+#define __STDC_WANT_IEC_60559_DFP_EXT__ 1
+#define __STDC_WANT_IEC_60559_FUNCS_EXT__ 1
+#define __STDC_WANT_IEC_60559_TYPES_EXT__ 1
+#define __STDC_WANT_LIB_EXT2__ 1
+#define __STDC_WANT_MATH_SPEC_FUNCS__ 1
 #define _TANDEM_SOURCE 1
+#define __EXTENSIONS__ 1
 #define RUBY_SYMBOL_EXPORT_BEGIN _Pragma("GCC visibility push(default)")
 #define RUBY_SYMBOL_EXPORT_END _Pragma("GCC visibility pop")
 #define HAVE_STMT_AND_DECL_IN_EXPR 1
@@ -57,8 +69,9 @@
 #define HAVE_UTIME_H 1
 #define HAVE_GMP_H 1
 #define HAVE_LIBGMP 1
+#define __CHAR_UNSIGNED__ 1
 #define HAVE_TYPEOF 1
-#define restrict __restrict
+#define restrict __restrict__
 #define HAVE_LONG_LONG 1
 #define HAVE_OFF_T 1
 #define SIZEOF_INT 4
@@ -162,7 +175,7 @@
 #define RUBY_FUNC_NONNULL(n,x) __attribute__ ((__nonnull__(n))) x
 #define RUBY_FUNCTION_NAME_STRING __func__
 #define ENUM_OVER_INT 1
-#define HAVE_DECL_SYS_NERR 1
+#define HAVE_DECL_SYS_NERR 0
 #define HAVE_DECL_GETENV 1
 #define SIZEOF_SIZE_T 8
 #define SIZEOF_PTRDIFF_T 8
@@ -294,6 +307,7 @@
 #define HAVE_INITGROUPS 1
 #define HAVE_IOCTL 1
 #define HAVE_KILLPG 1
+#define HAVE_LCHMOD 1
 #define HAVE_LCHOWN 1
 #define HAVE_LINK 1
 #define HAVE_LLABS 1
@@ -425,6 +439,7 @@
 #define NUM2IOCTLREQ(num) NUM2ULONG(num)
 #define USE_ELF 1
 #define HAVE_ELF_H 1
+#define HAVE_LIBZ 1
 #define HAVE_BACKTRACE 1
 #define DLEXT_MAXLEN 3
 #define DLEXT ".so"

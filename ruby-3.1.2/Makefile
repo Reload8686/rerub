@@ -87,7 +87,7 @@ CFLAGS = $(CFLAGS_NO_ARCH) $(ARCH_FLAG)
 cflags = ${optflags} ${debugflags} ${warnflags}
 optflags = -O3 -fno-fast-math
 debugflags = -ggdb3
-warnflags = -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef -std=gnu99
+warnflags = -Wall -Wextra -Wdeprecated-declarations -Wduplicated-cond -Wimplicit-function-declaration -Wimplicit-int -Wmisleading-indentation -Wpointer-arith -Wwrite-strings -Wold-style-definition -Wimplicit-fallthrough=0 -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-packed-bitfield-compat -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wsuggest-attribute=format -Wsuggest-attribute=noreturn -Wunused-variable -Wundef -std=gnu99
 cppflags = 
 XCFLAGS = -D_FORTIFY_SOURCE=2 -fstack-protector-strong -fno-strict-overflow -fvisibility=hidden -fexcess-precision=standard -DRUBY_EXPORT -fPIE $(INCFLAGS)
 USE_RUBYGEMS = yes
@@ -123,7 +123,7 @@ XDLDFLAGS = -Wl,--compress-debug-sections=zlib
 DLDFLAGS = -Wl,--compress-debug-sections=zlib $(XLDFLAGS) $(ARCH_FLAG)
 SOLIBS = $(MAINLIBS)
 ENABLE_DEBUG_ENV = 
-MAINLIBS = -lpthread -lrt -lrt -lgmp -ldl -lcrypt -lm 
+MAINLIBS = -lz -lpthread -lrt -lrt -lgmp -ldl -lcrypt -lm 
 ARCHMINIOBJS = dmydln.o
 DLNOBJ = dln.o
 ENCOBJS = dmyenc.$(OBJEXT)
@@ -207,7 +207,7 @@ EXTSTATIC     =
 ENCSTATIC     = 
 SET_LC_MESSAGES = env LC_MESSAGES=C
 
-MAKEDIRS      = /usr/bin/mkdir -p
+MAKEDIRS      = /bin/mkdir -p
 CP            = cp
 MV            = mv
 RM            = rm -f
@@ -239,7 +239,7 @@ OBJEXT        = o
 ASMEXT        = S
 SOEXT         = so
 DLEXT         = so
-MANTYPE	      = doc
+MANTYPE	      = man
 SYMBOL_PREFIX = 
 
 INSTALLED_LIST= .installed.list
@@ -319,7 +319,7 @@ $(LIBRUBY_SO):
 LIBRUBY_WITH_EXT = @LIBRUBY_WITH_EXT@
 $(LIBRUBY_$(LIBRUBY_WITH_EXT)): $(LIBRUBY_SO_UPDATE)
 
-PKG_CONFIG = 
+PKG_CONFIG = pkg-config
 ruby_pc = ruby-3.1.pc
 $(ruby_pc): config.status Makefile
 	$(Q)./config.status --file=-:$(srcdir)/template/ruby.pc.in | \

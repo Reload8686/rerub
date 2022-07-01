@@ -68,13 +68,3 @@ extso:
 	@echo EXTSO=$(EXTSO)
 
 note:
-note: note-body
-note-body:: note-header
-note-header:
-	@$(NOTE_MESG) "*** Following extensions are not compiled:"
-note-body:: note-header
-	@$(NOTE_NAME) "readline:"
-	@echo "	Could not be configured. It will not be installed."
-	@echo "	Check ext/readline/mkmf.log for more details."
-note:
-	@$(NOTE_MESG) "*** Fix the problems, then remove these directories and try again if you want."

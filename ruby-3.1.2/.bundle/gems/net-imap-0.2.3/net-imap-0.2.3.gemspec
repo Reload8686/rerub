@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.homepage = "https://github.com/ruby/net-imap".freeze
   s.licenses = ["Ruby".freeze, "BSD-2-Clause".freeze]
   s.required_ruby_version = Gem::Requirement.new(">= 2.6.0".freeze)
-  s.rubygems_version = "3.1.2".freeze
+  s.rubygems_version = "3.3.5".freeze
   s.summary = "Ruby client api for Internet Message Access Protocol".freeze
 
   if s.respond_to? :specification_version then

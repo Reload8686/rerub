@@ -2163,19 +2163,7 @@ ext/zlib/realclean:
 extso:
 	@echo EXTSO=$(EXTSO)
 
-note: note-body
-	@$(NOTE_MESG) "*** Fix the problems, then remove these directories and try again if you want."
-
-note-body:: note-header
-	@$(NOTE_NAME) "readline:"
-	@echo "	Could not be configured. It will not be installed."
-	@echo "	Check ext/readline/mkmf.log for more details."
-	@$(NOTE_NAME) "zlib:"
-	@echo "	Could not be configured. It will not be installed."
-	@echo "	Check ext/zlib/mkmf.log for more details."
-
-note-header:
-	@$(NOTE_MESG) "*** Following extensions are not compiled:"
+note:
 
 
 remove-old-extensions: $(old_extensions:/.=/distclean)

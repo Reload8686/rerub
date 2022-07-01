@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.files = [".github/workflows/test.yml".freeze, ".gitignore".freeze, "Gemfile".freeze, "LICENSE.txt".freeze, "README.md".freeze, "Rakefile".freeze, "bin/console".freeze, "bin/setup".freeze, "lib/net/pop.rb".freeze, "net-pop.gemspec".freeze]
   s.homepage = "https://github.com/ruby/net-pop".freeze
   s.licenses = ["Ruby".freeze, "BSD-2-Clause".freeze]
-  s.rubygems_version = "3.1.2".freeze
+  s.rubygems_version = "3.3.5".freeze
   s.summary = "Ruby client library for POP3.".freeze
 
   if s.respond_to? :specification_version then
